@@ -4373,7 +4373,7 @@
 <span class="normal"><a href="#__codelineno-0-690">690</a></span>
 <span class="normal"><a href="#__codelineno-0-691">691</a></span>
 <span class="normal"><a href="#__codelineno-0-692">692</a></span>
-<span class="normal"><a href="#__codelineno-0-693">693</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="k">class</span><span class="w"> </span><span class="nc">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-693">693</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="k">class</span><span class="w"> </span><span class="nc">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span>  <span class="c1"># type: ignore[type-arg]</span>
 <a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Non-atomic hyperedge.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-145" name="__codelineno-0-145"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Hyperedge</span> <span class="o">|</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
 <a id="__codelineno-0-146" name="__codelineno-0-146"></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">edges</span><span class="p">))</span>
@@ -4439,7 +4439,7 @@
 <a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate human-readable label for edge.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-207" name="__codelineno-0-207"></a>        <span class="n">conn_atom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connector_atom</span><span class="p">()</span>
 <a id="__codelineno-0-208" name="__codelineno-0-208"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>            <span class="n">edge</span> <span class="o">=</span> <span class="bp">self</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>            <span class="n">edge</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="k">elif</span> <span class="n">conn_atom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">conn_atom</span><span class="o">.</span><span class="n">parts</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>            <span class="n">edge</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a>        <span class="k">else</span><span class="p">:</span>
@@ -4464,7 +4464,7 @@
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">        The inner atom of an atom is itself.</span>
 <a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">connector_atom</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Atom</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;The inner atom of the connector.</span>
@@ -4476,7 +4476,7 @@
 <a id="__codelineno-0-243" name="__codelineno-0-243"></a>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a><span class="sd">        The connector atom of an atom is None.</span>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-247" name="__codelineno-0-247"></a>
 <a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">atoms</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">Atom</span><span class="p">]:</span>
 <a id="__codelineno-0-249" name="__codelineno-0-249"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the set of atoms contained in the edge.</span>
@@ -4641,7 +4641,7 @@
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-409" name="__codelineno-0-409"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-410" name="__codelineno-0-410"></a>                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-412" name="__codelineno-0-412"></a>        <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-413" name="__codelineno-0-413"></a>            <span class="n">outter_type</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
 <a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
@@ -4649,7 +4649,7 @@
 <a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;J&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-417" name="__codelineno-0-417"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a>                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-421" name="__codelineno-0-421"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
 <a id="__codelineno-0-422" name="__codelineno-0-422"></a>
@@ -4660,7 +4660,7 @@
 <a id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="sd">        If the edge has no connector (i.e. it&#39;s an atom), then None is</span>
 <a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="sd">        returned.</span>
 <a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-431" name="__codelineno-0-431"></a>
 <a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">mtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the main type of this edge as a string of one character.</span>
@@ -4691,7 +4691,7 @@
 <a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">        b/Cp</span>
 <a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-460" name="__codelineno-0-460"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>            <span class="n">atom</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="n">atom_type</span><span class="p">)</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>            <span class="n">atom</span><span class="p">:</span> <span class="n">Atom</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="n">atom_type</span><span class="p">)</span>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a>            <span class="k">if</span> <span class="n">atom</span><span class="p">:</span>
 <a id="__codelineno-0-463" name="__codelineno-0-463"></a>                <span class="k">return</span> <span class="n">atom</span>
 <a id="__codelineno-0-464" name="__codelineno-0-464"></a>        <span class="k">return</span> <span class="kc">None</span>
@@ -4721,10 +4721,10 @@
 <a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-489" name="__codelineno-0-489"></a>        <span class="n">et</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
 <a id="__codelineno-0-490" name="__codelineno-0-490"></a>        <span class="k">if</span> <span class="n">et</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">}</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">}:</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a>            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-492" name="__codelineno-0-492"></a>        <span class="k">if</span> <span class="n">et</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">}:</span>
 <a id="__codelineno-0-493" name="__codelineno-0-493"></a>            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-495" name="__codelineno-0-495"></a>
 <a id="__codelineno-0-496" name="__codelineno-0-496"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">has_argroles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-0-497" name="__codelineno-0-497"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns True if the edge has argroles, False otherwise.&quot;&quot;&quot;</span>
@@ -4764,8 +4764,8 @@
 <a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a new edge with the provided edge and its argroles inserted</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">        at the specified position.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="n">new_edge</span><span class="p">[:</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">edge</span><span class="p">,)</span> <span class="o">+</span> <span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a>        <span class="n">combined</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[:</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">edge</span><span class="p">,)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 <a id="__codelineno-0-536" name="__codelineno-0-536"></a>
 <a id="__codelineno-0-537" name="__codelineno-0-537"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">edges_with_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Hyperedge</span><span class="p">]:</span>
 <a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of edges with the given argument role.&quot;&quot;&quot;</span>
@@ -4898,26 +4898,26 @@
 <a id="__codelineno-0-665" name="__codelineno-0-665"></a>        <span class="k">return</span> <span class="n">output</span>
 <a id="__codelineno-0-666" name="__codelineno-0-666"></a>
 <a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">normalized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="bp">self</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>        <span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">=</span> <span class="bp">self</span>
 <a id="__codelineno-0-669" name="__codelineno-0-669"></a>        <span class="n">conn</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <a id="__codelineno-0-670" name="__codelineno-0-670"></a>        <span class="n">ar</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
 <a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="k">if</span> <span class="n">ar</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-672" name="__codelineno-0-672"></a>            <span class="k">if</span> <span class="n">ar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;{&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-673" name="__codelineno-0-673"></a>                <span class="n">ar</span> <span class="o">=</span> <span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>            <span class="n">roles_edges</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>            <span class="n">roles_edges</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">roles_edges</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">role_edge</span><span class="p">:</span> <span class="n">argrole_order</span><span class="p">[</span><span class="n">role_edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>            <span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="n">conn</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">role_edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">role_edge</span> <span class="ow">in</span> <span class="n">roles_edges</span><span class="p">))</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">edge</span><span class="p">:</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>                <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a>            <span class="n">roles_edges_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">role_edge</span><span class="p">:</span> <span class="n">argrole_order</span><span class="p">[</span><span class="n">role_edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>            <span class="n">new_edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="n">conn</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">role_edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">role_edge</span> <span class="ow">in</span> <span class="n">roles_edges_sorted</span><span class="p">))</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">new_edge</span><span class="p">:</span>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>                <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>            <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="k">return</span> <span class="n">hedge</span><span class="p">([</span><span class="n">subedge</span><span class="o">.</span><span class="n">normalized</span><span class="p">()</span> <span class="k">for</span> <span class="n">subedge</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">])</span>
 <a id="__codelineno-0-680" name="__codelineno-0-680"></a>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">}:</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__add__</span><span class="p">((</span><span class="n">other</span><span class="p">,)))</span>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">):</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">other</span><span class="p">,)))</span>
 <a id="__codelineno-0-686" name="__codelineno-0-686"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
 <a id="__codelineno-0-688" name="__codelineno-0-688"></a>
 <a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-690" name="__codelineno-0-690"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_str</span><span class="p">()</span>
@@ -5186,7 +5186,7 @@ the string representation.</p>
 <a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate human-readable label for edge.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-207" name="__codelineno-0-207"></a>    <span class="n">conn_atom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connector_atom</span><span class="p">()</span>
 <a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="bp">self</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="n">edge</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="k">elif</span> <span class="n">conn_atom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">conn_atom</span><span class="o">.</span><span class="n">parts</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="k">else</span><span class="p">:</span>
@@ -5262,7 +5262,7 @@ relations.</p>
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">    The inner atom of an atom is itself.</span>
 <a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -5310,7 +5310,7 @@ like/P.so</p>
 <a id="__codelineno-0-243" name="__codelineno-0-243"></a>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a><span class="sd">    The connector atom of an atom is None.</span>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -5951,7 +5951,7 @@ Type inference is performed.</p>
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-410" name="__codelineno-0-410"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="n">outter_type</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
 <a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
@@ -5959,7 +5959,7 @@ Type inference is performed.</p>
 <a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="k">elif</span> <span class="n">ptype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;J&#39;</span><span class="p">:</span>
 <a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Edge is malformed, type cannot be determined: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
 <a id="__codelineno-0-422" name="__codelineno-0-422"></a>
@@ -5998,7 +5998,7 @@ returned.</p>
 <a id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="sd">    If the edge has no connector (i.e. it&#39;s an atom), then None is</span>
 <a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="sd">    returned.</span>
 <a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -6130,7 +6130,7 @@ b/Cp</p>
 <a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">    b/Cp</span>
 <a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-0-460" name="__codelineno-0-460"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="n">atom</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="n">atom_type</span><span class="p">)</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="n">atom</span><span class="p">:</span> <span class="n">Atom</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="n">atom_type</span><span class="p">)</span>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a>        <span class="k">if</span> <span class="n">atom</span><span class="p">:</span>
 <a id="__codelineno-0-463" name="__codelineno-0-463"></a>            <span class="k">return</span> <span class="n">atom</span>
 <a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="k">return</span> <span class="kc">None</span>
@@ -6239,10 +6239,10 @@ of/B.ma has argument roles "ma".</p>
 <a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-0-489" name="__codelineno-0-489"></a>    <span class="n">et</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
 <a id="__codelineno-0-490" name="__codelineno-0-490"></a>    <span class="k">if</span> <span class="n">et</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">}</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">}:</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-492" name="__codelineno-0-492"></a>    <span class="k">if</span> <span class="n">et</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">}:</span>
 <a id="__codelineno-0-493" name="__codelineno-0-493"></a>        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -6404,8 +6404,8 @@ at the specified position.</p>
 <a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a new edge with the provided edge and its argroles inserted</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    at the specified position.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a>    <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>    <span class="n">new_edge</span> <span class="o">=</span> <span class="n">new_edge</span><span class="p">[:</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">edge</span><span class="p">,)</span> <span class="o">+</span> <span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>    <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a>    <span class="n">combined</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[:</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">edge</span><span class="p">,)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a>    <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -7029,7 +7029,7 @@ returned.</p>
 <a id="__codelineno-0-730" name="__codelineno-0-730"></a>
 <a id="__codelineno-0-731" name="__codelineno-0-731"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-732" name="__codelineno-0-732"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Splits atom into its parts.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-734" name="__codelineno-0-734"></a>
 <a id="__codelineno-0-735" name="__codelineno-0-735"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-736" name="__codelineno-0-736"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Extracts the root of an atom</span>
@@ -7146,7 +7146,7 @@ returned.</p>
 <a id="__codelineno-0-847" name="__codelineno-0-847"></a>
 <a id="__codelineno-0-848" name="__codelineno-0-848"></a><span class="sd">        Keyword argument:</span>
 <a id="__codelineno-0-849" name="__codelineno-0-849"></a><span class="sd">        deep -- search recursively (default: False)&quot;&quot;&quot;</span>
-<a id="__codelineno-0-850" name="__codelineno-0-850"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a>        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span>  <span class="c1"># type: ignore[no-any-return]</span>
 <a id="__codelineno-0-851" name="__codelineno-0-851"></a>
 <a id="__codelineno-0-852" name="__codelineno-0-852"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">subedges</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">Hyperedge</span><span class="p">]:</span>
 <a id="__codelineno-0-853" name="__codelineno-0-853"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns all the subedges contained in the edge, including atoms</span>
@@ -7204,7 +7204,7 @@ returned.</p>
 <a id="__codelineno-0-905" name="__codelineno-0-905"></a>
 <a id="__codelineno-0-906" name="__codelineno-0-906"></a><span class="sd">            [&#39;J&#39;].</span>
 <a id="__codelineno-0-907" name="__codelineno-0-907"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-908" name="__codelineno-0-908"></a>        <span class="n">parts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-908" name="__codelineno-0-908"></a>        <span class="n">parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-909" name="__codelineno-0-909"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-910" name="__codelineno-0-910"></a>            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-911" name="__codelineno-0-911"></a>        <span class="k">else</span><span class="p">:</span>
@@ -7386,13 +7386,13 @@ returned.</p>
 <a id="__codelineno-0-1087" name="__codelineno-0-1087"></a>                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">replace_argroles</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
 <a id="__codelineno-0-1088" name="__codelineno-0-1088"></a>        <span class="k">return</span> <span class="bp">self</span>
 <a id="__codelineno-0-1089" name="__codelineno-0-1089"></a>
-<a id="__codelineno-0-1090" name="__codelineno-0-1090"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
-<a id="__codelineno-0-1091" name="__codelineno-0-1091"></a>        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">}:</span>
-<a id="__codelineno-0-1092" name="__codelineno-0-1092"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">((</span><span class="bp">self</span><span class="p">,)</span> <span class="o">+</span> <span class="n">other</span><span class="p">)</span>
-<a id="__codelineno-0-1093" name="__codelineno-0-1093"></a>        <span class="k">elif</span> <span class="n">other</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-1090" name="__codelineno-0-1090"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
+<a id="__codelineno-0-1091" name="__codelineno-0-1091"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">):</span>
+<a id="__codelineno-0-1092" name="__codelineno-0-1092"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="o">.</span><span class="fm">__add__</span><span class="p">((</span><span class="bp">self</span><span class="p">,),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+<a id="__codelineno-0-1093" name="__codelineno-0-1093"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
 <a id="__codelineno-0-1094" name="__codelineno-0-1094"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">((</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">))</span>
 <a id="__codelineno-0-1095" name="__codelineno-0-1095"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">((</span><span class="bp">self</span><span class="p">,)</span> <span class="o">+</span> <span class="n">other</span><span class="p">)</span>
+<a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="o">.</span><span class="fm">__add__</span><span class="p">((</span><span class="bp">self</span><span class="p">,),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -7534,7 +7534,7 @@ returned.</p>
 <span class="normal"><a href="#__codelineno-0-732">732</a></span>
 <span class="normal"><a href="#__codelineno-0-733">733</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-731" name="__codelineno-0-731"></a><span class="k">def</span><span class="w"> </span><span class="nf">parts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-732" name="__codelineno-0-732"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Splits atom into its parts.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -8029,7 +8029,7 @@ deep -- search recursively (default: False)</p>
 <a id="__codelineno-0-847" name="__codelineno-0-847"></a>
 <a id="__codelineno-0-848" name="__codelineno-0-848"></a><span class="sd">    Keyword argument:</span>
 <a id="__codelineno-0-849" name="__codelineno-0-849"></a><span class="sd">    deep -- search recursively (default: False)&quot;&quot;&quot;</span>
-<a id="__codelineno-0-850" name="__codelineno-0-850"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -8251,7 +8251,7 @@ generic conjunction type:</p>
 <a id="__codelineno-0-905" name="__codelineno-0-905"></a>
 <a id="__codelineno-0-906" name="__codelineno-0-906"></a><span class="sd">        [&#39;J&#39;].</span>
 <a id="__codelineno-0-907" name="__codelineno-0-907"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-908" name="__codelineno-0-908"></a>    <span class="n">parts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-908" name="__codelineno-0-908"></a>    <span class="n">parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-909" name="__codelineno-0-909"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <a id="__codelineno-0-910" name="__codelineno-0-910"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-911" name="__codelineno-0-911"></a>    <span class="k">else</span><span class="p">:</span>
@@ -9211,11 +9211,14 @@ produces the result: []</p>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
 <span class="normal"><a href="#__codelineno-0-56">56</a></span>
 <span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">match_pattern</span><span class="p">(</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="n">edge</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="n">pattern</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="n">curvars</span><span class="o">=</span><span class="kc">None</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">match_pattern</span><span class="p">(</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="n">pattern</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="n">curvars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Hyperedge</span><span class="p">]]:</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Matches an edge to a pattern. This means that, if the edge fits the</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    pattern, then a list of dictionaries will be returned. If the pattern</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    specifies variables, then the returned dictionaries will be populated</span>
@@ -9253,15 +9256,18 @@ produces the result: []</p>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    produces the result: []</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">_edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">_pattern</span> <span class="o">=</span> <span class="n">_normalize_fun_patterns</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">matcher</span><span class="p">:</span> <span class="n">Matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">edge</span><span class="o">=</span><span class="n">_edge</span><span class="p">,</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="n">pattern</span><span class="o">=</span><span class="n">_pattern</span><span class="p">,</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">curvars</span><span class="o">=</span><span class="n">curvars</span><span class="p">,</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="p">)</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">return</span> <span class="n">matcher</span><span class="o">.</span><span class="n">results</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">_pattern</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">if</span> <span class="n">_edge</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">_pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">_pattern</span> <span class="o">=</span> <span class="n">_normalize_fun_patterns</span><span class="p">(</span><span class="n">_pattern</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">matcher</span><span class="p">:</span> <span class="n">Matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">edge</span><span class="o">=</span><span class="n">_edge</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">pattern</span><span class="o">=</span><span class="n">_pattern</span><span class="p">,</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">curvars</span><span class="o">=</span><span class="n">curvars</span><span class="p">,</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="p">)</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">return</span> <span class="n">matcher</span><span class="o">.</span><span class="n">results</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9272,7 +9278,7 @@ produces the result: []</p>
 
 
 <h3 id="hyperbase.patterns.edge_matches_pattern" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">edge_matches_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">edge_matches_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 <a href="#hyperbase.patterns.edge_matches_pattern" class="headerlink" title="Permanent link">&para;</a></h3>
 
@@ -9293,10 +9299,7 @@ Examples: (is/Pd hyperbase/C .)
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/patterns/entrypoints.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
@@ -9315,29 +9318,34 @@ Examples: (is/Pd hyperbase/C .)
 <span class="normal"><a href="#__codelineno-0-80">80</a></span>
 <span class="normal"><a href="#__codelineno-0-81">81</a></span>
 <span class="normal"><a href="#__codelineno-0-82">82</a></span>
-<span class="normal"><a href="#__codelineno-0-83">83</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="k">def</span><span class="w"> </span><span class="nf">edge_matches_pattern</span><span class="p">(</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">edge</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">],</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">pattern</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="p">):</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if an edge matches a pattern.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Patterns are themselves edges. They can match families of edges</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    by employing special atoms:</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    -&gt; &#39;\\*&#39; represents a general wildcard (matches any entity)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    -&gt; &#39;.&#39; represents an atomic wildcard (matches any atom)</span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span>
+<span class="normal"><a href="#__codelineno-0-84">84</a></span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span>
+<span class="normal"><a href="#__codelineno-0-86">86</a></span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="k">def</span><span class="w"> </span><span class="nf">edge_matches_pattern</span><span class="p">(</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">pattern</span><span class="p">:</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">object</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if an edge matches a pattern.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    Patterns are themselves edges. They can match families of edges</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    by employing special atoms:</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    -&gt; &#39;(\\*)&#39; represents an edge wildcard (matches any edge)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    -&gt; &#39;\\*&#39; represents a general wildcard (matches any entity)</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    -&gt; &#39;...&#39; at the end indicates an open-ended pattern.</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    -&gt; &#39;.&#39; represents an atomic wildcard (matches any atom)</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    The pattern can be any valid hyperedge, including the above special atoms.</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    Examples: (is/Pd hyperbase/C .)</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    (says/Pd * ...)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">match_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    -&gt; &#39;(\\*)&#39; represents an edge wildcard (matches any edge)</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    -&gt; &#39;...&#39; at the end indicates an open-ended pattern.</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    The pattern can be any valid hyperedge, including the above special atoms.</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    Examples: (is/Pd hyperbase/C .)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    (says/Pd * ...)</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">match_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9361,21 +9369,21 @@ Examples: (is/Pd hyperbase/C .)
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/patterns/properties.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
 <span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
 <span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_wildcard</span><span class="p">(</span><span class="n">atom</span><span class="p">):</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this atom defines a wildcard, i.e. if its root is a pattern matcher.</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="sd">    (\\*, ., ..., if it is surrounded by parenthesis or variable label starting with an uppercase letter)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">if</span> <span class="n">atom</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="k">return</span> <span class="n">atom</span><span class="o">.</span><span class="n">parens</span> <span class="ow">or</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="k">return</span> <span class="kc">False</span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_wildcard</span><span class="p">(</span><span class="n">atom</span><span class="p">:</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this atom defines a wildcard, i.e. if its root is a pattern matcher.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="sd">    (\\*, ., ..., if it is surrounded by parenthesis or variable label starting with an uppercase letter)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">if</span> <span class="n">atom</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">return</span> <span class="n">atom</span><span class="o">.</span><span class="n">parens</span> <span class="ow">or</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9404,8 +9412,7 @@ one pattern matcher.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/patterns/properties.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-22">22</a></span>
 <span class="normal"><a href="#__codelineno-0-23">23</a></span>
 <span class="normal"><a href="#__codelineno-0-24">24</a></span>
 <span class="normal"><a href="#__codelineno-0-25">25</a></span>
@@ -9419,22 +9426,23 @@ one pattern matcher.</p>
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">):</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this edge defines a pattern, i.e. if it includes at least</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    one pattern matcher.</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Pattern matcher are:</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    - &#39;\\*&#39;, &#39;.&#39;, &#39;(\\*)&#39;, &#39;...&#39;</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    - variables (atom label starting with an uppercase letter)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    - argument role matcher (unordered argument roles surrounded by curly brackets)</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    - functional patterns (var, atoms, lemma, ...)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="k">return</span> <span class="n">is_wildcard</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">elif</span> <span class="n">is_fun_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">is_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this edge defines a pattern, i.e. if it includes at least</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    one pattern matcher.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Pattern matcher are:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    - &#39;\\*&#39;, &#39;.&#39;, &#39;(\\*)&#39;, &#39;...&#39;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    - variables (atom label starting with an uppercase letter)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    - argument role matcher (unordered argument roles surrounded by curly brackets)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    - functional patterns (var, atoms, lemma, ...)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">return</span> <span class="n">is_wildcard</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">elif</span> <span class="n">is_fun_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">):</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">is_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9460,8 +9468,7 @@ uppercase letter) and functional patterns.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/patterns/properties.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
@@ -9470,17 +9477,18 @@ uppercase letter) and functional patterns.</p>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
 <span class="normal"><a href="#__codelineno-0-56">56</a></span>
 <span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_full_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">):</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if every atom is a pattern matcher.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Pattern matcher are:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    &#39;\\*&#39;, &#39;.&#39;, &#39;(\\*)&#39;, &#39;...&#39;, variables (atom label starting with an</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    uppercase letter) and functional patterns.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="k">return</span> <span class="n">is_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">is_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_full_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if every atom is a pattern matcher.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Pattern matcher are:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    &#39;\\*&#39;, &#39;.&#39;, &#39;(\\*)&#39;, &#39;...&#39;, variables (atom label starting with an</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    uppercase letter) and functional patterns.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="k">return</span> <span class="n">is_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">is_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9504,21 +9512,21 @@ one instance of unordered argument roles surrounded by curly brackets.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/patterns/properties.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_unordered_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">):</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this edge defines an unordered pattern, i.e. if it includes at least</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    one instance of unordered argument roles surrounded by curly brackets.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="k">return</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">is_unordered_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_unordered_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">:</span> <span class="n">Hyperedge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if this edge defines an unordered pattern, i.e. if it includes at least</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    one instance of unordered argument roles surrounded by curly brackets.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">atom</span><span class="p">:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="k">return</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">is_unordered_pattern</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9589,10 +9597,7 @@ one instance of unordered argument roles surrounded by curly brackets.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
@@ -9623,41 +9628,44 @@ one instance of unordered argument roles surrounded by curly brackets.</p>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Parser</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sentensize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>            <span class="k">for</span> <span class="n">parse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>                <span class="k">yield</span> <span class="n">parse</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Parser</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sentensize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="k">for</span> <span class="n">parse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>                <span class="k">yield</span> <span class="n">parse</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        Returns a flat list of parse results across all sentences.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>            <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">return</span> <span class="n">results</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        Returns a flat list of parse results across all sentences.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># type: ignore[import-untyped]</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -9691,13 +9699,13 @@ true batched implementation (e.g. a single CT2 call).</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9721,10 +9729,7 @@ true batched implementation (e.g. a single CT2 call).</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
 <span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
@@ -9738,24 +9743,27 @@ true batched implementation (e.g. a single CT2 call).</p>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Returns a flat list of parse results across all sentences.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="k">return</span> <span class="n">results</span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Returns a flat list of parse results across all sentences.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># type: ignore[import-untyped]</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9870,7 +9878,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="sa">f</span><span class="s2">&quot;Available parsers: </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2">&quot;</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="p">)</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">parsers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[no-any-return]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -9941,10 +9949,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
@@ -9975,41 +9980,44 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Parser</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sentensize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>            <span class="k">for</span> <span class="n">parse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>                <span class="k">yield</span> <span class="n">parse</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Parser</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sentensize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="k">for</span> <span class="n">parse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>                <span class="k">yield</span> <span class="n">parse</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        Returns a flat list of parse results across all sentences.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>            <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">return</span> <span class="n">results</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        Returns a flat list of parse results across all sentences.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># type: ignore[import-untyped]</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -10043,13 +10051,13 @@ true batched implementation (e.g. a single CT2 call).</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse multiple sentences. Subclasses may override with a</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    true batched implementation (e.g. a single CT2 call).&quot;&quot;&quot;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -10073,10 +10081,7 @@ true batched implementation (e.g. a single CT2 call).</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/parsers/parser.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
 <span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
@@ -10090,24 +10095,27 @@ true batched implementation (e.g. a single CT2 call).</p>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Returns a flat list of parse results across all sentences.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="k">return</span> <span class="n">results</span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_text</span><span class="p">(</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Sentensize text, then parse all sentences in batches.</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Returns a flat list of parse results across all sentences.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sentensize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">batch_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># type: ignore[import-untyped]</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">batch_range</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">batch_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Parsing batches&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">batch_range</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">for</span> <span class="n">sentence_results</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sentence_results</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
