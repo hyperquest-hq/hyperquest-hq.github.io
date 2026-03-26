@@ -17,10 +17,6 @@
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
-         <loc>https://hyperquest.ai/hyperbase/thanks/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
          <loc>https://hyperquest.ai/hyperbase/manual/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
@@ -29,35 +25,15 @@
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/backends/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/cli/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/corefs/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
          <loc>https://hyperquest.ai/hyperbase/manual/discovering-patterns/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/hypergraph-operations/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/meaning/</loc>
+         <loc>https://hyperquest.ai/hyperbase/manual/hyperedge-operations/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
          <loc>https://hyperquest.ai/hyperbase/manual/notation/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/notebooks/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
@@ -73,26 +49,6 @@
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/readers/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/special-relations/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/internals/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/internals/create-backend/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/manual/internals/create-parser/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
          <loc>https://hyperquest.ai/hyperbase/tutorials/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
@@ -102,10 +58,6 @@
     </url>
     <url>
          <loc>https://hyperquest.ai/hyperbase/tutorials/conflicts/</loc>
-         <lastmod>2026-03-26</lastmod>
-    </url>
-    <url>
-         <loc>https://hyperquest.ai/hyperbase/tutorials/hypergraph-operations/</loc>
          <lastmod>2026-03-26</lastmod>
     </url>
     <url>
