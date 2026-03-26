@@ -1,2 +1,2 @@
-# HyperQuestAI.github.io
+# hyperquest-hq.github.io
 Hyperquest website
