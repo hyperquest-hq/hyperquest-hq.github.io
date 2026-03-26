@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://hyperquest.ai/hyperbase/manual/overview/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../../tutorials/parsing-a-sentence/">
       
       
         <link rel="next" href="../notation/">
@@ -291,14 +291,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pubs-cases/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Publications & Use Cases
+    Installation
   
 
     
@@ -318,14 +318,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../../pubs-cases/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Installation
+    Publications & Use Cases
   
 
     
@@ -399,34 +399,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorials and Examples
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../tutorials/parsing-a-sentence/" class="md-nav__link">
         
   
@@ -435,90 +407,6 @@
     
   
     Parsing a Sentence
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/conflicts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Conflict Networks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/parsing-a-book/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Parsing a Book
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/claims/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Actors Making Claims
   
 
     
@@ -592,34 +480,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -714,28 +574,6 @@
     <span class="md-ellipsis">
       
         As knowledge model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#as-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        As database
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#knowledge-agents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Knowledge Agents
       
     </span>
   </a>
@@ -905,14 +743,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../team/" class="md-nav__link">
+      <a href="../../authors/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Team
+    Authors
   
 
     
@@ -984,28 +822,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#as-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        As database
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#knowledge-agents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Knowledge Agents
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1027,11 +843,10 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p>The <em>Semantic Hypergraph</em> is central to hyperbase, both conceptually and functionally. It can be seen from three different perspectives:</p>
+<p>The <em>Semantic Hypergraph</em> is central to hyperbase, both conceptually and functionally. It can be seen from two different perspectives:</p>
 <ul>
 <li>as an intermediary between natural and formal languages</li>
 <li>as a knowledge model</li>
-<li>as a type of database</li>
 </ul>
 <p>We will elaborate, but first let us discuss the general concept of <em>hypergraph</em>.</p>
 <h2 id="hypergraphs">Hypergraphs<a class="headerlink" href="#hypergraphs" title="Permanent link">&para;</a></h2>
@@ -1064,23 +879,6 @@
 <p><code>(claims mary (is berlin nice))</code></p>
 <p>This makes it possible to attribute facts to sources. Sources are themselves hyperedges, potentially also connected in other ways.</p>
 <p>Thus, another relevant concept is that of a <em>claim</em>. A claim is an assertion that can be attributed to a source. We thus have a knowledge representation without the need for a notion of ground truth, where instead every assertion can be modeled as a claim by a hyperedge (source) of a hyperedge (fact). This is of particular importance, e.g. for the analysis of discussions on controversial topics, where multiple actors have contradictory views on a same issue.</p>
-<h2 id="as-database">As database<a class="headerlink" href="#as-database" title="Permanent link">&para;</a></h2>
-<p>At a more concrete level, hyperbase provides an actual database system that allows for persistent storage and manipulation of semantic hypergraphs.</p>
-<p>The idea is for this database system to guarantee a certain interface (API), and allow for various backend implementations (e.g.: local, distributed, memory-only). This interface allows for fundamental tasks such as:</p>
-<ol>
-<li>Insertion of hyperedges.</li>
-<li>Removal of hyperedges.</li>
-<li>Search of hyperedges by pattern.</li>
-</ol>
-<p>Currently there is a single backend implementation, that is based on LevelDB (a very efficient sorted key-value store that is stored in a local directory). Hypergraphs stored in this format can only be accessed by one process/thread at a time.</p>
-<h2 id="knowledge-agents">Knowledge Agents<a class="headerlink" href="#knowledge-agents" title="Permanent link">&para;</a></h2>
-<p>Knowledge agents are programs that manipulate hypergraphs in some way. They can be introspective, working only on the current contents of the hypergraph to derive new knowledge. For example, the <em>taxonomy</em> agent infers simple taxonomies from concepts. It can infer that 'black cat' is a type of 'cat' or that 'city of Berlin' is a type of 'city'.</p>
-<p>It produces new hyperedges such as:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(type_of/P/. city/C (of/B city/C berlin/C))
-</code></pre></div>
-<p>Certain agents use outside sources to introduce knowledge into hypergraphs. For example, the <em>txt_parser</em> agent receives as input a simple text file and converts each sentence that it detects in it into an hyperedge.</p>
-<p>You can find the full list of agents that are distributed with hyperbase here:</p>
-<p><a href="https://hyperbase.net/manual/agents.html">https://hyperbase.net/manual/agents.html</a></p>
 
 
 
