@@ -384,13 +384,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-parsers" class="md-nav__link">
+  <a href="#parsers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installing parsers
+        Parsers
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Parsers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing a parser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alphabeta-language-support-installing-spacy-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlphaBeta language support: installing spaCy models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-parsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using parsers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -834,13 +884,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-parsers" class="md-nav__link">
+  <a href="#parsers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installing parsers
+        Parsers
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Parsers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing a parser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alphabeta-language-support-installing-spacy-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlphaBeta language support: installing spaCy models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-parsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using parsers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -893,8 +993,114 @@
 <p>Or using uv:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytest
 </code></pre></div>
-<h2 id="installing-parsers">Installing parsers<a class="headerlink" href="#installing-parsers" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<h2 id="parsers">Parsers<a class="headerlink" href="#parsers" title="Permanent link">&para;</a></h2>
+<p>Hyperbase uses a plugin architecture for parsers. The core package does not include any parser, it only specifies the abstract parser interface. Parsers are installed separately as Python packages that register themselves via entry points.</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Plugin name</th>
+<th>Description</th>
+<th>License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hyperbase-parser-ab</code></td>
+<td><code>alphabeta</code></td>
+<td>AlphaBeta parser using spaCy</td>
+<td>Open source (MIT)</td>
+</tr>
+<tr>
+<td><code>hyperbase-parser-gen</code></td>
+<td><code>generative</code></td>
+<td>Multilingual generative parser based on fine-tuned transformer model</td>
+<td>Proprietary</td>
+</tr>
+</tbody>
+</table>
+<p>AlphaBeta is the "classical" parser developed for Semantic Hypergraphs. It is based on spaCy and depends on its language models, that have to be installed to support a given language. It is released under the same permissive open source license as hyperbase (MIT).</p>
+<p>Generative is the "modern" multilingual parser, which produces high-quality parses for many languages. It is based on the fine-tuning of a more powerful transformer model and requires a GPU to run with acceptable speed. We plan on making this parser available for researchers and under a commercial license otherwise. Contact us if you are a researcher and wish to have early access to this parser.</p>
+<h3 id="installing-a-parser">Installing a parser<a class="headerlink" href="#installing-a-parser" title="Permanent link">&para;</a></h3>
+<p>Install a parser with pip:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>hyperbase-parser-ab
+</code></pre></div>
+<p>Or with uv:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>uv<span class="w"> </span>add<span class="w"> </span>hyperbase-parser-ab
+</code></pre></div>
+<h3 id="alphabeta-language-support-installing-spacy-models">AlphaBeta language support: installing spaCy models<a class="headerlink" href="#alphabeta-language-support-installing-spacy-models" title="Permanent link">&para;</a></h3>
+<p>For example, for English language support:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_trf
+</code></pre></div>
+<p>Or with uv:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_trf
+</code></pre></div>
+<p>Replace with the appropriate model from the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Code</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chinese</td>
+<td><code>zh</code></td>
+<td><code>zh_core_news_trf</code></td>
+</tr>
+<tr>
+<td>English</td>
+<td><code>en</code></td>
+<td><code>en_core_web_trf</code></td>
+</tr>
+<tr>
+<td>French</td>
+<td><code>fr</code></td>
+<td><code>fr_dep_news_trf</code></td>
+</tr>
+<tr>
+<td>German</td>
+<td><code>de</code></td>
+<td><code>de_dep_news_trf</code></td>
+</tr>
+<tr>
+<td>Italy</td>
+<td><code>it</code></td>
+<td><code>it_core_news_lg</code></td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td><code>pt</code></td>
+<td><code>pt_core_news_lg</code></td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td><code>es</code></td>
+<td><code>es_dep_news_trf</code></td>
+</tr>
+</tbody>
+</table>
+<p>The table shows the languages that are currently configured. In principle, any language for which a <a href="https://spacy.io/models/">spaCy model</a> is available can be supported. If you are interested in adding a language and can verify accuracy, please add a pull request or open an issue in the <a href="https://github.com/hyperquest-hq/hyperbase-parser-ab">plugin's repository</a>.</p>
+<h3 id="verifying-installation">Verifying installation<a class="headerlink" href="#verifying-installation" title="Permanent link">&para;</a></h3>
+<p>You can list all installed parsers with the CLI:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>hyperbase<span class="w"> </span>parsers
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>uv<span class="w"> </span>run<span class="w"> </span>hyperbase<span class="w"> </span>parsers
+</code></pre></div>
+<h3 id="using-parsers">Using parsers<a class="headerlink" href="#using-parsers" title="Permanent link">&para;</a></h3>
+<p>Once installed, parsers can be used from the interactive REPL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>hyperbase<span class="w"> </span>repl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--language<span class="w"> </span>en
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>uv<span class="w"> </span>run<span class="w"> </span>hyperbase<span class="w"> </span>repl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--language<span class="w"> </span>en
+</code></pre></div>
+<p>Or programmatically:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_parser</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="s2">&quot;alphabeta&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_text</span><span class="p">(</span><span class="s2">&quot;The sky is blue.&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
