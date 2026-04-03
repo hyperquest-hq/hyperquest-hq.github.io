@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://hyperquest.ai/hyperbase/manual/notation/">
+        <link rel="canonical" href="https://hyperquest.ai/hyperbase/manual/readers/">
       
       
-        <link rel="prev" href="../overview/">
+        <link rel="prev" href="../parsing/">
       
       
-        <link rel="next" href="../hyperedge-operations/">
+        <link rel="next" href="../api/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Notation - Hyperbase</title>
+        <title>Readers - Hyperbase</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#semantic-hypergraph-notation" class="md-skip">
+        <a href="#readers" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notation
+              Readers
             
           </span>
         </div>
@@ -513,37 +513,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../notation/" class="md-nav__link">
         
   
   
@@ -559,242 +532,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hyperedge-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hyperedge types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#type-inference-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Type inference rules
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#argument-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Argument roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Argument roles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#predicates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#builders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Builders
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subtypes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subtypes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Subtypes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concept
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predicate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicate
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#builder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Builder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifier
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trigger" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trigger
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#further-type-specific-additional-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Further type-specific additional information
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Further type-specific additional information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predicates_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifiers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-atom-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Full atom structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#special-atoms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Special atoms
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -888,10 +625,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../readers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -907,6 +671,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reading-and-parsing-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading and parsing sources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading and parsing sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-raw-text-no-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extracting raw text (no parsing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in readers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in readers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plain_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        url
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wikipedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wikipedia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom readers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-registered-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing registered readers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1001,55 +907,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hyperedge-types" class="md-nav__link">
+  <a href="#reading-and-parsing-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hyperedge types
+        Reading and parsing sources
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#type-inference-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Type inference rules
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#argument-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Argument roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Argument roles">
+    <nav class="md-nav" aria-label="Reading and parsing sources">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#predicates" class="md-nav__link">
+  <a href="#extracting-raw-text-no-parsing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#builders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Builders
+        Extracting raw text (no parsing)
       
     </span>
   </a>
@@ -1062,22 +935,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subtypes" class="md-nav__link">
+  <a href="#cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subtypes
+        CLI
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subtypes">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in readers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in readers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
+  <a href="#plain_text" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept
+        plain_text
       
     </span>
   </a>
@@ -1085,10 +969,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#predicate" class="md-nav__link">
+  <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Predicate
+        url
       
     </span>
   </a>
@@ -1096,32 +980,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#builder" class="md-nav__link">
+  <a href="#wikipedia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Builder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifier
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trigger" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trigger
+        wikipedia
       
     </span>
   </a>
@@ -1134,60 +996,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-type-specific-additional-information" class="md-nav__link">
+  <a href="#auto-detection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Further type-specific additional information
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Further type-specific additional information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predicates_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifiers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespaces
+        Auto-detection
       
     </span>
   </a>
@@ -1195,10 +1007,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-atom-structure" class="md-nav__link">
+  <a href="#custom-readers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full atom structure
+        Custom readers
       
     </span>
   </a>
@@ -1206,10 +1018,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#special-atoms" class="md-nav__link">
+  <a href="#listing-registered-readers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Special atoms
+        Listing registered readers
       
     </span>
   </a>
@@ -1236,405 +1048,105 @@
   
 
 
-<h1 id="semantic-hypergraph-notation">Semantic Hypergraph Notation<a class="headerlink" href="#semantic-hypergraph-notation" title="Permanent link">&para;</a></h1>
-<p>SH notation is based on two simple principles:</p>
+<h1 id="readers">Readers<a class="headerlink" href="#readers" title="Permanent link">&para;</a></h1>
+<p>The <code>hyperbase.readers</code> module provides a way to read and parse text from various sources directly into Semantic Hypergraphs. A reader handles the extraction and segmentation of text into paragraph-sized blocks, which can then be fed to a parser. Hyperbase ships with three built-in readers -- plain text files, URLs and Wikipedia articles -- and provides a registration mechanism for custom readers.</p>
+<h2 id="reading-and-parsing-sources">Reading and parsing sources<a class="headerlink" href="#reading-and-parsing-sources" title="Permanent link">&para;</a></h2>
+<p>The preferred way to read and parse a source is through the <code>Parser</code> methods <code>read_source()</code> and <code>read_source_to_jsonl()</code>. These handle reader selection automatically, so you only need a parser instance:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_parser</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="s2">&quot;generative&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Iterate over parse results block by block</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">read_source</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;edge&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Or write everything to a JSONL file in one call</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">read_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;output.jsonl&quot;</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>Both methods accept an optional <code>reader</code> argument to force a specific reader instead of auto-detection:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Force the generic URL reader on a Wikipedia link</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">read_source</span><span class="p">(</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="s2">&quot;https://en.wikipedia.org/wiki/Hypergraph&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="s2">&quot;url&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="o">...</span>
+</code></pre></div>
+<h3 id="extracting-raw-text-no-parsing">Extracting raw text (no parsing)<a class="headerlink" href="#extracting-raw-text-no-parsing" title="Permanent link">&para;</a></h3>
+<p>To extract text blocks without parsing, use a reader directly via <code>get_reader()</code> (available from <code>hyperbase.readers</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_reader</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">reader</span> <span class="o">=</span> <span class="n">get_reader</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Iterate over text blocks</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">):</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Or write blocks to a plain text file</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">reader</span><span class="o">.</span><span class="n">read_to_text</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>When a named reader is given, the source is not required to obtain the reader instance:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">reader</span> <span class="o">=</span> <span class="n">get_reader</span><span class="p">(</span><span class="n">reader</span><span class="o">=</span><span class="s2">&quot;wikipedia&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Either <code>source</code> or a named <code>reader</code> must be provided -- calling <code>get_reader()</code> with neither raises a <code>ValueError</code>.</p>
+<h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<p>The <code>hyperbase read</code> command provides a convenient way to read and parse sources from the command line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Parse a local file to JSONL</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>article.txt<span class="w"> </span>-o<span class="w"> </span>output.jsonl
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Extract raw text blocks (no parsing)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>article.txt<span class="w"> </span>-o<span class="w"> </span>output.txt
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Parse a Wikipedia article</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>https://en.wikipedia.org/wiki/Hypergraph<span class="w"> </span>-o<span class="w"> </span>output.jsonl
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Specify reader and parser explicitly</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>source.txt<span class="w"> </span>-o<span class="w"> </span>output.jsonl<span class="w"> </span>--reader<span class="w"> </span>plain_text<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--language<span class="w"> </span>en
+</code></pre></div>
+<h2 id="built-in-readers">Built-in readers<a class="headerlink" href="#built-in-readers" title="Permanent link">&para;</a></h2>
+<h3 id="plain_text"><code>plain_text</code><a class="headerlink" href="#plain_text" title="Permanent link">&para;</a></h3>
+<p>Reads local text files. Accepts any source that is a valid file path. The text is split into paragraph-sized blocks: if blank lines are found, they are used as paragraph separators; otherwise each line becomes its own block.</p>
+<h3 id="url"><code>url</code><a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<p>Reads web pages via HTTP/HTTPS. Uses <a href="https://trafilatura.readthedocs.io/">trafilatura</a> to extract the main text content from the HTML, stripping navigation, ads and other boilerplate.</p>
+<h3 id="wikipedia"><code>wikipedia</code><a class="headerlink" href="#wikipedia" title="Permanent link">&para;</a></h3>
+<p>Reads Wikipedia articles directly from the MediaWiki API. Accepts any URL matching <code>*.wikipedia.org/wiki/*</code>. It parses the wikicode markup to extract clean text, organized by section. Boilerplate sections (e.g. "References", "See also", "External links") are automatically discarded based on the article language. The Wikipedia reader declares <code>url</code> as <code>more_general</code>, so it takes priority over the URL reader when the source is a Wikipedia link.</p>
+<h2 id="auto-detection">Auto-detection<a class="headerlink" href="#auto-detection" title="Permanent link">&para;</a></h2>
+<p>When a reader is not explicitly specified, all registered readers are checked and those whose <code>accepts()</code> method returns <code>True</code> for the given source are collected. If more than one reader matches, the <code>more_general</code> mechanism is used to pick the most specific one. For example, a Wikipedia URL is accepted by both the <code>url</code> and <code>wikipedia</code> readers, but because <code>WikipediaReader</code> declares <code>more_general = ['url']</code>, the Wikipedia reader is selected.</p>
+<h2 id="custom-readers">Custom readers<a class="headerlink" href="#custom-readers" title="Permanent link">&para;</a></h2>
+<p>You can create and register your own readers. A custom reader must subclass <code>Reader</code> and implement two methods:</p>
 <ul>
-<li>Every hyperedge belongs to one of eight basic types.</li>
-<li>The first element of a hyperedge is a connector, followed by arguments that can be atomic or non-atomic hyperedges.</li>
+<li><code>accepts(source)</code> -- a static method that returns <code>True</code> if the reader can handle the given source string.</li>
+<li><code>read(source)</code> -- a generator that yields text blocks from the source.</li>
 </ul>
-<p>This is enough to define a valid hyperedge that conveys the meaning of a sentence in natural language, for example "The sky is blue":</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(is/P (the/M sky/C) blue/C)
+<p>Optionally, you can implement <code>block_count(source)</code> to return the total number of blocks (enabling progress bars), and set the <code>more_general</code> class attribute to declare that this reader is more specific than others.</p>
+<p>Here is an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span><span class="p">,</span> <span class="n">register_reader</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">RSSReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">more_general</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>  <span class="c1"># take priority over the generic URL reader</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accepts</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="k">return</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.rss&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/feed&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">feedparser</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="n">feed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>            <span class="c1"># yield the text content of each entry as a block</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>            <span class="k">yield</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">register_reader</span><span class="p">(</span><span class="s1">&#39;rss&#39;</span><span class="p">,</span> <span class="n">RSSReader</span><span class="p">)</span>
 </code></pre></div>
-<p>Beyond this, the notation allows for more things: argument roles, subtypes, further type-specific additional information and namespaces. We will introduce these concepts gradually, by order of general usefulness. The two principles above extended with argument roles (which we will yet introduce) already capture a great deal of information contained in natural language, and sophisticated knowledge inference and exploration tasks can be performed at this level, while keeping the notation light and friendly to humans.</p>
-<p>Then, the additional notational devices can be employed when useful. Of course, it is always possible to utilize full notation for machine tasks while presented a simplified version for human-friendliness.</p>
-<h2 id="hyperedge-types">Hyperedge types<a class="headerlink" href="#hyperedge-types" title="Permanent link">&para;</a></h2>
-<p>All valid semantic hyperedges are of one of the 8 types shown in the table below. The first 6 types can be explicit (directly annotating an atomic hyperedge) or implicit (inferred from the types of the elements of the hyperedge). The last two types are always implicit.</p>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Type</th>
-<th>Purpose</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Atomic or non-atomic</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>C</td>
-<td>concept</td>
-<td>Define atomic concepts</td>
-<td><strong>apple/C</strong></td>
-</tr>
-<tr>
-<td>P</td>
-<td>predicate</td>
-<td>Build relations</td>
-<td>(<strong>is/P</strong> berlin/C nice/C)</td>
-</tr>
-<tr>
-<td>M</td>
-<td>modifier</td>
-<td>Modify any other hyperedge type, including itself</td>
-<td>(<strong>red/M</strong> shoes/C)</td>
-</tr>
-<tr>
-<td>B</td>
-<td>builder</td>
-<td>Build concepts from concepts</td>
-<td>(<strong>of/B</strong> capital/C germany/C)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>trigger</td>
-<td>Build specifications</td>
-<td>(<strong>in/T</strong> 1994/C)</td>
-</tr>
-<tr>
-<td>J</td>
-<td>conjunction</td>
-<td>Define sequences of hyperedges</td>
-<td>(<strong>and/J</strong> meat/C potatoes/C)</td>
-</tr>
-<tr>
-<td><strong>Non-atomic only</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td>relation</td>
-<td>Express facts, statements, questions, orders, ...</td>
-<td><strong>(is/P berlin/C nice/C)</strong></td>
-</tr>
-<tr>
-<td>S</td>
-<td>specifier</td>
-<td>Relation specification (e.g. condition, time, ...)</td>
-<td><strong>(in/T 1976/C)</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="type-inference-rules">Type inference rules<a class="headerlink" href="#type-inference-rules" title="Permanent link">&para;</a></h2>
-<p>The table below shows how implicit hyperedge types are inferred.</p>
-<table>
-<thead>
-<tr>
-<th>Element types</th>
-<th>Resulting type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(M x)</td>
-<td>x</td>
-</tr>
-<tr>
-<td>(B C C+)</td>
-<td>C</td>
-</tr>
-<tr>
-<td>(T [CR])</td>
-<td>S</td>
-</tr>
-<tr>
-<td>(P [CRS]+)</td>
-<td>P</td>
-</tr>
-<tr>
-<td>(J x y+)</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-<p>We use the notation of regular expressions: the symbol <code>+</code> is used to denote one or more entities with the type that precedes it, while square brackets indicate several possibilities (for instance, <code>[CRS]+</code> means "at least one of any of C, R or S" types). <code>x</code> means any type: <code>(M x)</code> is of type <code>x</code>.</p>
-<h2 id="argument-roles">Argument roles<a class="headerlink" href="#argument-roles" title="Permanent link">&para;</a></h2>
-<p>The type part of the atom can include subparts after the type specifier. The meaning of these subsequent subparts is type-specific. The most useful of those are argument roles in predicates and builders. As the name indicates, they specify the role that the following arguments play in the construct.</p>
-<h3 id="predicates">Predicates<a class="headerlink" href="#predicates" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for predicates is used to specify the role played in a relation by each of its parameters, with the following codes:</p>
-<ul>
-<li><strong>s</strong>: subject</li>
-<li><strong>p</strong>: passive subject</li>
-<li><strong>a</strong>: agent</li>
-<li><strong>c</strong>: subject complement</li>
-<li><strong>o</strong>: direct object</li>
-<li><strong>i</strong>: indirect object</li>
-<li><strong>x</strong>: specification</li>
-<li><strong>t</strong>: parataxis</li>
-<li><strong>j</strong>: interjection</li>
-<li><strong>r</strong>: relative relation</li>
-<li><strong>?</strong>: undetermined</li>
-</ul>
-<p>These codes are used to build strings, where each character corresponds to the parameter of the relation in the equivalent position. For example, consider the hyperedge:</p>
-<p>(is/P.sc (the/M sky/C) blue/C)</p>
-<p>The <em>sc</em> subpart indicates that the first parameter ("the sky") plays the role of subject, and the second one ("blue"), plays the role of subject complement.</p>
-<h3 id="builders">Builders<a class="headerlink" href="#builders" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for builders is used to distinguish the main concepts from the auxiliary ones, with the following codes:</p>
-<ul>
-<li><strong>m</strong>: main concept</li>
-<li><strong>a</strong>: auxiliary concept</li>
-</ul>
-<p>These codes are used to build strings, where each character corresponds to the parameter of the builder in the equivalent position. For example, consider the hyperedge:</p>
-<p>(of/B.ma founder/C psychoanalysis/C)</p>
-<p>The <em>ma</em> subpart indicates that the first concept following the builder should be considered a main concept, and the next one auxiliary. This means that "founder of psychoanalysis" is a type of "founder". In other words, auxiliary concepts serve the role of making the main ones more specific.</p>
-<h2 id="subtypes">Subtypes<a class="headerlink" href="#subtypes" title="Permanent link">&para;</a></h2>
-<p>Subtypes are represented by a lowercase character following the main type code. They provide further distinctions, for example that a predicate is declarative (<code>Pd</code>), or that a concept is common (<code>Cc</code>), or that a modifier is a determinant (<code>Md</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(is/Pd.sc (the/Md sky/Cc) blue/Cc)
+<p>After registration, the new reader is automatically considered during auto-detection. It can also be requested by name:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">parser</span><span class="o">.</span><span class="n">read_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;https://example.com/feed&quot;</span><span class="p">,</span> <span class="s2">&quot;feed.jsonl&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="s2">&quot;rss&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Below we show possible subtypes for several main types.</p>
-<h3 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Subtype</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cc</td>
-<td>common</td>
-<td>apple/Cc</td>
-</tr>
-<tr>
-<td>Cp</td>
-<td>proper</td>
-<td>mary/Cp</td>
-</tr>
-<tr>
-<td>Cn</td>
-<td>number</td>
-<td>27/Cn</td>
-</tr>
-<tr>
-<td>Ci</td>
-<td>pronoun</td>
-<td>she/Ci</td>
-</tr>
-<tr>
-<td>Cw</td>
-<td>interrogative</td>
-<td>who/Cw</td>
-</tr>
-</tbody>
-</table>
-<h3 id="predicate">Predicate<a class="headerlink" href="#predicate" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Subtype</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pd</td>
-<td>declarative</td>
-<td>is/Pd</td>
-</tr>
-<tr>
-<td>P?</td>
-<td>interrogative</td>
-<td>is/P?</td>
-</tr>
-<tr>
-<td>P!</td>
-<td>imperative</td>
-<td>go/P!</td>
-</tr>
-</tbody>
-</table>
-<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Subtype</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bp</td>
-<td>possessive</td>
-<td>'s/Bp</td>
-</tr>
-<tr>
-<td>Br</td>
-<td>relational</td>
-<td>in/Br</td>
-</tr>
-</tbody>
-</table>
-<h3 id="modifier">Modifier<a class="headerlink" href="#modifier" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Subtype</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ma</td>
-<td>adjective</td>
-<td>green/Ma</td>
-</tr>
-<tr>
-<td>Mp</td>
-<td>possessive</td>
-<td>my/Mp</td>
-</tr>
-<tr>
-<td>Md</td>
-<td>determinant</td>
-<td>the/Md</td>
-</tr>
-<tr>
-<td>M#</td>
-<td>number</td>
-<td>100/M#</td>
-</tr>
-<tr>
-<td>Mn</td>
-<td>negation</td>
-<td>not/Mn</td>
-</tr>
-<tr>
-<td>Mv</td>
-<td>verbal</td>
-<td>will/Mv</td>
-</tr>
-</tbody>
-</table>
-<h3 id="trigger">Trigger<a class="headerlink" href="#trigger" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Subtype</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T?</td>
-<td>conditional</td>
-<td>if/Tc</td>
-</tr>
-<tr>
-<td>Tt</td>
-<td>temporal</td>
-<td>when/Tt</td>
-</tr>
-<tr>
-<td>Tl</td>
-<td>local</td>
-<td>where/Tl</td>
-</tr>
-<tr>
-<td>Tm</td>
-<td>modal</td>
-<td>modal/Tm</td>
-</tr>
-<tr>
-<td>T&gt;</td>
-<td>causal</td>
-<td>because/T&gt;</td>
-</tr>
-<tr>
-<td>T=</td>
-<td>comparative</td>
-<td>like/T=</td>
-</tr>
-<tr>
-<td>Tc</td>
-<td>concessive</td>
-<td>although/Tc</td>
-</tr>
-</tbody>
-</table>
-<h2 id="further-type-specific-additional-information">Further type-specific additional information<a class="headerlink" href="#further-type-specific-additional-information" title="Permanent link">&para;</a></h2>
-<p>Beyond argument roles, other forms of type-specific additional information are possible for the various types.</p>
-<h3 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for concepts indicates number, with the following codes:</p>
-<ul>
-<li><strong>s</strong>: singular, example: apple/Cc.s</li>
-<li><strong>p</strong>: plural, example: apples/Cc.p</li>
-</ul>
-<h3 id="predicates_1">Predicates<a class="headerlink" href="#predicates_1" title="Permanent link">&para;</a></h3>
-<p>Beyond argument roles, a second additional information subpart for predicates can be used to specify the features of the verb underlying the predicate. The following 7 features are specified:</p>
-<ul>
-<li><strong>tense</strong>: past (&lt;), present (|) or future (&gt;)</li>
-<li><strong>verb form</strong>: finite (f) or infinitive (i)</li>
-<li><strong>aspect</strong>: perfect (f) or progressive (g)</li>
-<li><strong>mood</strong></li>
-<li><strong>person</strong>: first (1), second (2) or third (3)</li>
-<li><strong>number</strong>: singular (s) or plural (p)</li>
-<li><strong>verb type</strong></li>
-</ul>
-<p>A string is built in the above order to specify the verb features of a predicate. Any feature can be left unspecified, by using a dash character (-). For example, consider the hyperedge:</p>
-<p>(<strong>is/P?.cs.|f--3s-</strong> (what/Mw time/Cc.s) it/Ci)</p>
-<p>The predicate specifies four verb features: present tense (|), finite form (f), third person (3) and singular number (s).</p>
-<h3 id="modifiers">Modifiers<a class="headerlink" href="#modifiers" title="Permanent link">&para;</a></h3>
-<p>When the modifier is verbal, the first additional information subpart can be used to specify the features of the underlying verb. The notation is exactly the same as the one used for predicates, but in predicates this corresponds to the second additional information subpart. For example, consider the non-atomic predicate:</p>
-<p>(have/Mv.|f----- (been/Mv.&lt;pf---- tracking/Pd.sox.|pg----))</p>
-<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h2>
-<p>Namespaces serve two functions:</p>
-<ol>
-<li>To identify the language or symbolic space to which an atom belongs;</li>
-<li>To distinguish atoms that have different meanings, but would otherwise correspond to the exact same string.</li>
-</ol>
-<p>In the first case, we can specify that an atom corresponds to an English word like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sky/Cp.s/en
+<h2 id="listing-registered-readers">Listing registered readers<a class="headerlink" href="#listing-registered-readers" title="Permanent link">&para;</a></h2>
+<p>To see all currently registered readers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_readers</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">list_readers</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Or to a German word like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>himmel/Cp.s/de
-</code></pre></div>
-<p>Or that it is a special atom defined by hyperbase:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>+/B/.
-</code></pre></div>
-<p>In the second case, another subparts can be added to provide a distinction. For example, suppose we want to distinguish Cambridge (UK) from Cambridge (Mass., USA). We could use:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cambridge/Cp.s/en.1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cambridge/Cp.s/en.2
-</code></pre></div>
-<h2 id="full-atom-structure">Full atom structure<a class="headerlink" href="#full-atom-structure" title="Permanent link">&para;</a></h2>
-<p>We show here the full atom structure, including all optional parts.</p>
-<p><figure markdown="span">
-  <img alt="atom structure" src="../../assets/images/atom-structure.png" />
-</figure></p>
-<h2 id="special-atoms">Special atoms<a class="headerlink" href="#special-atoms" title="Permanent link">&para;</a></h2>
-<p>The two special atoms below come predefined with hyperbase and are very frequently useful.</p>
-<table>
-<thead>
-<tr>
-<th>Atom</th>
-<th>Purpose</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+/B/.</td>
-<td>Define compound nouns</td>
-<td>(+/B.am/. alan/Cp.s turing/Cp.s)</td>
-</tr>
-<tr>
-<td>:/J/.</td>
-<td>Generic conjunction</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 
 
