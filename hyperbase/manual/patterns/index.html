@@ -16,7 +16,7 @@
         <link rel="prev" href="../hyperedge-operations/">
       
       
-        <link rel="next" href="../discovering-patterns/">
+        <link rel="next" href="../parsing/">
       
       
         
@@ -643,10 +643,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#non-strict-search" class="md-nav__link">
+  <a href="#type-and-subtype-matching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Non-strict search
+        Type and subtype matching
       
     </span>
   </a>
@@ -699,17 +699,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lemma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lemma
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#var" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -729,34 +718,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../discovering-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Discovering Patterns
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -890,10 +851,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#non-strict-search" class="md-nav__link">
+  <a href="#type-and-subtype-matching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Non-strict search
+        Type and subtype matching
       
     </span>
   </a>
@@ -939,17 +900,6 @@
     <span class="md-ellipsis">
       
         Atoms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lemma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lemma
       
     </span>
   </a>
@@ -1031,71 +981,55 @@
 <p>but this pattern does:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">(</span><span class="nf">plays/P</span><span class="w"> </span><span class="nb">* * </span><span class="nv">...</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="non-strict-search">Non-strict search<a class="headerlink" href="#non-strict-search" title="Permanent link">&para;</a></h2>
-<p>Non-strict search allows for patterns to match atoms in the most general way, meaning that, if a subtype or other roles are not specified in the pattern, then any subtypes or argroles will match, as can be seen in this example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hg</span> <span class="o">=</span> <span class="n">hgraph</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;(plays/Pd.so alice/Cp.s chess/Cc.s)&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">(plays/Pd.so alice/Cp.s chess/Cc.s)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">hg</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(plays/P alice/C *)&#39;</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">[(plays/Pd.so alice/Cp.s chess/Cc.s)]</span>
+<h2 id="type-and-subtype-matching">Type and subtype matching<a class="headerlink" href="#type-and-subtype-matching" title="Permanent link">&para;</a></h2>
+<p>If only a type but not a subtype is specified in the pattern, then any subtypes of the given type will match, as can be seen in this example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">pattern</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so */C */C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/Pd.so alice/Cp chess/Cc)&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>  <span class="c1"># returns [{}]</span>
 </code></pre></div>
-<p>Even though the full type and roles of <code>plays/Pd.so</code> and <code>alice/Cp.s</code> are not specified in the pattern, they still match the more general corresponding atoms <code>plays/P</code> and <code>alice/C</code>.</p>
-<p>Non-strict search is semantically more powerful, at the expense of performance. Strict search can take advantage of the structure of the hypergraph database to perform fast queries, while non-strict search iterates through all edges in the hypergraph looking for matches.</p>
+<p>Even though the full types of <code>plays/Pd.so</code>, <code>alice/Cp</code> and <code>chess/Cc</code> are not specified in the pattern, they still match the more general corresponding atoms <code>plays/P.so</code> and <code>*/C</code>.</p>
 <h2 id="matching-argroles">Matching argroles<a class="headerlink" href="#matching-argroles" title="Permanent link">&para;</a></h2>
-<p>Argroles can be specified in patterns. So:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(plays/P.so * *)
+<p>As we have seen, argroles can be specified in patterns. So:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">(</span><span class="nf">plays/P.so</span><span class="w"> </span><span class="nb">* </span><span class="nv">*</span><span class="p">)</span>
 </code></pre></div>
 <p>matches:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>(plays/P.so alice/C chess/C)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">(</span><span class="nf">plays/P.so</span><span class="w"> </span><span class="nv">alice/C</span><span class="w"> </span><span class="nv">chess/C</span><span class="p">)</span>
 </code></pre></div>
 <p>but not:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(plays/P.sox alice/C chess/C (at/T (the/M club/C)))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">(</span><span class="nf">plays/P.sox</span><span class="w"> </span><span class="nv">alice/C</span><span class="w"> </span><span class="nv">chess/C</span><span class="w"> </span><span class="p">(</span><span class="nf">at/T</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">club/C</span><span class="p">)))</span>
 </code></pre></div>
 <p>It is often desirable to match for the presence of a given set of argroles, independently of their respective positions, or of the presence of further argroles outside the set. This is indicated by surrounding with curly brackets the set of argroles that is to be matched in this way. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>(is/P.{sc} * */C)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">(</span><span class="nf">is/P.</span><span class="p">{</span><span class="nv">sc</span><span class="p">}</span><span class="w"> </span><span class="nb">* </span><span class="nv">*/C</span><span class="p">)</span>
 </code></pre></div>
 <p>The above pattern would match both (independently of position):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>(is/P.sc (the/M sky/C) blue/C)
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>(is/P.cs blue/C (the/M sky/C))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">(</span><span class="nf">is/P.sc</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">sky/C</span><span class="p">)</span><span class="w"> </span><span class="nv">blue/C</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">(</span><span class="nf">is/P.cs</span><span class="w"> </span><span class="nv">blue/C</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">sky/C</span><span class="p">))</span>
 </code></pre></div>
 <p>and also (independently of the presence of further argroles outside the set):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>(is/P.scx (the/M sky/C) blue/C (in/T (the/M morning/C)))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">(</span><span class="nf">is/P.scx</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">sky/C</span><span class="p">)</span><span class="w"> </span><span class="nv">blue/C</span><span class="w"> </span><span class="p">(</span><span class="nf">in/T</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">morning/C</span><span class="p">)))</span>
 </code></pre></div>
 <p>In fact, when specifying argroles, more often than not this is the behavior that is the most useful, because it allows for the matching of the participants of a relationship purely according to the role they play in it (subject, object, etc.).</p>
 <p>Sometimes it is also desirable to explicitly forbid certain argument roles. This is achieved by indicating them after '-' in the argrole sequence. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>(plays/P.{so}-x * *)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">(</span><span class="nf">plays/P.</span><span class="p">{</span><span class="nv">so</span><span class="p">}</span><span class="nv">-x</span><span class="w"> </span><span class="nb">* </span><span class="nv">*</span><span class="p">)</span>
 </code></pre></div>
 <p>does not match:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>(plays/P.sox alice/C chess/C (at/T (the/M club/C)))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">(</span><span class="nf">plays/P.sox</span><span class="w"> </span><span class="nv">alice/C</span><span class="w"> </span><span class="nv">chess/C</span><span class="w"> </span><span class="p">(</span><span class="nf">at/T</span><span class="w"> </span><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="nv">club/C</span><span class="p">)))</span>
 </code></pre></div>
-<p>When using <code>Hypergraph.search()</code>, order-independent (curly-braces) and argrole exclusions (-) only work in non-strict mode.</p>
 <h2 id="patterns-with-variables-for-information-extraction">Patterns with variables for information extraction<a class="headerlink" href="#patterns-with-variables-for-information-extraction" title="Permanent link">&para;</a></h2>
 <p>Let us introduce the concept of <em>variable</em>. Like a wildcard, a variable indicates a placeholder that can match a hyperedge, but can then be used to refer to that matched hyperedge. In SH representation, an atom label that starts with upper case represents a variable. For example: <code>PLAYER/C</code>. One can define perfectly valid hyperedges that include variables, as well as wildcards, so for example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>(plays/P.{so} PLAYER/C *)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">(</span><span class="nf">plays/P.</span><span class="p">{</span><span class="nv">so</span><span class="p">}</span><span class="w"> </span><span class="nv">PLAYER/C</span><span class="w"> </span><span class="nv">*</span><span class="p">)</span>
 </code></pre></div>
-<p>Then the <code>match_pattern(edge, pattern)</code> function can be used to apply patterns to edges. It works like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.patterns</span><span class="w"> </span><span class="kn">import</span> <span class="n">match_pattern</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.</span><span class="si">{so}</span><span class="s1"> PLAYER/C *)&#39;</span><span class="p">)</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.so mary/C *)&#39;</span><span class="p">)</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">match_pattern</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="go">[{&#39;PLAYER&#39;: mary/C}]</span>
+<p>Then <code>edge.match(pattern)</code> can be used to apply patterns to edges. It works like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">pattern</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.</span><span class="si">{so}</span><span class="s2"> PLAYER/C *)&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so mary/C *)&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>  <span class="c1"># [{&#39;PLAYER&#39;: mary/C}]</span>
 </code></pre></div>
-<p>So, <code>match_pattern</code> gives a list of dictionaries (one pattern can match the same edge in several ways). Each dictionary represents a match, and assigns a value to a variable.</p>
-<p>The <code>Hypergraph</code> object provides the <code>match()</code> method, which is similar to <code>search()</code> but returns dictionaries with the matched variables. Like search, it offers a non-strict mode with the same trade-offs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;(is/Pd.cs blue/Ca (the/M sky/C))&#39;</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">(is/Pd.cs blue/Ca (the/M sky/C))</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;(is/Pd.sc (the/M sky/C) blue/Ca)&#39;</span><span class="p">)</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="go">(is/Pd.sc (the/M sky/C) blue/Ca)</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">hg</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(is/P.</span><span class="si">{sc}</span><span class="s1"> OBJ/C PROP)&#39;</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="go">[((is/Pd.cs blue/Ca (the/M sky/C)), [{&#39;OBJ&#39;: (the/M sky/C), &#39;PROP&#39;: blue/Ca}]),</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="go"> ((is/Pd.sc (the/M sky/C) blue/Ca), [{&#39;OBJ&#39;: (the/M sky/C), &#39;PROP&#39;: blue/Ca}])]</span>
-</code></pre></div>
-<p>The output is a list of tuples, where the first item is the matched hyperedge and the second is a dictionary with variables and their values.</p>
+<p>So, <code>edge.match(pattern)</code> gives a list of dictionaries (one pattern can match the same edge in several ways). Each dictionary represents a match, and assigns values to the pattern variable(s).</p>
 <h2 id="functional-patterns">Functional patterns<a class="headerlink" href="#functional-patterns" title="Permanent link">&para;</a></h2>
-<p>Even more sophisticated patterns can be represented with the help of functional pattern expressions. These expressions are akin to function application in LISP-like languages, and take the general form:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>(functional-pattern-name argument_1 ...)
+<p>More sophisticated patterns can be represented with the help of functional pattern expressions. These expressions are akin to function application in LISP-like languages, and take the general form:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">(</span><span class="nf">functional-pattern-name</span><span class="w"> </span><span class="nv">argument_1</span><span class="w"> </span><span class="nv">...</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1103,45 +1037,32 @@
 </div>
 <h3 id="atoms">Atoms<a class="headerlink" href="#atoms" title="Permanent link">&para;</a></h3>
 <p>The <code>atoms</code> functional pattern matches any edge that contains all the atoms provided as arguments, at any depth:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>(atoms atom_1 ...)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">atom_1</span><span class="w"> </span><span class="nv">...</span><span class="p">)</span>
 </code></pre></div>
 <p>For example this pattern:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>(atoms going/P)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">going/P</span><span class="p">)</span>
 </code></pre></div>
 <p>would match the edge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>(is/M (not/M going/P))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">(</span><span class="nf">is/M</span><span class="w"> </span><span class="p">(</span><span class="nf">not/M</span><span class="w"> </span><span class="nv">going/P</span><span class="p">))</span>
 </code></pre></div>
 <p>In the same vein, this pattern:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>(atoms not/M going/P)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">not/M</span><span class="w"> </span><span class="nv">going/P</span><span class="p">)</span>
 </code></pre></div>
 <p>would equally match the edge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>(is/M (not/M going/P))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">(</span><span class="nf">is/M</span><span class="w"> </span><span class="p">(</span><span class="nf">not/M</span><span class="w"> </span><span class="nv">going/P</span><span class="p">))</span>
 </code></pre></div>
 <p>but not:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>(is/M going/P)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">(</span><span class="nf">is/M</span><span class="w"> </span><span class="nv">going/P</span><span class="p">)</span>
 </code></pre></div>
 <p>Furthermore, the atoms can define wildcards and all the pattern syntax specified above, for example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>(atoms not/M */P)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">not/M</span><span class="w"> </span><span class="nv">*/P</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="lemma">Lemma<a class="headerlink" href="#lemma" title="Permanent link">&para;</a></h3>
-<p>The <code>lemma</code> functional pattern matches any atom which has the same lemma as the one specified. This functional pattern only works in the context of a hypergraph database that contains lemma information, that can be generated by the parsers provided with hyperbase.</p>
-<p>For example, this pattern:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>(lemma be/P)
-</code></pre></div>
-<p>could be used to match:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>is/P
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>was/P
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When using <code>lemma</code>, it is necessary to specify some semantic hypergraph object when calling the pattern matching function: <code>match_pattern(edge, pattern, hg=hg)</code>.</p>
-</div>
 <h3 id="var">Var<a class="headerlink" href="#var" title="Permanent link">&para;</a></h3>
 <p>The <code>var</code> functional pattern is used to specify a part of a pattern while also capturing it as a variable. It has the general form:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>(var pattern-edge variable-name)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">(</span><span class="k">var </span><span class="nv">pattern-edge</span><span class="w"> </span><span class="nv">variable-name</span><span class="p">)</span>
 </code></pre></div>
 <p>This way, a complex expression such as the following can be captured in a variable:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>(var (atoms not/M (lemma be/P)) PREDICATE)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">(</span><span class="k">var </span><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">not/M</span><span class="w"> </span><span class="p">(</span><span class="nf">lemma</span><span class="w"> </span><span class="nv">be/P</span><span class="p">))</span><span class="w"> </span><span class="nv">PREDICATE</span><span class="p">)</span>
 </code></pre></div>
 
 
