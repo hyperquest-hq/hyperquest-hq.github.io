@@ -1621,10 +1621,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.str2atom" class="md-nav__link">
+  <a href="#hyperbase.hyperedge.str_to_atom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        str2atom
+        str_to_atom
       
     </span>
   </a>
@@ -2727,10 +2727,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.str2atom" class="md-nav__link">
+  <a href="#hyperbase.hyperedge.str_to_atom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        str2atom
+        str_to_atom
       
     </span>
   </a>
@@ -8352,10 +8352,10 @@ returned.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="hyperbase.hyperedge.str2atom" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">str2atom</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></code>
+<h3 id="hyperbase.hyperedge.str_to_atom" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">str_to_atom</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></code>
 
-<a href="#hyperbase.hyperedge.str2atom" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#hyperbase.hyperedge.str_to_atom" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -8381,7 +8381,7 @@ returned.</p>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">str2atom</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">str_to_atom</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a string into a valid atom.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">atom</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>
@@ -8615,7 +8615,7 @@ without outer parenthesis.</p>
 <span class="normal"><a href="#__codelineno-0-184">184</a></span>
 <span class="normal"><a href="#__codelineno-0-185">185</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_atom</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Atom</span><span class="p">:</span>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Build an atom from text and other parts.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a>    <span class="n">atom</span> <span class="o">=</span> <span class="n">str2atom</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a>    <span class="n">atom</span> <span class="o">=</span> <span class="n">str_to_atom</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="n">parts_str</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">part</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span> <span class="k">if</span> <span class="n">part</span><span class="p">])</span>
 <a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts_str</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a>        <span class="n">atom</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">atom</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">parts_str</span><span class="p">))</span>
