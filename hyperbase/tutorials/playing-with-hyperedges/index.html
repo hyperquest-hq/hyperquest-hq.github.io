@@ -1249,169 +1249,169 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
 </code></pre></div>
 <p>The simplest thing we can create is an <strong>atom</strong> -- a single concept:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">mary</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/Cp&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">mary</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/C&#39;</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">mary</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">mary/Cp</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">mary/C</span>
 </code></pre></div>
-<p>Here, <code>mary</code> is the root (the word itself) and <code>Cp</code> is the type: a <em>proper noun concept</em>. The <code>C</code> stands for "Concept" and the <code>p</code> is a subtype meaning "proper noun".</p>
+<p>Here, <code>mary</code> is the root (the word itself) and <code>C</code> is the type, in this case a concept.</p>
 <p>We can also create non-atomic hyperedges -- structures that combine multiple elements:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/C chess/C)&#39;</span><span class="p">)</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">(likes/P.so mary/Cp chess/Cc)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">(likes/P.so mary/C chess/C)</span>
 </code></pre></div>
-<p>This represents the idea "Mary likes chess". The first element (<code>likes/P.so</code>) is the <strong>connector</strong> -- it defines the relationship. The remaining elements are <strong>arguments</strong>: the subject and the object.</p>
+<p>This represents the idea "Mary likes chess". The first element (<code>likes/P.so</code>) is the <strong>connector</strong> -- it defines the relationship. The remaining elements are <strong>arguments</strong>: the subject and the object. <code>P</code> indicates another type, predicate. Notice that the <code>.so</code> annotation specifies the argument roles. There is one letter per argument, in this case <code>s</code> indicating that the first argument is the subject (<code>mary/C</code>) and <code>o</code> that the second is the object (<code>chess/C)</code>).</p>
+<p>Atoms often have subtypes, which are represented by lowercase letters after the uppercase main type. For example, <code>mary/Cp</code> indicates a <em>proper noun concept</em> and <code>chess/Cc</code> a <em>common noun concept</em>. Then:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">(likes/P.so mary/C chess/C)</span>
+</code></pre></div>
 <h3 id="from-python-lists">From Python lists<a class="headerlink" href="#from-python-lists" title="Permanent link">&para;</a></h3>
 <p>You can also build hyperedges from Python lists:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="s1">&#39;likes/P.so&#39;</span><span class="p">,</span> <span class="s1">&#39;mary/Cp&#39;</span><span class="p">,</span> <span class="s1">&#39;chess/Cc&#39;</span><span class="p">])</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">(likes/P.so mary/Cp chess/Cc)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="s1">&#39;likes/P.so&#39;</span><span class="p">,</span> <span class="s1">&#39;mary/Cp&#39;</span><span class="p">,</span> <span class="s1">&#39;chess/Cc&#39;</span><span class="p">])</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">(likes/P.so mary/Cp chess/Cc)</span>
 </code></pre></div>
 <p>This produces the same result. Lists are handy when you are constructing edges programmatically.</p>
 <h2 id="atoms-vs-non-atomic-hyperedges">Atoms vs. non-atomic hyperedges<a class="headerlink" href="#atoms-vs-non-atomic-hyperedges" title="Permanent link">&para;</a></h2>
 <p>Every hyperedge is either atomic or non-atomic. You can check which one you have:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/Cp&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">atom</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">True</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="go">False</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">not_atom</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="go">True</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/Cp&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">atom</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">True</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="go">False</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">not_atom</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="go">True</span>
 </code></pre></div>
 <h2 id="inspecting-atoms">Inspecting atoms<a class="headerlink" href="#inspecting-atoms" title="Permanent link">&para;</a></h2>
-<p>Atoms have a rich internal structure. Let's explore it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/Cp.s/en&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">&#39;berlin&#39;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">t</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="go">&#39;Cp&#39;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">mt</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="go">&#39;C&#39;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">role</span><span class="p">()</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="go">[&#39;Cp&#39;, &#39;s&#39;]</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">parts</span><span class="p">()</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="go">[&#39;berlin&#39;, &#39;Cp.s&#39;, &#39;en&#39;]</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="go">&#39;berlin&#39;</span>
+<p>Here are some often used ways to inspect atoms:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;paris/Cp&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">&#39;paris&#39;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">t</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="go">&#39;Cp&#39;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">mt</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="go">&#39;C&#39;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="go">&#39;paris&#39;</span>
 </code></pre></div>
 <ul>
 <li><code>root()</code> -- the word itself</li>
-<li><code>type()</code> -- the full type string (e.g., <code>Cp</code> for proper noun concept)</li>
-<li><code>mtype()</code> -- just the main type character (<code>C</code>)</li>
-<li><code>role()</code> -- the complete role as a list of subroles</li>
-<li><code>parts()</code> -- all slash-separated components</li>
+<li><code>t</code> or <code>type()</code> -- the full type string (e.g., <code>Cp</code> for proper noun concept)</li>
+<li><code>mt</code> or <code>mtype()</code> -- just the main type character (<code>C</code>)</li>
 <li><code>label()</code> -- a human-readable label (URL-decodes the root)</li>
 </ul>
 <p>The label is especially useful when roots contain encoded characters:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;new%20york/Cp.s/en&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">&#39;new york&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;new%20york/Cp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">&#39;new york&#39;</span>
 </code></pre></div>
 <h2 id="indexing-into-hyperedges">Indexing into hyperedges<a class="headerlink" href="#indexing-into-hyperedges" title="Permanent link">&para;</a></h2>
 <p>Since hyperedges are based on Python tuples, you can index into them:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="go">likes/P.so</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="go">mary/Cp</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="go">chess/Cc</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">likes/P.so</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">mary/Cp</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="go">chess/Cc</span>
 </code></pre></div>
 <p>The first element (<code>edge[0]</code>) is always the connector. The rest are arguments. You can also iterate over the elements:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s1">&#39;-- atom&#39;</span> <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">atom</span> <span class="k">else</span> <span class="s1">&#39;-- edge&#39;</span><span class="p">)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">likes/P.so -- atom</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">mary/Cp -- atom</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">chess/Cc -- atom</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">likes/P.so</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">mary/Cp</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="go">chess/Cc</span>
 </code></pre></div>
 <h2 id="types-and-type-inference">Types and type inference<a class="headerlink" href="#types-and-type-inference" title="Permanent link">&para;</a></h2>
 <p>Every hyperedge has a type. For atoms, the type is written explicitly. For non-atomic hyperedges, the type is <strong>inferred</strong> from the connector:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">t</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">&#39;R&#39;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">mt</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="go">&#39;R&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(likes/P.so mary/Cp chess/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">t</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">&#39;R&#39;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">mt</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">&#39;R&#39;</span>
 </code></pre></div>
 <p>The edge has type <code>R</code> (Relation), because a predicate (<code>P</code>) applied to arguments produces a relation. Meanwhile, the connector itself is of type <code>P</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">ct</span>  <span class="c1"># connector type</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">&#39;P&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">ct</span>  <span class="c1"># connector type</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">&#39;P&#39;</span>
 </code></pre></div>
 <h2 id="exploring-structure">Exploring structure<a class="headerlink" href="#exploring-structure" title="Permanent link">&para;</a></h2>
 <p>Hyperedges can be nested. Let's work with a richer example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc (the/Md sky/Cc) blue/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">(is/P.sc (the/Md sky/Cc) blue/Cc)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so (the/Md sky/Cc) blue/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">(is/P.so (the/Md sky/Cc) blue/Cc)</span>
 </code></pre></div>
 <p>This represents "the sky is blue". Notice how <code>(the/Md sky/Cc)</code> is itself a hyperedge nested inside the outer one.</p>
 <h3 id="size-and-depth">Size and depth<a class="headerlink" href="#size-and-depth" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">4</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="go">2</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">4</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">2</span>
 </code></pre></div>
 <p>The <code>size()</code> counts total atoms (4: <code>is</code>, <code>the</code>, <code>sky</code>, <code>blue</code>). The <code>depth()</code> measures the deepest nesting level.</p>
 <h3 id="atoms">Atoms<a class="headerlink" href="#atoms" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">{is/P.sc, the/Md, sky/Cc, blue/Cc}</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">all_atoms</span><span class="p">()</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">[is/P.sc, the/Md, sky/Cc, blue/Cc]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">{is/P.so, the/Md, sky/Cc, blue/Cc}</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">all_atoms</span><span class="p">()</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">[is/P.so, the/Md, sky/Cc, blue/Cc]</span>
 </code></pre></div>
 <p><code>atoms()</code> returns a set (unique atoms), while <code>all_atoms()</code> returns a list preserving order and duplicates.</p>
 <h3 id="subedges">Subedges<a class="headerlink" href="#subedges" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">subedges</span><span class="p">()</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">{(is/P.sc (the/Md sky/Cc) blue/Cc), is/P.sc, (the/Md sky/Cc), the/Md, sky/Cc, blue/Cc}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">subedges</span><span class="p">()</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">{(is/P.so (the/Md sky/Cc) blue/Cc), is/P.so, (the/Md sky/Cc), the/Md, sky/Cc, blue/Cc}</span>
 </code></pre></div>
 <p>This gives you every subedge at every level, including atoms and the edge itself.</p>
 <h3 id="containment">Containment<a class="headerlink" href="#containment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;blue/Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">True</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="go">False</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="go">True</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;blue/Cc&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">True</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">False</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="go">True</span>
 </code></pre></div>
 <p>By default, <code>contains()</code> only checks direct children. Use <code>deep=True</code> to search recursively.</p>
 <h2 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h2>
 <p>The <code>label()</code> method produces a human-readable version of a hyperedge, rearranging elements to approximate natural language:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">&#39;berlin is nice&#39;</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(red/M shoes/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">&#39;red shoes&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so paris/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">&#39;paris is nice&#39;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(red/M shoes/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="go">&#39;red shoes&#39;</span>
 </code></pre></div>
 <h2 id="building-new-hyperedges">Building new hyperedges<a class="headerlink" href="#building-new-hyperedges" title="Permanent link">&para;</a></h2>
 <p>Hyperedges are immutable -- every operation returns a new object.</p>
 <h3 id="replacing-atoms">Replacing atoms<a class="headerlink" href="#replacing-atoms" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/Cp&#39;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;paris/Cp&#39;</span><span class="p">))</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="go">(is/P.sc paris/Cp nice/Cc)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so paris/Cp nice/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;paris/Cp&#39;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;paris/Cp&#39;</span><span class="p">))</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">(is/P.so paris/Cp nice/Cc)</span>
 </code></pre></div>
 <p>You can even replace an atom with a non-atomic hyperedge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/Cp&#39;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(the/Md city/Cc)&#39;</span><span class="p">))</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">(is/P.sc (the/Md city/Cc) nice/Cc)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;paris/Cp&#39;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(the/Md city/Cc)&#39;</span><span class="p">))</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">(is/P.so (the/Md city/Cc) nice/Cc)</span>
 </code></pre></div>
 <h3 id="inserting-arguments">Inserting arguments<a class="headerlink" href="#inserting-arguments" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">insert_first_argument</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;really/M&#39;</span><span class="p">))</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">(is/P.sc really/M berlin/Cp nice/Cc)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so paris/Cp nice/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(in/T (the/M spring/Cc))&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">insert_edge_with_argrole</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="go">(is/P.sox really/M paris/Cp nice/Cc (in/T (the/M spring/Cc)))</span>
 </code></pre></div>
 <h2 id="argument-roles">Argument roles<a class="headerlink" href="#argument-roles" title="Permanent link">&para;</a></h2>
 <p>The letters after the dot in a predicate encode the <strong>argument roles</strong> -- what role each argument plays:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so berlin/Cp nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="go">&#39;so&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so paris/Cp nice/Cc)&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="go">&#39;so&#39;</span>
 </code></pre></div>
 <p>Here, <code>s</code> means "subject" and <code>o</code> means "object". You can retrieve arguments by their role:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">edges_with_argrole</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">[berlin/Cp]</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">edges_with_argrole</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="go">[nice/Cc]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">edges_with_argrole</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">[paris/Cp]</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">edges_with_argrole</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="go">[nice/Cc]</span>
 </code></pre></div>
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
 <p>You can check whether a hyperedge is structurally correct:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so berlin/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">{}</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(berlin/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="go">{(berlin/Cp nice/Cc): [(&#39;cosnn-bad-type&#39;, &#39;connector has incorrect type: C&#39;)]}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so paris/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="go">{}</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(paris/Cp nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="go">{(paris/Cp nice/Cc): [(&#39;cosnn-bad-type&#39;, &#39;connector has incorrect type: C&#39;)]}</span>
 </code></pre></div>
 <p>An empty dictionary means the edge is well-formed. Otherwise, you get a description of what is wrong -- in this case, a concept (<code>C</code>) cannot be used as a connector.</p>
 
