@@ -1115,17 +1115,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.Hyperedge.insert_argrole" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_argrole
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#hyperbase.hyperedge.Hyperedge.insert_edge_with_argrole" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1422,17 +1411,6 @@
     <span class="md-ellipsis">
       
         remove_argroles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.Atom.insert_argrole" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_argrole
       
     </span>
   </a>
@@ -2056,17 +2034,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.Hyperedge.insert_argrole" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_argrole
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#hyperbase.hyperedge.Hyperedge.insert_edge_with_argrole" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2363,17 +2330,6 @@
     <span class="md-ellipsis">
       
         remove_argroles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hyperbase.hyperedge.Atom.insert_argrole" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_argrole
       
     </span>
   </a>
@@ -3817,17 +3773,17 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 <a id="__codelineno-0-550" name="__codelineno-0-550"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
 <a id="__codelineno-0-551" name="__codelineno-0-551"></a>        <span class="k">return</span> <span class="bp">self</span>
 <a id="__codelineno-0-552" name="__codelineno-0-552"></a>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
 <a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an edge with the given argrole inserted at the specified</span>
 <a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">        position in the argroles of the connector atom.</span>
 <a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">        Same restrictions as in replace_argroles() apply.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-557" name="__codelineno-0-557"></a>        <span class="n">st</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
 <a id="__codelineno-0-558" name="__codelineno-0-558"></a>        <span class="k">if</span> <span class="n">st</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">}:</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>            <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>            <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
 <a id="__codelineno-0-560" name="__codelineno-0-560"></a>            <span class="n">new_edge</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <a id="__codelineno-0-561" name="__codelineno-0-561"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
 <a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="k">elif</span> <span class="n">st</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">}:</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>            <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>            <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">_insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
 <a id="__codelineno-0-564" name="__codelineno-0-564"></a>            <span class="n">new_edge</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 <a id="__codelineno-0-565" name="__codelineno-0-565"></a>            <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
 <a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="k">return</span> <span class="bp">self</span>
@@ -3837,7 +3793,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a new edge with the provided edge and its argroles inserted</span>
 <a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">        at the specified position.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a>        <span class="n">combined</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[:</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">edge</span><span class="p">,</span> <span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]))</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 <a id="__codelineno-0-576" name="__codelineno-0-576"></a>
@@ -5168,57 +5124,6 @@ Returns same edge if the atom does not contain a role part.</p>
 <div class="doc doc-object doc-function">
 
 
-<h4 id="hyperbase.hyperedge.Hyperedge.insert_argrole" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span></code>
-
-<a href="#hyperbase.hyperedge.Hyperedge.insert_argrole" class="headerlink" title="Permanent link">&para;</a></h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Returns an edge with the given argrole inserted at the specified
-position in the argroles of the connector atom.
-Same restrictions as in replace_argroles() apply.</p>
-
-
-            <details class="mkdocstrings-source">
-              <summary>Source code in <code>src/hyperbase/hyperedge.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-553">553</a></span>
-<span class="normal"><a href="#__codelineno-0-554">554</a></span>
-<span class="normal"><a href="#__codelineno-0-555">555</a></span>
-<span class="normal"><a href="#__codelineno-0-556">556</a></span>
-<span class="normal"><a href="#__codelineno-0-557">557</a></span>
-<span class="normal"><a href="#__codelineno-0-558">558</a></span>
-<span class="normal"><a href="#__codelineno-0-559">559</a></span>
-<span class="normal"><a href="#__codelineno-0-560">560</a></span>
-<span class="normal"><a href="#__codelineno-0-561">561</a></span>
-<span class="normal"><a href="#__codelineno-0-562">562</a></span>
-<span class="normal"><a href="#__codelineno-0-563">563</a></span>
-<span class="normal"><a href="#__codelineno-0-564">564</a></span>
-<span class="normal"><a href="#__codelineno-0-565">565</a></span>
-<span class="normal"><a href="#__codelineno-0-566">566</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns an edge with the given argrole inserted at the specified</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">    position in the argroles of the connector atom.</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">    Same restrictions as in replace_argroles() apply.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="n">st</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="k">if</span> <span class="n">st</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">}:</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>        <span class="n">new_edge</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="k">elif</span> <span class="n">st</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">}:</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>        <span class="n">new_edge</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)]</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="n">new_edge</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">new_edge</span><span class="p">)</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>    <span class="k">return</span> <span class="bp">self</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h4 id="hyperbase.hyperedge.Hyperedge.insert_edge_with_argrole" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">insert_edge_with_argrole</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span></code>
 
@@ -5245,7 +5150,7 @@ at the specified position.</p>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a new edge with the provided edge and its argroles inserted</span>
 <a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">    at the specified position.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="n">new_edge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="n">combined</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[:</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">edge</span><span class="p">,</span> <span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">new_edge</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]))</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a>    <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5977,7 +5882,7 @@ at the specified position.</p>
 <a id="__codelineno-0-1027" name="__codelineno-0-1027"></a>        <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <a id="__codelineno-0-1028" name="__codelineno-0-1028"></a>        <span class="k">return</span> <span class="n">Atom</span><span class="p">((</span><span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">),))</span>
 <a id="__codelineno-0-1029" name="__codelineno-0-1029"></a>
-<a id="__codelineno-0-1030" name="__codelineno-0-1030"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Atom</span><span class="p">:</span>
+<a id="__codelineno-0-1030" name="__codelineno-0-1030"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Atom</span><span class="p">:</span>
 <a id="__codelineno-0-1031" name="__codelineno-0-1031"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an atom with the given argrole inserted at the specified</span>
 <a id="__codelineno-0-1032" name="__codelineno-0-1032"></a><span class="sd">        position. Same restrictions as in replace_argroles() apply.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>        <span class="n">argroles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
@@ -7101,40 +7006,6 @@ of/B.ma has argument roles "ma".</p>
 <a id="__codelineno-0-1026" name="__codelineno-0-1026"></a>    <span class="n">role</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-1027" name="__codelineno-0-1027"></a>    <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <a id="__codelineno-0-1028" name="__codelineno-0-1028"></a>    <span class="k">return</span> <span class="n">Atom</span><span class="p">((</span><span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">),))</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="hyperbase.hyperedge.Atom.insert_argrole" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">insert_argrole</span><span class="p">(</span><span class="n">argrole</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span></code>
-
-<a href="#hyperbase.hyperedge.Atom.insert_argrole" class="headerlink" title="Permanent link">&para;</a></h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Returns an atom with the given argrole inserted at the specified
-position. Same restrictions as in replace_argroles() apply.</p>
-
-
-            <details class="mkdocstrings-source">
-              <summary>Source code in <code>src/hyperbase/hyperedge.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1030">1030</a></span>
-<span class="normal"><a href="#__codelineno-0-1031">1031</a></span>
-<span class="normal"><a href="#__codelineno-0-1032">1032</a></span>
-<span class="normal"><a href="#__codelineno-0-1033">1033</a></span>
-<span class="normal"><a href="#__codelineno-0-1034">1034</a></span>
-<span class="normal"><a href="#__codelineno-0-1035">1035</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1030" name="__codelineno-0-1030"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert_argrole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argrole</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Atom</span><span class="p">:</span>
-<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns an atom with the given argrole inserted at the specified</span>
-<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a><span class="sd">    position. Same restrictions as in replace_argroles() apply.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>    <span class="n">argroles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
-<a id="__codelineno-0-1034" name="__codelineno-0-1034"></a>    <span class="n">argroles</span> <span class="o">=</span> <span class="n">argroles</span><span class="p">[:</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="n">argrole</span> <span class="o">+</span> <span class="n">argroles</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
-<a id="__codelineno-0-1035" name="__codelineno-0-1035"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">replace_argroles</span><span class="p">(</span><span class="n">argroles</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
