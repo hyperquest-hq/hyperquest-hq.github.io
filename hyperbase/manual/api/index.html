@@ -2926,28 +2926,28 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Edge type.</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        (this porperty is a shortcut for Hyperedge.type())</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        (this property is a shortcut for Hyperedge.type())</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">mt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Edge main type.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        (this porperty is a shortcut for Hyperedge.mtype())</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        (this property is a shortcut for Hyperedge.mtype())</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ct</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Edge connector type.</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        (this porperty is a shortcut for Hyperedge.connector_type())</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        (this property is a shortcut for Hyperedge.connector_type())</span>
 <a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connector_type</span><span class="p">()</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cmt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Edge connector main type.</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        (this porperty is a shortcut for Hyperedge.mconnector_type())</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        (this property is a shortcut for Hyperedge.mconnector_type())</span>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">        &quot;&quot;&quot;</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connector_mtype</span><span class="p">()</span>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a>
@@ -3370,7 +3370,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
     <div class="doc doc-contents ">
 
         <p>Edge type.
-(this porperty is a shortcut for Hyperedge.type())</p>
+(this property is a shortcut for Hyperedge.type())</p>
 
     </div>
 
@@ -3393,7 +3393,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
     <div class="doc doc-contents ">
 
         <p>Edge main type.
-(this porperty is a shortcut for Hyperedge.mtype())</p>
+(this property is a shortcut for Hyperedge.mtype())</p>
 
     </div>
 
@@ -3416,7 +3416,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
     <div class="doc doc-contents ">
 
         <p>Edge connector type.
-(this porperty is a shortcut for Hyperedge.connector_type())</p>
+(this property is a shortcut for Hyperedge.connector_type())</p>
 
     </div>
 
@@ -3439,7 +3439,7 @@ returns an instance of the registered :class:<code>Parser</code> subclass.</p>
     <div class="doc doc-contents ">
 
         <p>Edge connector main type.
-(this porperty is a shortcut for Hyperedge.mconnector_type())</p>
+(this property is a shortcut for Hyperedge.mconnector_type())</p>
 
     </div>
 
