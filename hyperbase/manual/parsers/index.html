@@ -796,34 +796,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quality checking">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#badness-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Badness check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structural-quality-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structural quality only
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1138,34 +1110,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quality checking">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#badness-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Badness check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structural-quality-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structural quality only
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1296,9 +1240,9 @@
 <p>Parsers are obtained by name with <code>get_parser()</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_parser</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="s2">&quot;alphabeta&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="s2">&quot;alphabeta&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>The keyword arguments are forwarded to the parser constructor. Each parser plugin defines its own parameters -- for example, <code>alphabeta</code> takes a <code>language</code> code, while <code>generative</code> accepts <code>model_path</code>, <code>device</code>, <code>max_length</code>, and others.</p>
+<p>The keyword arguments are forwarded to the parser constructor. Each parser plugin defines its own parameters -- for example, <code>alphabeta</code> takes a <code>lang</code> code, while <code>generative</code> accepts <code>model_path</code>, <code>device</code>, <code>max_length</code>, and others. Run <code>hyperbase repl --parser &lt;name&gt; --help</code> (or <code>hyperbase read --parser &lt;name&gt; --help</code>) to see the full set of CLI flags injected by the active plugin.</p>
 <p>To see which parsers are installed:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_parsers</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -1407,49 +1351,23 @@
 </code></pre></div>
 <p>This is what <code>read_source_to_jsonl()</code> uses internally -- each line in the output file is one <code>ParseResult</code> serialized as JSON.</p>
 <h2 id="quality-checking">Quality checking<a class="headerlink" href="#quality-checking" title="Permanent link">&para;</a></h2>
-<p>The <code>hyperbase.parsers.correctness</code> module provides functions to assess the quality of a parse result.</p>
-<h3 id="badness-check">Badness check<a class="headerlink" href="#badness-check" title="Permanent link">&para;</a></h3>
-<p><code>badness_check()</code> runs a comprehensive quality check on a parsed edge, combining structural validation with token-to-atom matching:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers.correctness</span><span class="w"> </span><span class="kn">import</span> <span class="n">badness_check</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">errors</span> <span class="o">=</span> <span class="n">badness_check</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">edge</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tokens</span><span class="p">)</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">error_list</span> <span class="ow">in</span> <span class="n">errors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">severity</span> <span class="ow">in</span> <span class="n">error_list</span><span class="p">:</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2"> (severity: </span><span class="si">{</span><span class="n">severity</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No errors found.&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The function returns a dictionary mapping edge fragments (or the string <code>'token-matching'</code>) to lists of <code>(code, message, severity)</code> tuples. An empty dictionary means no errors were found.</p>
-<p>The checks include:</p>
-<ul>
-<li><strong>Structural correctness</strong> -- validates the hyperedge against the SH specification (via <code>Hyperedge.check_correctness()</code>).</li>
-<li><strong>Argument role validation</strong> -- checks that argument roles are drawn from the valid set (<code>m</code>, <code>s</code>, <code>p</code>, <code>a</code>, <code>o</code>, <code>i</code>, <code>x</code>, <code>t</code>, <code>j</code>, <code>r</code>, <code>c</code>) and that roles like <code>s</code>, <code>p</code>, <code>o</code> are not duplicated.</li>
-<li><strong>Junction consistency</strong> -- verifies that junction arguments are consistently typed (all relations or all concepts).</li>
-<li><strong>Token matching</strong> -- ensures that every token in the original sentence maps to an atom root in the edge, and vice versa. Handles multi-token atoms, contractions and other non-trivial correspondences.</li>
-</ul>
-<h3 id="structural-quality-only">Structural quality only<a class="headerlink" href="#structural-quality-only" title="Permanent link">&para;</a></h3>
-<p>For a lighter check that skips token matching:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers.correctness</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_structural_quality</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">errors</span> <span class="o">=</span> <span class="n">check_structural_quality</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">edge</span><span class="p">)</span>
-</code></pre></div>
+<p>Badness/correctness checking lives in the parser plugin that needs it. The generative parser ships <a href="https://github.com/telmomenezes/hyperbase-parser-gen"><code>hyperbase_parser_gen.correctness.badness_check</code></a> for combined structural + token-matching validation; see that package's docs for usage.</p>
 <h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
 <h3 id="listing-parsers">Listing parsers<a class="headerlink" href="#listing-parsers" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>hyperbase<span class="w"> </span>parsers
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>hyperbase<span class="w"> </span>parsers
 </code></pre></div>
 <p>Shows all installed parser plugins and their entry point values.</p>
 <h3 id="interactive-repl">Interactive REPL<a class="headerlink" href="#interactive-repl" title="Permanent link">&para;</a></h3>
 <p>The REPL lets you parse sentences interactively:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>hyperbase<span class="w"> </span>repl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--language<span class="w"> </span>en
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>hyperbase<span class="w"> </span>repl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--lang<span class="w"> </span>en
 </code></pre></div>
 <p>Inside the REPL, type a sentence to parse it. Use <code>/help</code> to see available commands, <code>/settings</code> to view current configuration, and <code>/set</code> to change settings on the fly (e.g. <code>/set parser generative</code>). The REPL caches parser instances, so switching between parsers is fast after the first load.</p>
 <h3 id="reading-and-parsing-files">Reading and parsing files<a class="headerlink" href="#reading-and-parsing-files" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Parse a file to JSONL</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>article.txt<span class="w"> </span>-o<span class="w"> </span>output.jsonl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--language<span class="w"> </span>en
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Parse a Wikipedia article</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>https://en.wikipedia.org/wiki/Hypergraph<span class="w"> </span>-o<span class="w"> </span>output.jsonl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Parse a file to JSONL</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>article.txt<span class="w"> </span>-o<span class="w"> </span>output.jsonl<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--lang<span class="w"> </span>en
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Parse a Wikipedia article</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>https://en.wikipedia.org/wiki/Hypergraph<span class="w"> </span>-o<span class="w"> </span>output.jsonl
 </code></pre></div>
 <p>See the <a href="../readers/">readers</a> documentation for the full set of <code>hyperbase read</code> options.</p>
 <h2 id="custom-parsers">Custom parsers<a class="headerlink" href="#custom-parsers" title="Permanent link">&para;</a></h2>
@@ -1461,40 +1379,40 @@
 <li><code>accepted_params()</code> (classmethod) -- return a dict describing the parameters the parser accepts.</li>
 </ul>
 <p>Optionally, override <code>parse_batch(sentences)</code> if your parser can process multiple sentences more efficiently in a single call.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parser</span><span class="p">,</span> <span class="n">ParseResult</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyParser</span><span class="p">(</span><span class="n">Parser</span><span class="p">):</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="nd">@classmethod</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accepted_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>            <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Language code.&quot;</span><span class="p">,</span> <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>            <span class="p">},</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>        <span class="p">}</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lang</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_sentences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>        <span class="c1"># simple sentence splitting</span>
-<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
-<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
-<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(says/P someone/C </span><span class="si">{</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/C)&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">ParseResult</span><span class="p">(</span>
-<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>            <span class="n">edge</span><span class="o">=</span><span class="n">edge</span><span class="p">,</span>
-<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>            <span class="n">text</span><span class="o">=</span><span class="n">sentence</span><span class="p">,</span>
-<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>            <span class="n">tokens</span><span class="o">=</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span>
-<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>            <span class="n">tok_pos</span><span class="o">=</span><span class="n">edge</span><span class="p">,</span>
-<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>        <span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parser</span><span class="p">,</span> <span class="n">ParseResult</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyParser</span><span class="p">(</span><span class="n">Parser</span><span class="p">):</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nd">@classmethod</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accepted_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>        <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>            <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Language code.&quot;</span><span class="p">,</span> <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="p">},</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="p">}</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lang</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_sentences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>        <span class="c1"># simple sentence splitting</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">parse_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(says/P someone/C </span><span class="si">{</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">ParseResult</span><span class="p">(</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>            <span class="n">edge</span><span class="o">=</span><span class="n">edge</span><span class="p">,</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>            <span class="n">text</span><span class="o">=</span><span class="n">sentence</span><span class="p">,</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>            <span class="n">tokens</span><span class="o">=</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>            <span class="n">tok_pos</span><span class="o">=</span><span class="n">edge</span><span class="p">,</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>        <span class="p">)]</span>
 </code></pre></div>
 <h3 id="registering-as-a-plugin">Registering as a plugin<a class="headerlink" href="#registering-as-a-plugin" title="Permanent link">&para;</a></h3>
 <p>To make a parser discoverable by <code>get_parser()</code>, register it as an entry point in your package's <code>pyproject.toml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">[project.entry-points.</span><span class="s2">&quot;hyperbase.parsers&quot;</span><span class="k">]</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">myparser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_package:MyParser&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">[project.entry-points.</span><span class="s2">&quot;hyperbase.parsers&quot;</span><span class="k">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">myparser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_package:MyParser&quot;</span>
 </code></pre></div>
 <p>After installation, <code>get_parser("myparser")</code> will instantiate your parser, and <code>hyperbase parsers</code> will list it alongside the built-in ones.</p>
 
