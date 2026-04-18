@@ -755,6 +755,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#source-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-readers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -974,6 +985,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#source-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-readers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1079,22 +1101,22 @@
 <h1 id="readers">Readers<a class="headerlink" href="#readers" title="Permanent link">&para;</a></h1>
 <p>The <code>hyperbase.readers</code> module provides a way to read and parse text from various sources directly into Semantic Hypergraphs. A reader handles the extraction and segmentation of text into paragraph-sized blocks, which can then be fed to a parser. Hyperbase ships with three built-in readers -- plain text files, URLs and Wikipedia articles -- and provides a registration mechanism for custom readers.</p>
 <h2 id="reading-and-parsing-sources">Reading and parsing sources<a class="headerlink" href="#reading-and-parsing-sources" title="Permanent link">&para;</a></h2>
-<p>The preferred way to read and parse a source is through the <code>Parser</code> methods <code>read_source()</code> and <code>read_source_to_jsonl()</code>. These handle reader selection automatically, so you only need a parser instance:</p>
+<p>The preferred way to read and parse a source is through the <code>Parser</code> methods <code>parse_source()</code> and <code>parse_source_to_jsonl()</code>. These handle reader selection automatically, so you only need a parser instance:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_parser</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="s2">&quot;generative&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Iterate over parse results block by block</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">read_source</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_source</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">):</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;edge&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">edge</span><span class="p">)</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Or write everything to a JSONL file in one call</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">read_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;output.jsonl&quot;</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">parse_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;output.jsonl&quot;</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>Both methods accept an optional <code>reader</code> argument to force a specific reader instead of auto-detection:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Force the generic URL reader on a Wikipedia link</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">read_source</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_source</span><span class="p">(</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="s2">&quot;https://en.wikipedia.org/wiki/Hypergraph&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="s2">&quot;url&quot;</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">):</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="o">...</span>
@@ -1130,6 +1152,37 @@
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Specify reader and parser explicitly</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>hyperbase<span class="w"> </span><span class="nb">read</span><span class="w"> </span>source.txt<span class="w"> </span>-o<span class="w"> </span>output.jsonl<span class="w"> </span>--reader<span class="w"> </span>plain_text<span class="w"> </span>--parser<span class="w"> </span>alphabeta<span class="w"> </span>--lang<span class="w"> </span>en
 </code></pre></div>
+<h2 id="source-information">Source information<a class="headerlink" href="#source-information" title="Permanent link">&para;</a></h2>
+<p>Readers attach metadata to each <code>ParseResult</code> through the <code>source_info()</code> method. When parsing through a reader (via <code>parse_source()</code> or <code>parse_source_to_jsonl()</code>), the <code>source</code> field of each <code>ParseResult</code> is automatically populated with this metadata:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_source</span><span class="p">(</span><span class="s2">&quot;article.txt&quot;</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="c1"># {&quot;source_type&quot;: &quot;txt&quot;, &quot;source&quot;: &quot;article.txt&quot;}</span>
+</code></pre></div>
+<p>Each built-in reader provides the following source metadata:</p>
+<table>
+<thead>
+<tr>
+<th>Reader</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plain_text</code></td>
+<td><code>source_type</code>, <code>source</code> (file name)</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>source_type</code>, <code>source</code> (URL), <code>title</code> (page title, if available)</td>
+</tr>
+<tr>
+<td><code>wikipedia</code></td>
+<td><code>source_type</code>, <code>source</code> (URL), <code>title</code> (article title)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom readers can override <code>source_info(source)</code> to provide their own metadata.</p>
 <h2 id="built-in-readers">Built-in readers<a class="headerlink" href="#built-in-readers" title="Permanent link">&para;</a></h2>
 <h3 id="plain_text"><code>plain_text</code><a class="headerlink" href="#plain_text" title="Permanent link">&para;</a></h3>
 <p>Reads local text files. Accepts any source that is a valid file path. The text is split into paragraph-sized blocks: if blank lines are found, they are used as paragraph separators; otherwise each line becomes its own block.</p>
@@ -1145,35 +1198,38 @@
 <li><code>accepts(source)</code> -- a static method that returns <code>True</code> if the reader can handle the given source string.</li>
 <li><code>read(source)</code> -- a generator that yields text blocks from the source.</li>
 </ul>
-<p>Optionally, you can implement <code>block_count(source)</code> to return the total number of blocks (enabling progress bars), and set the <code>more_general</code> class attribute to declare that this reader is more specific than others.</p>
+<p>Optionally, you can implement <code>block_count(source)</code> to return the total number of blocks (enabling progress bars), <code>source_info(source)</code> to provide metadata for parse results, and set the <code>more_general</code> class attribute to declare that this reader is more specific than others.</p>
 <p>Here is an example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span><span class="p">,</span> <span class="n">register_reader</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">RSSReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">more_general</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>  <span class="c1"># take priority over the generic URL reader</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accepts</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="k">return</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.rss&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/feed&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">feedparser</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="n">feed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>            <span class="c1"># yield the text content of each entry as a block</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>            <span class="k">yield</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">register_reader</span><span class="p">(</span><span class="s1">&#39;rss&#39;</span><span class="p">,</span> <span class="n">RSSReader</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span><span class="p">,</span> <span class="n">register_reader</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">RSSReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">more_general</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,)</span>  <span class="c1"># take priority over the generic URL reader</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accepts</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="k">return</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.rss&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/feed&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">feedparser</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="n">feed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">feed</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="c1"># yield the text content of each entry as a block</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>            <span class="k">yield</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">source_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;source_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rss&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">source</span><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">register_reader</span><span class="p">(</span><span class="s2">&quot;rss&quot;</span><span class="p">,</span> <span class="n">RSSReader</span><span class="p">)</span>
 </code></pre></div>
 <p>After registration, the new reader is automatically considered during auto-detection. It can also be requested by name:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">parser</span><span class="o">.</span><span class="n">read_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;https://example.com/feed&quot;</span><span class="p">,</span> <span class="s2">&quot;feed.jsonl&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="s2">&quot;rss&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">parser</span><span class="o">.</span><span class="n">parse_source_to_jsonl</span><span class="p">(</span><span class="s2">&quot;https://example.com/feed&quot;</span><span class="p">,</span> <span class="s2">&quot;feed.jsonl&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="s2">&quot;rss&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="listing-registered-readers">Listing registered readers<a class="headerlink" href="#listing-registered-readers" title="Permanent link">&para;</a></h2>
 <p>To see all currently registered readers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_readers</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">list_readers</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.readers</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_readers</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">list_readers</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 

@@ -776,17 +776,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#roots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Roots
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -825,50 +814,6 @@
   
     <nav class="md-nav" aria-label="Building and modifying hyperedges">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concatenation-with" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concatenation with +
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert_first_argument" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_first_argument()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        connect()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sequence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        sequence()
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#replace_atom" class="md-nav__link">
@@ -936,45 +881,6 @@
     <span class="md-ellipsis">
       
         Modifying argument roles
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#replacing-the-main-concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Replacing the main concept
       
     </span>
   </a>
@@ -1373,17 +1279,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#roots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Roots
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1422,50 +1317,6 @@
   
     <nav class="md-nav" aria-label="Building and modifying hyperedges">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concatenation-with" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concatenation with +
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert_first_argument" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_first_argument()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        connect()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sequence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        sequence()
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#replace_atom" class="md-nav__link">
@@ -1533,45 +1384,6 @@
     <span class="md-ellipsis">
       
         Modifying argument roles
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#replacing-the-main-concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Replacing the main concept
       
     </span>
   </a>
@@ -1679,19 +1491,19 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase</span><span class="w"> </span><span class="kn">import</span> <span class="n">hedge</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># From a string</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.so mary/C chess/C)&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so mary/C chess/C)&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># From a list</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="s1">&#39;plays/P.so&#39;</span><span class="p">,</span> <span class="s1">&#39;mary/C&#39;</span><span class="p">,</span> <span class="s1">&#39;chess/C&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">([</span><span class="s2">&quot;plays/P.so&quot;</span><span class="p">,</span> <span class="s2">&quot;mary/C&quot;</span><span class="p">,</span> <span class="s2">&quot;chess/C&quot;</span><span class="p">])</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Atoms are returned for atomic inputs</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/C&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;mary/C&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="hyperedge-and-atom">Hyperedge and Atom<a class="headerlink" href="#hyperedge-and-atom" title="Permanent link">&para;</a></h2>
 <p>Hyperbase defines two object classes: <code>Hyperedge</code> and <code>Atom</code>. <code>Atom</code> is a subclass of <code>Hyperedge</code>, and <code>Hyperedge</code> itself is derived from Python's <code>tuple</code>. These objects are not meant to be instantiated directly -- instead, use the <code>hedge()</code> function to create them.</p>
 <h3 id="atoms">Atoms<a class="headerlink" href="#atoms" title="Permanent link">&para;</a></h3>
 <p>An atom is the most basic unit of the Semantic Hypergraph. It is a single token with an internal structure defined by the <a href="../notation/">notation</a>: a root, a role (type, subtypes, argument roles), and optionally a namespace.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/Cp.s/en&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;mary/Cp.s/en&quot;</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">atom</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">True</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
@@ -1700,154 +1512,130 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="go">[&#39;mary&#39;, &#39;Cp.s&#39;, &#39;en&#39;]</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">role</span><span class="p">()</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="go">[&#39;Cp&#39;, &#39;s&#39;]</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">t</span>  <span class="c1"># type, shortcut property to atom.type()</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="go">&#39;Cp&#39;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">mt</span>  <span class="c1"># main type, shortcut property to atom.mtype()</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="go">&#39;C&#39;</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="go">&#39;mary&#39;</span>
 </code></pre></div>
-<p>The <code>root()</code> method extracts just the root string (the first part before <code>/</code>). The <code>parts()</code> method splits the atom into all its slash-delimited components. The <code>role()</code> method returns the role as a list of dot-separated subroles, and <code>type()</code> returns the first subrole (the type string). The <code>mtype()</code> method returns only the main type character.</p>
-<p>The <code>label()</code> method generates a human-readable label by URL-decoding the root. This is useful because atom roots use URL-encoding for special characters:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;new%20york/Cp.s/en&#39;</span><span class="p">)</span>
+<p>The <code>.root()</code> method extracts just the root string (the first part before <code>/</code>). The <code>.parts()</code> method splits the atom into all its slash-delimited components. The <code>.role()</code> method returns the role as a list of dot-separated subroles, and <code>.t</code> returns the first subrole (the type string). <code>.mt</code> returns only the main type character.</p>
+<p>The <code>.label()</code> method generates a human-readable label by URL-decoding the root. This is useful because atom roots use URL-encoding for special characters:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;new%20york/Cp.s/en&quot;</span><span class="p">)</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">&#39;new york&#39;</span>
 </code></pre></div>
 <p>Atoms that have only a root and no type annotation are treated as conjunctions:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;and&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">t</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">&#39;J&#39;</span>
 </code></pre></div>
 <h4 id="atom-parts-manipulation">Atom parts manipulation<a class="headerlink" href="#atom-parts-manipulation" title="Permanent link">&para;</a></h4>
 <p>You can build new atoms by replacing specific parts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/Cp.s/en&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">replace_atom_part</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;mary/Cp.s/en&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">atom</span><span class="o">.</span><span class="n">replace_atom_part</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;john&quot;</span><span class="p">)</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">john/Cp.s/en</span>
-</code></pre></div>
-<p>There is also a utility function <code>build_atom()</code> for constructing atoms from a text string and role parts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_atom</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">atom</span> <span class="o">=</span> <span class="n">build_atom</span><span class="p">(</span><span class="s1">&#39;new york&#39;</span><span class="p">,</span> <span class="s1">&#39;Cp&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># new%20york/Cp/s/en</span>
-</code></pre></div>
-<p>And <code>str2atom()</code> for converting arbitrary strings into valid atom roots (URL-encoding special characters):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">str2atom</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">str2atom</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># &#39;hello%20world&#39;</span>
 </code></pre></div>
 <h3 id="non-atomic-hyperedges">Non-atomic hyperedges<a class="headerlink" href="#non-atomic-hyperedges" title="Permanent link">&para;</a></h3>
 <p>A non-atomic hyperedge is an ordered, recursive structure -- a sequence of hyperedges where the first element is the connector and the remaining elements are arguments. Since <code>Hyperedge</code> is derived from <code>tuple</code>, it makes it possible to do things such as:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.so mary/C chess/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">person</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so mary/C chess/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">person</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <p>In this case, <code>person</code> will be assigned the second element of the initial hyperedge, which happens to be the atom <code>mary/C</code>. Range selectors also work, but they do not automatically produce hyperedges, because subranges of the elements of a semantic hyperedge are not guaranteed to be valid semantic hyperedges themselves. Instead, simple tuples are returned:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.so mary/C chess/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">(mary/C, chess/C)</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so mary/C chess/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">(mary/C, chess/C)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="go">&lt;class &#39;tuple&#39;&gt;</span>
 </code></pre></div>
 <h3 id="distinguishing-atoms-from-non-atomic-hyperedges">Distinguishing atoms from non-atomic hyperedges<a class="headerlink" href="#distinguishing-atoms-from-non-atomic-hyperedges" title="Permanent link">&para;</a></h3>
 <p>The <code>.atom</code> and <code>.not_atom</code> properties provide a clean way to test whether a hyperedge is atomic:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(plays/P.so mary/C chess/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">False</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">not_atom</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="go">True</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">atom</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="go">True</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(plays/P.so mary/C chess/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="go">False</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">not_atom</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="go">True</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">atom</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="go">True</span>
 </code></pre></div>
 <h2 id="types-and-type-inference">Types and type inference<a class="headerlink" href="#types-and-type-inference" title="Permanent link">&para;</a></h2>
 <p>Every hyperedge has a type. For atoms, the type is explicit in the annotation. For non-atomic hyperedges, the type is inferred from the connector type according to the rules described in the <a href="../notation/">notation</a> section.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">&#39;R&#39;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">mtype</span><span class="p">()</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">&#39;R&#39;</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="go">&#39;P&#39;</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="go">&#39;C&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">t</span>  <span class="c1"># type, shortcut property to atom.type()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">&#39;R&#39;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">mt</span>  <span class="c1"># main type, shortcut property to atom.type()</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">&#39;R&#39;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="go">&#39;P&#39;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="go">&#39;C&#39;</span>
 </code></pre></div>
-<p>The <code>type()</code> method returns the full type string (e.g. <code>'R'</code>, <code>'Cp'</code>), while <code>mtype()</code> returns just the main type character. For non-atomic hyperedges, <code>connector_type()</code> and <code>connector_mtype()</code> return the type of the edge's connector:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">connector_type</span><span class="p">()</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">&#39;P&#39;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">connector_mtype</span><span class="p">()</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">&#39;P&#39;</span>
+<p>The <code>.t</code> property produces the full type string (e.g. <code>'R'</code>, <code>'Cp'</code>), while <code>.mt</code> produces just the main type character. For non-atomic hyperedges, <code>.ct</code> and <code>.cmt</code> produce the type of the edge's connector:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">ct</span>  <span class="c1"># connector type, shortcut property to atom.connector_type()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">&#39;P&#39;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">cmt</span>  <span class="c1"># connector main type, shortcut property to atom.connector_mtype()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">&#39;P&#39;</span>
 </code></pre></div>
-<p>Shortcut properties are also available: <code>.t</code> for <code>type()</code>, <code>.mt</code> for <code>mtype()</code>, <code>.ct</code> for <code>connector_type()</code>, and <code>.cmt</code> for <code>connector_mtype()</code>.</p>
 <h2 id="exploring-hyperedge-structure">Exploring hyperedge structure<a class="headerlink" href="#exploring-hyperedge-structure" title="Permanent link">&para;</a></h2>
 <h3 id="atoms-and-size">Atoms and size<a class="headerlink" href="#atoms-and-size" title="Permanent link">&para;</a></h3>
 <p>The <code>atoms()</code> method returns the set of unique atoms in a hyperedge, while <code>all_atoms()</code> returns a list including duplicates:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(the/Md (of/Br mayor/Cc (the/Md city/Cs)))&#39;</span><span class="p">)</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">{the/Md, of/Br, mayor/Cc, city/Cs}</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">all_atoms</span><span class="p">()</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="go">[the/Md, of/Br, mayor/Cc, the/Md, city/Cs]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(the/Md (of/Br mayor/Cc (the/Md city/Cs)))&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">{the/Md, of/Br, mayor/Cc, city/Cs}</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">all_atoms</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">[the/Md, of/Br, mayor/Cc, the/Md, city/Cs]</span>
 </code></pre></div>
 <p>The <code>size()</code> method returns the total number of atoms at all depths, and <code>depth()</code> returns the maximal nesting depth (atoms have depth 0):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">5</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">3</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;mary/C&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="go">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">5</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">3</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;mary/C&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">depth</span><span class="p">()</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">0</span>
 </code></pre></div>
 <h3 id="subedges">Subedges<a class="headerlink" href="#subedges" title="Permanent link">&para;</a></h3>
 <p>The <code>subedges()</code> method returns the set of all subedges contained in a hyperedge, including atoms and the edge itself:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc (the/Md sky/Cc) blue/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">subedges</span><span class="p">()</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">{(is/P.sc (the/Md sky/Cc) blue/Cc), is/P.sc, (the/Md sky/Cc), the/Md, sky/Cc, blue/Cc}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so (the/Md sky/Cc) blue/Cc)&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">subedges</span><span class="p">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">{(is/P.so (the/Md sky/Cc) blue/Cc), is/P.so, (the/Md sky/Cc), the/Md, sky/Cc, blue/Cc}</span>
 </code></pre></div>
 <h3 id="containment">Containment<a class="headerlink" href="#containment" title="Permanent link">&para;</a></h3>
-<p>The <code>contains()</code> method checks whether a needle string is contained in an edge. With <code>deep=True</code>, the search is recursive:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc (the/Md sky/Cc) blue/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;blue/Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="go">True</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="go">False</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;sky/Cc&#39;</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="go">True</span>
+<p>The <code>contains()</code> method checks recursively whether a hyperedge is contained anywhere in an edge:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so (the/Md sky/Cc) blue/Cc)&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;blue/Cc&quot;</span><span class="p">))</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="go">True</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;sky/Cc&quot;</span><span class="p">))</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="go">True</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;paris/Cp&quot;</span><span class="p">))</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="go">False</span>
 </code></pre></div>
-<p>You can also check for atoms of a given type:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">contains_atom_type</span><span class="p">(</span><span class="s1">&#39;Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">True</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="s1">&#39;Cc&#39;</span><span class="p">)</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">sky/Cc</span>
+<p>You can find the first atom with a given type using <code>atom_with_type()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">atom_with_type</span><span class="p">(</span><span class="s2">&quot;Cc&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">sky/Cc</span>
 </code></pre></div>
 <h3 id="connector-and-inner-atoms">Connector and inner atoms<a class="headerlink" href="#connector-and-inner-atoms" title="Permanent link">&para;</a></h3>
 <p>The <code>connector_atom()</code> method returns the innermost atom of the connector, traversing through modifier structures:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(does/M (not/M like/P.so) john/C chess/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">connector_atom</span><span class="p">()</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="go">like/P.so</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(does/M (not/M like/P.so) john/C chess/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">connector_atom</span><span class="p">()</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="go">like/P.so</span>
 </code></pre></div>
 <p>The <code>inner_atom()</code> method returns the inner atom of a modifier structure:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(red/M shoes/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">shoes/C</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(red/M shoes/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">inner_atom</span><span class="p">()</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">shoes/C</span>
 </code></pre></div>
 <p>For atoms, <code>inner_atom()</code> returns the atom itself, and <code>connector_atom()</code> returns <code>None</code>.</p>
-<h3 id="roots">Roots<a class="headerlink" href="#roots" title="Permanent link">&para;</a></h3>
-<p>The <code>roots()</code> method returns a version of the edge where all atoms are reduced to their root form (no type annotations):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp.s nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">(is berlin nice)</span>
-</code></pre></div>
 <h2 id="string-representations-and-labels">String representations and labels<a class="headerlink" href="#string-representations-and-labels" title="Permanent link">&para;</a></h2>
-<p>The <code>to_str()</code> method converts a hyperedge back to its SH notation string. With <code>roots_only=True</code>, only atom roots are used:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp.s nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">to_str</span><span class="p">()</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="go">&#39;(is/P.sc berlin/Cp.s nice/Cc)&#39;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">to_str</span><span class="p">(</span><span class="n">roots_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="go">&#39;(is berlin nice)&#39;</span>
-</code></pre></div>
 <p>The <code>label()</code> method generates a human-readable label. It rearranges elements to approximate natural language word order and URL-decodes atom roots:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/Cp.s nice/Cc)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">&#39;berlin is nice&#39;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(red/M shoes/C)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="go">&#39;red shoes&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/Cp.s nice/Cc)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">&#39;berlin is nice&#39;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(red/M shoes/C)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">()</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="go">&#39;red shoes&#39;</span>
 </code></pre></div>
-<p>Both <code>__str__</code> and <code>__repr__</code> return the SH notation string, so printing a hyperedge shows its notation directly.</p>
+<p>Both <code>__str__</code> and <code>__repr__</code> return the SH notation string, so printing a hyperedge shows its notation directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/Cp.s nice/Cc)&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">&#39;(is/P.so berlin/Cp.s nice/Cc)&#39;</span>
+</code></pre></div>
 <h2 id="pattern-matching">Pattern matching<a class="headerlink" href="#pattern-matching" title="Permanent link">&para;</a></h2>
 <p>The <code>match()</code> method matches a hyperedge against a pattern. Patterns are themselves edges, using special wildcard atoms:</p>
 <ul>
@@ -1857,147 +1645,92 @@
 <li><code>...</code> at the end -- open-ended pattern (matches remaining elements)</li>
 </ul>
 <p>Wildcards can be named to capture matched entities into variables (e.g. <code>*NAME</code>, <code>.ACTOR</code>, <code>(*CLAUSE)</code>). The method returns a list of match dictionaries. An empty list means no match; a list with an empty dictionary means the pattern matched but captured no variables.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.so (my/Mp name/Cn) mary/Cp)&#39;</span><span class="p">)</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(is/P.so (my/Mp name/Cn) *)&#39;</span><span class="p">)</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="go">[{}]</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(is/P.so (my/Mp name/Cn) *NAME)&#39;</span><span class="p">)</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="go">[{&#39;NAME&#39;: mary/Cp}]</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;(is/P.so . *NAME)&#39;</span><span class="p">)</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="go">[]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so (my/Mp name/Cn) mary/Cp)&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(is/P.so (my/Mp name/Cn) *)&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">[{}]</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(is/P.so (my/Mp name/Cn) *NAME)&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="go">[{&#39;NAME&#39;: mary/Cp}]</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(is/P.so . *NAME)&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="go">[]</span>
 </code></pre></div>
 <p>For more about patterns, see the <a href="../patterns/">patterns</a> section.</p>
 <h2 id="building-and-modifying-hyperedges">Building and modifying hyperedges<a class="headerlink" href="#building-and-modifying-hyperedges" title="Permanent link">&para;</a></h2>
-<p>Since hyperedges are immutable (based on <code>tuple</code>), modification methods return new hyperedge objects.</p>
-<h3 id="concatenation-with">Concatenation with +<a class="headerlink" href="#concatenation-with" title="Permanent link">&para;</a></h3>
-<p>The <code>+</code> operator combines hyperedges:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;is/P.sc&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/C&#39;</span><span class="p">)</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="go">(is/P.sc berlin/C)</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C)&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;nice/C&#39;</span><span class="p">)</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="go">(is/P.sc berlin/C nice/C)</span>
-</code></pre></div>
-<h3 id="insert_first_argument">insert_first_argument()<a class="headerlink" href="#insert_first_argument" title="Permanent link">&para;</a></h3>
-<p>Places an argument as the first item after the connector:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">insert_first_argument</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;really/M&#39;</span><span class="p">))</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="go">(is/P.sc really/M berlin/C nice/C)</span>
-</code></pre></div>
-<p>When called on an atom, the atom becomes the connector:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;is/P.sc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert_first_argument</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/C&#39;</span><span class="p">))</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="go">(is/P.sc berlin/C)</span>
-</code></pre></div>
-<h3 id="connect">connect()<a class="headerlink" href="#connect" title="Permanent link">&para;</a></h3>
-<p>Adds arguments to the end of an edge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;nice/C&#39;</span><span class="p">),))</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="go">(is/P.sc berlin/C nice/C)</span>
-</code></pre></div>
-<h3 id="sequence">sequence()<a class="headerlink" href="#sequence" title="Permanent link">&para;</a></h3>
-<p>Sequences an entity before or after the elements of the edge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(a/C b/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;c/C&#39;</span><span class="p">),</span> <span class="n">before</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="go">(c/C a/C b/C)</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;c/C&#39;</span><span class="p">),</span> <span class="n">before</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="go">(a/C b/C c/C)</span>
-</code></pre></div>
-<p>With <code>flat=False</code>, both sides are treated as self-contained edges:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(c/C d/C)&#39;</span><span class="p">),</span> <span class="n">before</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="go">((c/C d/C) (a/C b/C))</span>
-</code></pre></div>
+<p>Since hyperedges are immutable, modification methods return new hyperedge objects. New edges are constructed using <code>hedge()</code>, as <a href="#the-central-function-of-hyperbase-hedge">explained above</a>.</p>
 <h3 id="replace_atom">replace_atom()<a class="headerlink" href="#replace_atom" title="Permanent link">&para;</a></h3>
 <p>Replaces every instance of an atom with a new hyperedge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;berlin/C&#39;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(the/M city/C)&#39;</span><span class="p">))</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="go">(is/P.sc (the/M city/C) nice/C)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_atom</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;berlin/C&quot;</span><span class="p">),</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(the/M city/C)&quot;</span><span class="p">))</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="go">(is/P.so (the/M city/C) nice/C)</span>
 </code></pre></div>
 <p>With <code>unique=True</code>, only the exact same object instance is replaced (using object identity rather than value equality).</p>
 <h3 id="simplify">simplify()<a class="headerlink" href="#simplify" title="Permanent link">&para;</a></h3>
-<p>Returns a simplified version of a hyperedge, controlling which annotation parts to retain:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/Pd.sc berlin/Cp.s/en nice/Cc)&#39;</span><span class="p">)</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="go">(is/P berlin/C/en nice/C/en)</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">subtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="go">(is/Pd berlin/Cp/en nice/Cc/en)</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">argroles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="go">(is/P.sc berlin/C/en nice/C/en)</span>
-<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">namespaces</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="go">(is/P berlin/C nice/C)</span>
+<p>Returns a simplified version of a hyperedge. By default, subtypes are removed and namespaces are stripped; argument roles are always preserved:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/Pd.so berlin/Cp.s/en nice/Cc)&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="go">(is/P.so berlin/C nice/C)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">subtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="go">(is/Pd.so berlin/Cp nice/Cc)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">namespaces</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="go">(is/P.so berlin/C/en nice/Cc)</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">subtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="go">(is/Pd.so berlin/Cp/en nice/Cc)</span>
 </code></pre></div>
 <h2 id="argument-roles">Argument roles<a class="headerlink" href="#argument-roles" title="Permanent link">&para;</a></h2>
 <p>Argument roles specify the role each argument plays in a relation or built concept (see the <a href="../notation/">notation</a> section for the full list of role codes).</p>
 <h3 id="querying-argument-roles">Querying argument roles<a class="headerlink" href="#querying-argument-roles" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="go">&#39;sc&#39;</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">has_argroles</span><span class="p">()</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="go">True</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">argroles</span><span class="p">()</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="go">&#39;sc&#39;</span>
 </code></pre></div>
 <h3 id="retrieving-edges-by-role">Retrieving edges by role<a class="headerlink" href="#retrieving-edges-by-role" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">arguments_with_role</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="go">[berlin/C]</span>
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">arguments_with_role</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="go">[nice/C]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">arguments_with_role</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="go">[berlin/C]</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">arguments_with_role</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="go">[nice/C]</span>
 </code></pre></div>
 <h3 id="modifying-argument-roles">Modifying argument roles<a class="headerlink" href="#modifying-argument-roles" title="Permanent link">&para;</a></h3>
 <p><code>replace_argroles()</code> returns an edge with its connector's argument roles replaced:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_argroles</span><span class="p">(</span><span class="s1">&#39;so&#39;</span><span class="p">)</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="go">(is/P.so berlin/C nice/C)</span>
-</code></pre></div>
-<p><code>insert_argrole()</code> inserts a role at a given position:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">insert_argrole</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="go">(is/P.soc berlin/C nice/C)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_argroles</span><span class="p">(</span><span class="s2">&quot;so&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="go">(is/P.so berlin/C nice/C)</span>
 </code></pre></div>
 <p><code>add_argument()</code> inserts both an edge and its corresponding argument role at a position:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;very/M&#39;</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="go">(is/P.scx berlin/C nice/C very/M)</span>
-</code></pre></div>
-<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="main-concepts">Main concepts<a class="headerlink" href="#main-concepts" title="Permanent link">&para;</a></h3>
-<p>In builder structures, <code>main_concepts()</code> returns the list of main concepts (those annotated with the <code>m</code> role):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(of/B.ma founder/C psychoanalysis/C)&quot;</span><span class="p">)</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">main_concepts</span><span class="p">()</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="go">[founder/C]</span>
-</code></pre></div>
-<h3 id="replacing-the-main-concept">Replacing the main concept<a class="headerlink" href="#replacing-the-main-concept" title="Permanent link">&para;</a></h3>
-<p><code>replace_main_concept()</code> returns a new edge with the main concept replaced:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(of/B.ma founder/C psychoanalysis/C)&quot;</span><span class="p">)</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">replace_main_concept</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;creator/C&#39;</span><span class="p">))</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="go">(of/B.ma creator/C psychoanalysis/C)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;very/M&quot;</span><span class="p">),</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="go">(is/P.sox berlin/C nice/C very/M)</span>
 </code></pre></div>
 <h2 id="validation-and-normalization">Validation and normalization<a class="headerlink" href="#validation-and-normalization" title="Permanent link">&para;</a></h2>
 <h3 id="check_correctness">check_correctness()<a class="headerlink" href="#check_correctness" title="Permanent link">&para;</a></h3>
 <p>Returns a dictionary of structural errors found in the edge. Each key is the problematic subedge, and the value is a list of <code>(code, message)</code> tuples. An empty dictionary means the edge is well-formed.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.sc berlin/C nice/C)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="go">{}</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(berlin/C nice/C)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="go">{(berlin/C nice/C): [(&#39;conn-bad-type&#39;, &#39;connector has incorrect type: C&#39;)]}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.so berlin/C nice/C)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">{}</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(berlin/C nice/C)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">check_correctness</span><span class="p">()</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="go">{(berlin/C nice/C): [(&#39;conn-bad-type&#39;, &#39;connector has incorrect type: C&#39;)]}</span>
 </code></pre></div>
 <p>The checks include connector type validation, modifier and builder structure, trigger structure, predicate argument types, conjunction arity, and argument role counts and validity.</p>
 <h3 id="normalise">normalise()<a class="headerlink" href="#normalise" title="Permanent link">&para;</a></h3>
 <p>Returns a normalized version of the edge where argument roles (and their corresponding arguments) are sorted into a canonical order:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(is/P.cs nice/C berlin/C)&#39;</span><span class="p">)</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="go">(is/P.sc berlin/C nice/C)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(is/P.os nice/C berlin/C)&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="go">(is/P.so berlin/C nice/C)</span>
 </code></pre></div>
 <h2 id="the-text-attribute">The text attribute<a class="headerlink" href="#the-text-attribute" title="Permanent link">&para;</a></h2>
 <p>Both <code>Hyperedge</code> and <code>Atom</code> objects have a <code>text</code> attribute that stores the original natural language text from which the hyperedge was parsed. This is set automatically when creating a hyperedge from a <code>ParseResult</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;Mary plays chess.&quot;</span><span class="p">):</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    <span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># &quot;Mary plays chess.&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;Mary plays chess.&quot;</span><span class="p">):</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># &quot;Mary plays chess.&quot;</span>
 </code></pre></div>
 <h2 id="uniqueatom">UniqueAtom<a class="headerlink" href="#uniqueatom" title="Permanent link">&para;</a></h2>
 <p>By default, atoms are compared by value -- two atom objects with the same string are considered equal. When you need identity-based comparison (e.g. to distinguish two different occurrences of the same atom within a hyperedge), Hyperbase provides <code>UniqueAtom</code> and the utility functions <code>unique()</code> and <code>non_unique()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">unique</span><span class="p">,</span> <span class="n">non_unique</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s1">&#39;(the/Md (of/Br mayor/Cc (the/Md city/Cs)))&#39;</span><span class="p">)</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="n">u_edge</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="c1"># Now the two the/Md atoms are distinguishable</span>
-<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
-<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="n">original</span> <span class="o">=</span> <span class="n">non_unique</span><span class="p">(</span><span class="n">u_edge</span><span class="p">)</span>
-<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="c1"># Back to normal value-based comparison</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hyperbase.hyperedge</span><span class="w"> </span><span class="kn">import</span> <span class="n">unique</span><span class="p">,</span> <span class="n">non_unique</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">edge</span> <span class="o">=</span> <span class="n">hedge</span><span class="p">(</span><span class="s2">&quot;(the/Md (of/Br mayor/Cc (the/Md city/Cs)))&quot;</span><span class="p">)</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">u_edge</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="c1"># Now the two the/Md atoms are distinguishable</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="n">original</span> <span class="o">=</span> <span class="n">non_unique</span><span class="p">(</span><span class="n">u_edge</span><span class="p">)</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="c1"># Back to normal value-based comparison</span>
 </code></pre></div>
 
 

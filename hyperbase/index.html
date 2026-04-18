@@ -880,11 +880,17 @@
 <p class="admonition-title">Note</p>
 <p><a href="pubs-cases/">Read our publications and explore some use cases</a>.</p>
 </div>
-<p>Hyperbase is a foundational library for working with <em>Semantic Hypergraphs (SH)</em>, which make it possible to represent a natural language sentence such as "Einstein first published the theory of relativity in 1905" as an ordered, recursive hyperlink of the form:</p>
+<p>Hyperbase is a foundational Python library for working with <em>Semantic Hypergraphs (SH)</em>, which make it possible to represent a natural language sentence such as "Einstein first published the theory of relativity in 1905" in a structured way:</p>
 <figure>
-  <img alt="Einstein first published the Theory of Relativity in 1905." src="assets/images/hyperedge-blocks.png" width="75%" />
+  <img alt="Einstein first published the Theory of Relativity in 1905." src="assets/images/theory-of-relativity.png" width="75%" />
 </figure>
-<p>Hyperbase is written in Python, to both take advantage and facilitate integration with the rich environment of scientific libraries available in this language. It is released under the highly permissive MIT open source license.</p>
+<p>In SH notation, this is represented as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>((first/M published/P.sox)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    einstein/C
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    (the/M
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        (of/B.ma theory/C relativity/C))
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    (in/T 1905))
+</code></pre></div>
 <h2 id="funding">Funding<a class="headerlink" href="#funding" title="Permanent link">&para;</a></h2>
 <p>This software library and its associated research were funded by CNRS and the ERC Consolidator
 Grant <a href="https://socsemics.huma-num.fr/">Socsemics</a> (grant #772743).</p>
