@@ -2486,16 +2486,7 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/hyperbase/builders.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-253">253</a></span>
-<span class="normal"><a href="#__codelineno-0-254">254</a></span>
-<span class="normal"><a href="#__codelineno-0-255">255</a></span>
-<span class="normal"><a href="#__codelineno-0-256">256</a></span>
-<span class="normal"><a href="#__codelineno-0-257">257</a></span>
-<span class="normal"><a href="#__codelineno-0-258">258</a></span>
-<span class="normal"><a href="#__codelineno-0-259">259</a></span>
-<span class="normal"><a href="#__codelineno-0-260">260</a></span>
-<span class="normal"><a href="#__codelineno-0-261">261</a></span>
-<span class="normal"><a href="#__codelineno-0-262">262</a></span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-262">262</a></span>
 <span class="normal"><a href="#__codelineno-0-263">263</a></span>
 <span class="normal"><a href="#__codelineno-0-264">264</a></span>
 <span class="normal"><a href="#__codelineno-0-265">265</a></span>
@@ -2520,41 +2511,50 @@
 <span class="normal"><a href="#__codelineno-0-284">284</a></span>
 <span class="normal"><a href="#__codelineno-0-285">285</a></span>
 <span class="normal"><a href="#__codelineno-0-286">286</a></span>
-<span class="normal"><a href="#__codelineno-0-287">287</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-253" name="__codelineno-0-253"></a><span class="k">def</span><span class="w"> </span><span class="nf">hedge</span><span class="p">(</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">ParseResult</span><span class="p">,</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a hyperedge.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">ParseResult</span><span class="p">):</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a>        <span class="n">_source</span> <span class="o">=</span> <span class="n">source</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a>        <span class="n">offsets</span> <span class="o">=</span> <span class="n">_compute_token_offsets</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span> <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>        <span class="c1"># Compute claimed = all token positions referenced by atoms in the</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>        <span class="c1"># original edge tree. Used to detect real (non-synthetic, non-padding)</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>        <span class="c1"># discontinuities in sub-edge text derivation.</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>        <span class="n">claimed</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">_collect_positions</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tok_pos</span><span class="p">))</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="n">_rebuild_with_metadata</span><span class="p">(</span>
-<a id="__codelineno-0-265" name="__codelineno-0-265"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">edge</span><span class="p">,</span>
-<a id="__codelineno-0-266" name="__codelineno-0-266"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">tok_pos</span><span class="p">,</span>
-<a id="__codelineno-0-267" name="__codelineno-0-267"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
-<a id="__codelineno-0-269" name="__codelineno-0-269"></a>            <span class="n">offsets</span><span class="p">,</span>
-<a id="__codelineno-0-270" name="__codelineno-0-270"></a>            <span class="n">claimed</span><span class="p">,</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="p">)</span>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="c1"># Override the root&#39;s text with the verbatim original sentence and</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="c1"># store tokens on the root for any later derivation.</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="s2">&quot;_text&quot;</span><span class="p">,</span> <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="s2">&quot;tokens&quot;</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">))</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="k">return</span> <span class="n">edge</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">}:</span>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">_source</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Iterable</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">_source</span><span class="p">))</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="k">return</span> <span class="n">_hedge_from_str</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">UniqueAtom</span><span class="p">}:</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="k">return</span> <span class="n">source</span>  <span class="c1"># type: ignore</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>            <span class="sa">f</span><span class="s2">&quot;Cannot create hyperedge from </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">source</span><span class="si">!r}</span><span class="s2">&quot;</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-287">287</a></span>
+<span class="normal"><a href="#__codelineno-0-288">288</a></span>
+<span class="normal"><a href="#__codelineno-0-289">289</a></span>
+<span class="normal"><a href="#__codelineno-0-290">290</a></span>
+<span class="normal"><a href="#__codelineno-0-291">291</a></span>
+<span class="normal"><a href="#__codelineno-0-292">292</a></span>
+<span class="normal"><a href="#__codelineno-0-293">293</a></span>
+<span class="normal"><a href="#__codelineno-0-294">294</a></span>
+<span class="normal"><a href="#__codelineno-0-295">295</a></span>
+<span class="normal"><a href="#__codelineno-0-296">296</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="k">def</span><span class="w"> </span><span class="nf">hedge</span><span class="p">(</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Hyperedge</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">ParseResult</span><span class="p">,</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hyperedge</span><span class="p">:</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a hyperedge.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">ParseResult</span><span class="p">):</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>        <span class="n">_source</span> <span class="o">=</span> <span class="n">source</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>        <span class="n">offsets</span> <span class="o">=</span> <span class="n">_compute_token_offsets</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span> <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="c1"># Compute claimed = all token positions referenced by atoms in the</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="c1"># original edge tree. Used to detect real (non-synthetic, non-padding)</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="c1"># discontinuities in sub-edge text derivation.</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">claimed</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">_collect_positions</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tok_pos</span><span class="p">))</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="n">edge</span> <span class="o">=</span> <span class="n">_rebuild_with_metadata</span><span class="p">(</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">edge</span><span class="p">,</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">tok_pos</span><span class="p">,</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>            <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>            <span class="n">offsets</span><span class="p">,</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>            <span class="n">claimed</span><span class="p">,</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="p">)</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="c1"># Override the root&#39;s text with the verbatim original sentence and</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="c1"># store tokens on the root for any later derivation.</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="s2">&quot;_text&quot;</span><span class="p">,</span> <span class="n">_source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="s2">&quot;tokens&quot;</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_source</span><span class="o">.</span><span class="n">tokens</span><span class="p">))</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="k">return</span> <span class="n">edge</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">}:</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="n">_source</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Iterable</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="k">return</span> <span class="n">Hyperedge</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">hedge</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">_source</span><span class="p">))</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="k">return</span> <span class="n">_hedge_from_str</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Hyperedge</span><span class="p">,</span> <span class="n">Atom</span><span class="p">,</span> <span class="n">UniqueAtom</span><span class="p">}:</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="k">return</span> <span class="n">source</span>  <span class="c1"># type: ignore</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>            <span class="sa">f</span><span class="s2">&quot;Cannot create hyperedge from </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">source</span><span class="si">!r}</span><span class="s2">&quot;</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
