@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hyperquest</title>
     
-    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
  
-     <!-- Bootstrap CSS einbinden -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
    
-     <!-- Bootstrap CSS einbinden -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-     <!-- -- nav start -- -->
+    <!-- -- nav start -- -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid px-3 px-xxl-5">
-            <a class="navbar-brand" href="../#">
-                <img src="/assets/img/logos/logo_hyperquest_small_nav.svg" alt="Logo" width="auto" height="auto" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#header">
+                <img src="assets/img/logos/logo_hyperquest_small_nav.svg" alt="Logo" width="auto" height="auto" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,16 +27,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div>
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="../#">about</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#header">about</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#project">project</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#hypergraph-examples">examples</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">team</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="../#socialproof">social proof</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="#partners">partners</a></li>
                     </ul>
                 </div>
-                <!-- <div class="language ms-auto">
-                    <a href="#" class="me-3"><img src="assets/img/visuals_illustrations/UK-flag.svg" alt=""></a>
-                    <a href="#"><img src="assets/img/visuals_illustrations/FR-flag.svg" alt=""></a>
-                </div> -->
             </div>
         </div>
     </nav>
@@ -47,20 +43,20 @@
     <header id="header">
         <div class="container mt-5">
             <div class="row mb-5">
-                <div class="col-12 col-lg-4  col-xxl-5 offset-lg-1 text-end text-md-end">
+                <div class="col-12 col-lg-4 col-xxl-5 offset-lg-1 text-end text-md-end">
                     <h1 class="border-bottom scroll-animate">hyperquest</h1>
-                  </div>       
-              </div>
-              <div class="row justify-content-center">
+                </div>       
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 col-xxl-5">
-                    <p> HYPERQUEST aims at creating a tool for knowledge extraction from text documents via iterative contextual learning, for use by medium-sized and large companies where these needs are recurrent (automatic document analysis and editing, information retrieval from internal databases, etc.). It aims at overcoming technological barriers by creating intuitive interfaces to help users co-construct complex knowledge extraction and transformation tasks simply and with very few examples, at a level of specificity and rigor that current tools do not allow.</p>
+                    <p>HYPERQUEST aims at creating a tool for knowledge extraction from text documents via iterative contextual learning, for use by medium-sized and large companies where these needs are recurrent (automatic document analysis and editing, information retrieval from internal databases, etc.). It aims at overcoming technological barriers by creating intuitive interfaces to help users co-construct complex knowledge extraction and transformation tasks simply and with very few examples, at a level of specificity and rigor that current tools do not allow.</p>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xxl-5">
                     <p>HQ is based on our innovation, semantic hyper-graphs, which recursively link an arbitrary number of concepts to better capture the expressiveness of natural language, beyond the rigidity of traditional knowledge graphs, and allow powerful flexibility in defining linguistic patterns for massive information extraction — at the confluence of symbolic and connectionist (machine/deep learning) Artificial Intelligence.</p>
-                    <a href="hyperquest-project.html" class="btn-small text-big mt-4" role="button">
+                 <!--    <a href="#project" class="btn-small text-big mt-4" role="button">
                         <span class="icon icon-more" aria-hidden="true"></span>
                         read more
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -70,8 +66,456 @@
     </header>
     <!-- -- header end -- -->
 
-    <!-- -- main start -- -->
+    <!-- ================================================== -->
+    <!-- == PROJECT ORIGIN (from hyperquest-project.html) == -->
+    <!-- ================================================== -->
     <main class="background-logo-middle">
+
+        <section id="project" class="mt-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-10 col-lg-4 offset-lg-0 text-end text-md-end">
+                        <h1 class="border-bottom scroll-animate">project origin</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -- context section start -- -->
+        <section id="context" class="mt-5 mb-5">
+           <div class="container">
+                <div class="row mb-5">
+                    <div class="col-10 col-lg-5 offset-lg-0 text-end text-md-end">
+                        <h3 class="border-bottom scroll-animate">context and challenges</h3>
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center">
+                    <!-- context box 1 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 text-center">
+                        <div>
+                            <div class="min-height">
+                                <img class="me-2" src="assets/img/visuals_illustrations/undraw/undraw_collaborative-writing_ir40.svg" width="250" alt="illustration Information management">
+                            </div>
+                            <div class="mt-4">
+                                <h5>Information management</h5>
+                                <p>spreadsheets, relational databases</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- context box 2 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 text-center">
+                        <div>
+                            <div class="min-height">
+                                <img class="me-2" src="assets/img/visuals_illustrations/undraw/undraw_text-files_tqjw.svg" width="250" alt="illustration Information extraction">
+                            </div>
+                            <div class="mt-4">
+                                <h5>Information extraction</h5>
+                                <p>turning text into structured data</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- context box 3 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 text-center">
+                        <div>
+                            <div class="min-height">
+                                <img class="me-2" src="assets/img/visuals_illustrations/undraw/undraw_ai-agent_pdkp.svg" width="250" alt="illustration Desire for automation">
+                            </div>
+                            <div class="mt-4">
+                                <h5>Desire for automation</h5>
+                                <p>AI boom raised organizational awareness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -- context section end -- -->
+
+        <!-- -- besoin section start -- -->          
+        <section id="besoin">
+            <div class="container">
+               <div class="row justify-content-center">
+                    <div class="col-12 col-md-12 col-lg-5">
+                        <img src="assets/img/visuals_illustrations/pic-hand-chip.svg" class="img-fluid" alt="images chip and robo-hand">
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-5">
+                        <div class="col-12 col-lg-12 offset-lg-0 text-end text-md-end">
+                            <h2 class="border-bottom scroll-animate">outstanding needs</h2>
+                        </div>
+                        <ul class="mt-5">
+                            <li class="text-big">Lack of internal AI expertise</li>
+                            <span class="text-medium">Difficulty in evaluating or negotiating services</span>
+                        </ul>
+                        <ul>
+                            <li class="text-big">Solutions not tailored to specific needs</li>
+                            <span>Uncertain cost-benefit analysis</span>
+                        </ul>
+                        <ul>
+                            <li class="text-big">Lack of trust in LLMs</li>
+                            <span>Hallucinations, opacity</span>
+                        </ul>
+                    </div>
+               </div>
+            </div>
+        </section>
+        <!-- -- besoin section end -- -->
+        
+        <!-- -- interface-shapes section start -- -->
+        <section id="interface" class="mt-5"> 
+           <div class="bg-hex-group-right">
+                <div class="bg-hex-group-middle img-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-10 col-lg-8 offset-lg-0 text-end text-md-end mt-5 mb-5">
+                                <h3 class="border-bottom scroll-animate">interface between two canonical approaches</h3>
+                            </div>       
+                        </div>
+                        <div class="row justify-content-evenly">
+    
+                            <!-- hexagon-shape top-down - left -->
+                            <div class="col-12 col-lg-5 hexagon-shape bg-img-td justify-content-center mb-5"> 
+                                <div class="top-down-box mb-2">
+                                    <h4>
+                                        <img src="assets/img/icons/top-down_blue-big.svg" alt="Top-down Symbol">
+                                        Top-down
+                                    </h4>
+                                    <p class="mb-2">symbolic rules</p>
+                                    <p class="text-medium">explicit specification of target regularities</p>
+                                </div>
+                                <div class="d-flex justify-content-center text-center gap-4 mt-2">
+                                   <div>
+                                        <img src="assets/img/icons/plus_size_s_blue.svg" alt="Plus Icon" width="24" height="24">
+                                        <ul class="text-start mt-2">
+                                            <li>High precision</li>
+                                            <li>Low recall</li>
+                                            <li>Explainable</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <img src="assets/img/icons/minus_size_s_blue.svg" alt="Minus Icon" width="24" height="24">
+                                        <ul class="text-start mt-2">
+                                            <li>Rigid</li>
+                                            <li>Requires few <br> examples</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- hexagon-shape top-down - left - end -->
+                           
+                            <!-- hexagon-shape bottom-up - right -->
+                            <div class="col-12 col-lg-5 hexagon-shape bg-img-bu justify-content-center mb-150"> 
+                                <div class="top-down-box mb-3">
+                                    <h4>
+                                        <img src="assets/img/icons//bottom-up_blue-big.svg" alt="Bottom-up Symbol">
+                                        Bottom-up
+                                    </h4>
+                                    <p class="mb-2">deep learning, LLMs</p>
+                                    <p class="text-medium">implicitly captures regularities with numerous annotated examples</p>
+                                </div>
+                                <div class="d-flex justify-content-center text-center gap-4 mt-2">
+                                   <div>
+                                        <img src="assets/img/icons/plus_size_s_blue.svg" alt="Plus Icon" width="24" height="24">
+                                        <ul class="text-start mt-2">
+                                            <li>High recall</li>
+                                            <li>Enhanced handling <br>of context</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <img src="assets/img/icons/minus_size_s_blue.svg" alt="Minus Icon" width="24" height="24">
+                                        <ul class="text-start mt-2">
+                                            <li>Black box</li>
+                                            <li>Costly training</li>
+                                            <li>Limited ability to <br>explore data</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- hexagon-shape bottom-up - right - end -->
+                        </div>
+                        
+                        <!-- hexagon-shape hyperquest -->
+                        <div class="row justify-content-center moved-up mb-5">
+                            <div class="col-6 col-lg-5 hexagon-shape-big bg-img-td align-items-center">
+                                <img class="logo-small mt-5" src="assets/img/logos/logo_hyperquest_small_nav.svg" width="50" alt="">
+                                <h4 class="mb-0">hyperquest</h4>
+                                <p class="mb-3">best of both worlds</p>
+                                <div class="hexagon-shape-hyperquest">
+                                     <div class="hex-box-left-top text-center">
+                                        <img src="assets/img/icons/bottom-up_blue.svg" alt="background image - hexagone bottom up">
+                                        <p class="text-medium mt-2">HyperQuest <br>reveals <span class="fw-bold">key patterns</span></p>
+                                    </div>
+                                    <div class="hex-box-middle-top text-center">
+                                        <img src="assets/img/icons/bottom-up_blue.svg" alt="icon - bottom up">
+                                        <p class="text-medium mt-2">Allows domain experts without AI <span class="fw-bold">expertise to select the most relevant cases</span></p>
+                                    </div>
+                                    <div class="hex-box-right-top text-center">
+                                        <img src="assets/img/icons/bottom-up_blue.svg" alt="icon bottom up">
+                                        <img src="assets/img/icons/top-down_blue.svg" alt="icon top down">
+                                        <p class="text-medium mt-1">Suggests/co-constructs targeted information <span class="fw-bold">extraction rules with few examples</span></p>
+                                    </div>
+                                    <div class="hex-box-right-bottom text-center">
+                                        <img src="assets/img/icons/bottom-up_blue.svg" alt="icon bottom up">
+                                        <p class="text-medium mt-2">Expands assisted extraction through <span class="fw-bold">neuro-symbolic patterns</span></p>
+                                    </div>
+                                    <div class="arrow-big-left-to-top text-left">
+                                        <p class="text-medium">successive refinement of sub-corpora and increasingly relevant patterns</p> 
+                                    </div>
+                                    <div class="arrow-small-right-left"></div>
+                                    <div class="arrow-small-right-right"></div>
+                                    <div class="arrow-small-right-down"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </section>
+        <!-- interface-shapes section end -->
+
+        <!-- -- solution section start -- -->
+        <section id="solution">
+            <div class="row justify-content-center">
+                <div class="col-8 offset-sm-0 col-md-6 col-lg-5 text-end mb-5">
+                    <h2 class="border-bottom scroll-animate">proposed solution</h2>
+                    <h5 class="text-center mt-4">application ready to be used by non-specialists</h5>
+                </div>
+            </div>
+      
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-4 interface-column">
+                        <div class="interface-solution-card mt-200">
+                            <h4>
+                                <img src="assets/img/icons/cluster_cachemere_small.svg" class="img-fluid" alt="icon Semantic Hypergraphs">
+                                Semantic Hypergraphs
+                            </h4>
+                            <p>generalize semantic graphs, great flexibility in defining regularities to extract</p>
+                        </div>
+                        <div class="interface-solution-card">
+                            <h4>
+                                <img src="assets/img/icons/app_cachemere_small.svg" alt="icon App">
+                                Ergonomic / No-code App
+                            </h4>
+                            <p>democratizes interactive extraction of relevant structured information</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <img class="moved-left img-fluid rounded-4" src="assets/img/visuals_illustrations/example-application202604.png" alt="App Screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -- solution section end -- -->
+
+        <!-- ================================================== -->
+        <!-- == SEMANTIC HYPERGRAPH EXAMPLES                  == -->
+        <!-- ================================================== -->
+        <section id="hypergraph-examples" class="mt-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 col-lg-7 offset-lg-0 text-end text-md-end">
+                        <h2 class="border-bottom scroll-animate">semantic hypergraph examples</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <p>Semantic Hypergraphs extend classical knowledge graphs by allowing edges to connect arbitrarily many nodes — and even other edges. This recursive structure captures the full expressiveness of natural language, including nested relations, qualifications, and epistemic context.</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-10">
+
+                        <!-- ─── Example 1 (always visible) ─── -->
+                        <div class="hg-example">
+                            <h3 class="hg-example-title">Piano</h3>
+                            <div class="hg-example-body">
+                                <div class="hg-graph-panel"><div class="gn">Piano</div></div>
+                                <div class="hg-notation-mono">
+                                   <img src="assets/img/visuals_illustrations/bricks-patterns/piano-brick.svg" width="20%" alt=""> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── Example 2 (always visible) ─── -->
+                        <div class="hg-example">
+                            <h3 class="hg-example-title">Black piano</h3>
+                            <div class="hg-example-body">
+                                <div class="hg-graph-panel">
+                                    <div class="g-subbox">
+                                        <div class="ge">
+                                            <span class="ge-label">black</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="gn">piano</div>
+                                    </div>
+                                </div>
+                                <div class="hg-notation-mono">
+                                    <img src="assets/img/visuals_illustrations/bricks-patterns/black-piano-brick.svg" width="30%" alt=""> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── Toggle button ─── -->
+                        <button class="hg-toggle-btn" id="hg-toggle" aria-expanded="false">
+                            <span class="hg-toggle-icon">+</span>
+                            <span class="hg-toggle-label">5 more examples</span>
+                        </button>
+
+                        <!-- ─── Hidden examples (3–7) ─── -->
+                        <div class="hg-more-examples" id="hg-more">
+
+                            <!-- Example 3 -->
+                            <div class="hg-example" style="padding-top:40px;">
+                                <h3 class="hg-example-title">Maria's piano.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel">
+                                        <div class="gn">Maria</div>
+                                        <div class="ge">
+                                            <span class="ge-label">'s</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="gn">piano</div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                        <img src="assets/img/visuals_illustrations/bricks-patterns/mariaspiano-brick.svg" width="30%" alt=""> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 4 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Maria's black piano.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="flex-wrap:wrap;">
+                                        <div class="gn">Maria</div>
+                                        <div class="ge">
+                                            <span class="ge-label">'s</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="g-subbox" style="background:rgba(210,228,240,0.55)">
+                                            <div class="ge">
+                                                <span class="ge-label">black</span>
+                                                <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                            </div>
+                                            <div class="gn">piano</div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/marias-black-piano-brick.svg" width="60%" alt=""> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 5 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Pedro says that Maria plays piano after school.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                             <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/maria-plays-piano.svg" width="30%" alt=""> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                             <!-- Example 6 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Pedro says that Maria plays piano after school.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                             <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                     <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                        <div class="ge-vert" style="margin-top:4px;">
+                                                            <div class="ge-shaft-v"></div>
+                                                            <div class="ge-arrow-v"></div>
+                                                            <span class="ge-label" style="color:#08604f;font-size:0.8rem;margin-top:2px;">after</span>
+                                                        </div>
+                                                        <div class="gn" style="margin-top:4px;">school</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/maria-plays-piano-after-school.svg" width="70%" alt=""> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Example 7 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Pedro says that Maria plays piano after school.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                            <div class="gn">Pedro</div>
+                                            <div class="ge">
+                                                <span class="ge-label orange">says that</span>
+                                                <div class="ge-line"><div class="ge-shaft orange" style="width:46px;"></div><div class="ge-arrow orange"></div></div>
+                                            </div>
+                                            <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                        <div class="ge-vert" style="margin-top:4px;">
+                                                            <div class="ge-shaft-v"></div>
+                                                            <div class="ge-arrow-v"></div>
+                                                            <span class="ge-label" style="color:#08604f;font-size:0.8rem;margin-top:2px;">after</span>
+                                                        </div>
+                                                        <div class="gn" style="margin-top:4px;">school</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/marias-piano-after-school-brick.svg" width="100%" alt=""> 
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- ─── end hidden examples ─── -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -- hypergraph examples section end -- -->
+
         <!-- -- team section start -- -->    
         <section id="team" class="mt-5 mb-5">
            <div class="container">
@@ -85,128 +529,56 @@
                     <!-- Team member 1 -->
                     <div class="col-12 col-md-12 col-lg-4 mb-4">
                         <div class="d-flex align-items-start">
-                        <img class="me-2" src="assets/img/team/camille-roth.svg" alt="Camille Roth">
-                        <div>
-                            <h5>Camille Roth</h5>
-                            <ul class="text-big">
-                                <li>Research director</li>
-                                <li>Formalization</li>
-                            </ul>
-                        </div>
+                            <img class="me-2" src="assets/img/team/camille-roth.svg" alt="Camille Roth">
+                            <div>
+                                <h5>Camille Roth</h5>
+                                <ul class="text-big">
+                                    <li>Research director</li>
+                                    <li>Formalization</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 
                     <!-- Team member 2 -->
                     <div class="col-12 col-md-12 col-lg-4 mb-4">
                         <div class="d-flex align-items-start">
-                        <img class="me-2" src="assets/img/team/telmo-menezes.svg" alt="Telmo Menezes">
-                        <div>
-                            <h5>Telmo Menezes</h5>
-                            <ul class="text-big">
-                                <li>Research</li>
-                                <li>Technical architecture</li>
-                                <li>Neuro-symbolic modeling</li>
-                            </ul>
-                        </div>
+                            <img class="me-2" src="assets/img/team/telmo-menezes.svg" alt="Telmo Menezes">
+                            <div>
+                                <h5>Telmo Menezes</h5>
+                                <ul class="text-big">
+                                    <li>Research</li>
+                                    <li>Technical architecture</li>
+                                    <li>Neuro-symbolic modeling</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 
                     <!-- Team member 3 -->
                     <div class="col-12 col-md-12 col-lg-4 mb-4">
                         <div class="d-flex align-items-start">
-                        <img class="me-2" src="assets/img/team/florian-schmitt.svg" alt="Florian Schmitt">
-                        <div>
-                            <h5>Florian Schmitt</h5>
-                            <ul class="text-big">
-                                <li>UX / UI Design</li>
-                                <li>Ergonomic interface design</li> 
-                                <li>Front-end integration</li>
-                               
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-        </section>
-        <!-- -- partner section end -- -->
-
-        <!-- -- socialproof section start -- -->          
-        <!--<section id="socialproof">
-            <div class="container">
-                <div class="row mb-5 ">
-                    <div class="col-8 col-md-12 col-lg-4 offset-lg-1 text-end text-md-end">
-                        
-                        <h3 class="border-bottom scroll-animate">social proof</h3>
-                    </div>       
-                </div>
-        
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-6 col-lg-4 col-xxl-5">
-                        <p>HYPERQUEST aims at creating a tool for knowledge extraction from text documents via iterative contextual learning, for use by medium-sized and large companies where these needs are recurrent (automatic document analysis and editing, information retrieval from internal databases, etc.). It aims at overcoming technological barriers by creating intuitive interfaces to help users co-construct complex knowledge extraction and transformation tasks simply and with very few examples, at a level of specificity and rigor that current tools do not allow.</p>
-                        <a href="#" class="btn-small text-big mt-3 mb-5" role="button">
-                            <span class="icon icon-more" aria-hidden="true"></span>
-                            read more
-                        </a>   
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-5">
-                        
-                        <div id="carouselExampleIndicators" class="carousel slide">
-                            <div class="carousel-inner">
-                              <div class="carousel-item  active">
-                                <div class="card-carrousel bg-img-1 me-3">  
-                                    <div class="d-flex bg-light bg-opacity-25 text-white cardtext">
-                                         <div>
-                                             <h5>this is an image title</h5>
-                                             <p>this is a subtitle</p>
-                                         </div>
-                                     </div>
-                                 </div>
-                              </div>
-                              <div class="carousel-item">
-                                <div class="card-carrousel bg-img-2 me-3">  
-                                    <div class="d-flex bg-light bg-opacity-25 text-white cardtext">
-                                         <div>
-                                             <h5>this is an image title</h5>
-                                             <p>this is a subtitle</p>
-                                         </div>
-                                     </div>
-                                 </div>
-
-                              </div>
-                              <div class="carousel-item">
-                                <div class="card-carrousel bg-img-3 me-3">  
-                                    <div class="d-flex bg-light bg-opacity-25 text-white cardtext">
-                                         <div>
-                                             <h5>this is an image title</h5>
-                                             <p>this is a subtitle</p>
-                                         </div>
-                                     </div>
-                                 </div>
-
-                              </div>
+                            <img class="me-2" src="assets/img/team/florian-schmitt.svg" alt="Florian Schmitt">
+                            <div>
+                                <h5>Florian Schmitt</h5>
+                                <ul class="text-big">
+                                    <li>UX / UI Design</li>
+                                    <li>Ergonomic interface design</li> 
+                                    <li>Front-end integration</li>
+                                </ul>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section> -->
-        <!-- -- socialproof section end -- -->
-        
+        </section>
+        <!-- -- team section end -- -->
+
         <!-- -- Partner section start -- -->
         <section id="partners" class="mt-5"> 
             <div class="container">
                 <div class="row mb-5">
-                    <div class="col-10 col-md-12  col-lg-2 offset-lg-1 text-end text-md-end ">
+                    <div class="col-10 col-md-12 col-lg-2 offset-lg-1 text-end text-md-end">
                         <h3 class="border-bottom scroll-animate">partners</h3>
                     </div>       
                 </div>
@@ -219,9 +591,11 @@
                         <img src="assets/img/logos/logo_socsemics.svg" alt="SOCSEMICS" class="Socsemics-logo">
                       </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </section>
+
+        <!-- -- CTA section -- -->
         <section id="CTA">
             <div class="container-fluid">
                 <div class="row justify-content-center text-center">
@@ -238,6 +612,7 @@
         </section>
         <!-- -- partner section end -- -->
     </main>
+
     <footer class="mt-5">
         <div class="container-fluid px-3 px-xxl-5">
           <div class="row justify-content-between align-items-end">   
@@ -253,41 +628,64 @@
                 <a href="https://cams.ehess.fr/">https://cams.ehess.fr/</a>
             </div>
             <!-- right, bottom -->
-            <div class="col-12 col-md-12 col-lg-4 ">
+            <div class="col-12 col-md-12 col-lg-4">
                 <div class="footer-right d-flex gap-4 justify-content-end text-end">
-                  <a href="legalnotice.html">Credits & legal notice</a>
+                  <a href="legalnotice.html">Credits &amp; legal notice</a>
                 </div>
             </div>
-            
           </div>
         </div>
     </footer>
-      
-   
 
+    <script>
+        /* ── Accordion toggle ── */
+        const toggleBtn = document.getElementById('hg-toggle');
+        const moreBox   = document.getElementById('hg-more');
+        const toggleLabel = toggleBtn.querySelector('.hg-toggle-label');
 
+        toggleBtn.addEventListener('click', () => {
+            const open = moreBox.classList.toggle('open');
+            toggleBtn.classList.toggle('open', open);
+            toggleBtn.setAttribute('aria-expanded', open);
+            toggleLabel.textContent = open ? 'show less' : '5 more examples';
+        });
+
+    </script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const targets = document.querySelectorAll('.scroll-animate');
-      
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-              } else {
-                entry.target.classList.remove('animate');
-              }
-            });
-          }, {
-            threshold: 0.3 // ab wann es sichtbar sein muss
-          });
-      
-          targets.forEach(target => observer.observe(target));
+            // Scroll-animate observer
+            const targets = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    } else {
+                        entry.target.classList.remove('animate');
+                    }
+                });
+            }, { threshold: 0.2 });
+            targets.forEach(target => observer.observe(target));
+
+            // Highlight active nav link on scroll
+            const sections = document.querySelectorAll('section[id], header[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                        if (active) active.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            sections.forEach(s => navObserver.observe(s));
         });
-      </script>
+    </script>
 </body>
 </html>
