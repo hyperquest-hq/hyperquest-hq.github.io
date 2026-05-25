@@ -737,6 +737,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -973,6 +984,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1120,6 +1142,23 @@
 <p>This way, a complex expression such as the following can be captured in a variable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">(</span><span class="k">var </span><span class="p">(</span><span class="nf">atoms</span><span class="w"> </span><span class="nv">not/M</span><span class="w"> </span><span class="p">(</span><span class="nf">lemma</span><span class="w"> </span><span class="nv">be/P</span><span class="p">))</span><span class="w"> </span><span class="nv">PREDICATE</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="deep">Deep<a class="headerlink" href="#deep" title="Permanent link">&para;</a></h3>
+<p>The <code>deep</code> functional pattern matches an edge if the inner pattern matches the edge itself or any sub-edge at any nesting depth. It has the general form:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">(</span><span class="nf">deep</span><span class="w"> </span><span class="nv">pattern</span><span class="p">)</span>
+</code></pre></div>
+<p>For example, this pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">(</span><span class="nf">deep</span><span class="w"> </span><span class="nv">red/M</span><span class="p">)</span>
+</code></pre></div>
+<p>would match any of:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">red/M</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="p">(</span><span class="nf">red/M</span><span class="w"> </span><span class="nv">piano/C</span><span class="p">)</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">(</span><span class="nf">the/M</span><span class="w"> </span><span class="p">(</span><span class="nf">red/M</span><span class="w"> </span><span class="nv">piano/C</span><span class="p">))</span>
+</code></pre></div>
+<p>The inner pattern can itself be a functional pattern. For instance:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">(</span><span class="nf">deep</span><span class="w"> </span><span class="p">(</span><span class="nf">any</span><span class="w"> </span><span class="nv">piano/C</span><span class="w"> </span><span class="p">(</span><span class="nf">grand/M</span><span class="w"> </span><span class="nv">piano/C</span><span class="p">)))</span>
+</code></pre></div>
+<p>matches any edge that contains <code>piano/C</code> or <code>(grand/M piano/C)</code> anywhere within it.</p>
+<p>When the inner pattern contains a variable, <code>deep</code> returns one result dictionary for each distinct binding. Matching <code>(deep COLOR/M)</code> against <code>(the/M (red/M piano/C))</code> produces two results, with <code>COLOR</code> bound to <code>the/M</code> and <code>red/M</code> respectively.</p>
 
 
 
