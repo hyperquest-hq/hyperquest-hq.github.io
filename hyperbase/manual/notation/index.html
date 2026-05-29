@@ -623,25 +623,14 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#argument-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Argument roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Argument roles">
+    <nav class="md-nav" aria-label="Type inference rules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#predicates" class="md-nav__link">
+  <a href="#predicate-argument-roles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Predicates
+        Predicate argument roles
       
     </span>
   </a>
@@ -733,78 +722,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#further-type-specific-additional-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Further type-specific additional information
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Further type-specific additional information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predicates_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifiers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-atom-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Full atom structure
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1048,25 +965,14 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#argument-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Argument roles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Argument roles">
+    <nav class="md-nav" aria-label="Type inference rules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#predicates" class="md-nav__link">
+  <a href="#predicate-argument-roles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Predicates
+        Predicate argument roles
       
     </span>
   </a>
@@ -1162,78 +1068,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-type-specific-additional-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Further type-specific additional information
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Further type-specific additional information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predicates_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Predicates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modifiers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-atom-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Full atom structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#special-atoms" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1265,18 +1099,26 @@
 
 
 <h1 id="semantic-hypergraph-notation">Semantic Hypergraph Notation<a class="headerlink" href="#semantic-hypergraph-notation" title="Permanent link">&para;</a></h1>
-<p>SH notation is based on two simple principles:</p>
+<p>SH notation is based on these principles:</p>
 <ul>
-<li>Every hyperedge belongs to one of eight basic types.</li>
-<li>The first element of a hyperedge is a connector, followed by arguments that can be atomic or non-atomic hyperedges.</li>
+<li>The simplest SH structure is the atom, which typically corresponds to a single word and is also considered an hyperedge (e.g. <code>sky/C</code>).</li>
+<li>Atoms belong to one of six basic types: concept (<code>C</code>), predicate (<code>P</code>), modifier (<code>M</code>), builder (<code>B</code>), trigger (<code>T</code>) and conjunction (<code>J</code>).</li>
+<li>Atoms can be combined to form more complex structures, called hyperedges, for example: <code>(blue/M sky/C)</code></li>
+<li>Non-atomic hyperedges can also be relations (<code>R</code>) and specifications (<code>S</code>).</li>
+<li>The first element of a non-atomic hyperedge is a connector, followed by arguments that can be atomic or non-atomic hyperedges. Only five types can be connectors: predicates (define relations), modifiers (modify anything), builders (combine two concepts), triggers (define specifiers) and conjunctions (combine anything).</li>
+<li>Predicates and builders have argument roles, which indicate the role of each argument following. Argument roles are encoded as characters following a dot, for example: <code>is/P.so</code>.</li>
+<li>Predicates have three possible argument roles: <code>s</code> (subject), <code>o</code> (object) and <code>x</code> (specification).</li>
+<li>Builders have two possible argument roles: <code>m</code> (main) and <code>a</code> (auxiliary).</li>
 </ul>
-<p>This is enough to define a valid hyperedge that conveys the meaning of a sentence in natural language, for example "The sky is blue":</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(is/P (the/M sky/C) blue/C)
+<p>This is enough to represent any sentence in natural language, for example "The sky is blue":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(is/P.so (the/M sky/C) blue/C)
 </code></pre></div>
-<p>Beyond this, the notation allows for more things: argument roles, subtypes, further type-specific additional information and namespaces. We will introduce these concepts gradually, by order of general usefulness. The two principles above extended with argument roles (which we will yet introduce) already capture a great deal of information contained in natural language, and sophisticated knowledge inference and exploration tasks can be performed at this level, while keeping the notation light and friendly to humans.</p>
+<p>SH notation offers two optional features: subtypes and namespaces.</p>
+<p>Subtypes provide additional information about an atome type, for exemple <code>maria/Cp</code> indicates that this conceot is a proper noun. Unlike the main types, subtypes are meant to be arbitrarily extendable and can have any length, for example, we could define the subtype math and use it in a predicate such as: <code>union/Pmath</code>. SH natural language parsers are expected to produce single-character subtypes according to the tables provided below,</p>
+<p>Namespaces allow us to distinguish atoms with the same root and type but that correspond to different things, for example: <code>paris/Cp/1</code> and <code>paris/Cp/2</code> to distinguish Paris (France) and Paris (Texas). They can also be used to distinguish the language from which an atom was extracted, for example: <code>ciel/Cc/fr</code>, <code>céu/Cc/pt</code> and <code>sky/Cc/en</code>. Like subtypes, namespaces are strings of lowercase alphanumeric characters of arbitrary length.</p>
 <p>Then, the additional notational devices can be employed when useful. Of course, it is always possible to utilize full notation for machine tasks while presented a simplified version for human-friendliness.</p>
 <h2 id="hyperedge-types">Hyperedge types<a class="headerlink" href="#hyperedge-types" title="Permanent link">&para;</a></h2>
-<p>All valid semantic hyperedges are of one of the 8 types shown in the table below. The first 6 types can be explicit (directly annotating an atomic hyperedge) or implicit (inferred from the types of the elements of the hyperedge). The last two types are always implicit.</p>
+<p>All valid semantic hyperedges are of one of the eight types shown in the table below. The first six types can be explicit (directly annotating an atomic hyperedge) or implicit (inferred from the types of the elements of the hyperedge). The last two types are always implicit.</p>
 <table>
 <thead>
 <tr>
@@ -1303,7 +1145,7 @@
 <td>P</td>
 <td>predicate</td>
 <td>Build relations</td>
-<td>(<strong>is/P</strong> berlin/C nice/C)</td>
+<td>(<strong>is/P.so</strong> berlin/C nice/C)</td>
 </tr>
 <tr>
 <td>M</td>
@@ -1315,7 +1157,7 @@
 <td>B</td>
 <td>builder</td>
 <td>Build concepts from concepts</td>
-<td>(<strong>of/B</strong> capital/C germany/C)</td>
+<td>(<strong>of/B.ma</strong> capital/C germany/C)</td>
 </tr>
 <tr>
 <td>T</td>
@@ -1339,7 +1181,7 @@
 <td>R</td>
 <td>relation</td>
 <td>Express facts, statements, questions, orders, ...</td>
-<td><strong>(is/P berlin/C nice/C)</strong></td>
+<td><strong>(is/P.so berlin/C nice/C)</strong></td>
 </tr>
 <tr>
 <td>S</td>
@@ -1382,40 +1224,41 @@
 </tbody>
 </table>
 <p>We use the notation of regular expressions: the symbol <code>+</code> is used to denote one or more entities with the type that precedes it, while square brackets indicate several possibilities (for instance, <code>[CRS]+</code> means "at least one of any of C, R or S" types). <code>x</code> means any type: <code>(M x)</code> is of type <code>x</code>.</p>
-<h2 id="argument-roles">Argument roles<a class="headerlink" href="#argument-roles" title="Permanent link">&para;</a></h2>
-<p>The type part of the atom can include subparts after the type specifier. The meaning of these subsequent subparts is type-specific. The most useful of those are argument roles in predicates and builders. As the name indicates, they specify the role that the following arguments play in the construct.</p>
-<h3 id="predicates">Predicates<a class="headerlink" href="#predicates" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for predicates is used to specify the role played in a relation by each of its parameters, with the following codes:</p>
+<h3 id="predicate-argument-roles">Predicate argument roles<a class="headerlink" href="#predicate-argument-roles" title="Permanent link">&para;</a></h3>
+<p>Predicates accept the three following argument roles:</p>
 <ul>
-<li><strong>s</strong>: subject</li>
-<li><strong>p</strong>: passive subject</li>
-<li><strong>a</strong>: agent</li>
-<li><strong>c</strong>: subject complement</li>
-<li><strong>o</strong>: direct object</li>
-<li><strong>i</strong>: indirect object</li>
-<li><strong>x</strong>: specification</li>
-<li><strong>t</strong>: parataxis</li>
-<li><strong>j</strong>: interjection</li>
-<li><strong>r</strong>: relative relation</li>
-<li><strong>?</strong>: undetermined</li>
+<li><strong>s</strong>: subject (at most one)</li>
+<li><strong>o</strong>: object (at most one)</li>
+<li><strong>x</strong>: specification (any number)</li>
 </ul>
-<p>These codes are used to build strings, where each character corresponds to the parameter of the relation in the equivalent position. For example, consider the hyperedge:</p>
-<p>(is/P.sc (the/M sky/C) blue/C)</p>
-<p>The <em>sc</em> subpart indicates that the first parameter ("the sky") plays the role of subject, and the second one ("blue"), plays the role of subject complement.</p>
+<p>In the simplest terms: the subject is who or what does something, and the object is who or what it is done to. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(plays/P.so maria/C chess/C)
+</code></pre></div>
+<p>In the previous case of:</p>
+<p>(is/P.so (the/M sky/C) blue/C)</p>
+<p>"the sky" is the subject, being assigned the property of "blue". These s/o pairs map to the typical dyadic relationships in knolwedge graphs, with the predicate playing the role of connection label:</p>
+<p>maria (subject) ---[plays]---&gt; chess (object)</p>
+<p>the sky (subject) ---[is]---&gt; blue (object)</p>
+<p>Specifications then allow for further constraints and context in a relation, for example in "Maria plays chess in the afternoon":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(plays/P.sox maria/C chess/C (in/T (the/M afternoon/C)))
+</code></pre></div>
+<p>Specifications can be other relations, for example in "Maria plays chess when it rains":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(plays/P.sox maria/C chess/C (when/T (rains/P.o it/C)))
+</code></pre></div>
 <h3 id="builders">Builders<a class="headerlink" href="#builders" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for builders is used to distinguish the main concepts from the auxiliary ones, with the following codes:</p>
+<p>In builders, the two argument roles are used to identify the main concept and the auxiliary concept</p>
 <ul>
-<li><strong>m</strong>: main concept</li>
-<li><strong>a</strong>: auxiliary concept</li>
+<li><strong>m</strong>: main concept (exactly once)</li>
+<li><strong>a</strong>: auxiliary concept (exactly once)</li>
 </ul>
 <p>These codes are used to build strings, where each character corresponds to the parameter of the builder in the equivalent position. For example, consider the hyperedge:</p>
-<p>(of/B.ma founder/C psychoanalysis/C)</p>
-<p>The <em>ma</em> subpart indicates that the first concept following the builder should be considered a main concept, and the next one auxiliary. This means that "founder of psychoanalysis" is a type of "founder". In other words, auxiliary concepts serve the role of making the main ones more specific.</p>
-<h2 id="subtypes">Subtypes<a class="headerlink" href="#subtypes" title="Permanent link">&para;</a></h2>
-<p>Subtypes are represented by a lowercase character following the main type code. They provide further distinctions, for example that a predicate is declarative (<code>Pd</code>), or that a concept is common (<code>Cc</code>), or that a modifier is a determinant (<code>Md</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(is/Pd.sc (the/Md sky/Cc) blue/Cc)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(of/B.ma founder/C psychoanalysis/C)
 </code></pre></div>
-<p>Below we show possible subtypes for several main types.</p>
+<p>The <em>ma</em> subpart indicates that the first concept following the builder should be considered a main concept, and the next one auxiliary. This defines an implicit taxonomical relation, in this case the "founder of psychoanalysis" is a type of "founder". In other words, a concept defined with a builder is a more specific type of the main concept.</p>
+<p>Other examples: <code>(of/B.ma capital/C france/C)</code> is a type of <code>capital/C</code> and <code>(for/B.ma data/C asia/C)</code> is a type of <code>data/C</code>.</p>
+<p>In the general case: <code>(x/B.ma y/C z/C)</code> is a subtype of <code>y/C</code>.</p>
+<h2 id="subtypes">Subtypes<a class="headerlink" href="#subtypes" title="Permanent link">&para;</a></h2>
+<p>The following tables present the subtypes that SH semantic parsers are expected to produce.</p>
 <h3 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1437,19 +1280,29 @@
 <td>mary/Cp</td>
 </tr>
 <tr>
-<td>Cn</td>
-<td>number</td>
-<td>27/Cn</td>
-</tr>
-<tr>
 <td>Ci</td>
 <td>pronoun</td>
 <td>she/Ci</td>
 </tr>
 <tr>
-<td>Cw</td>
-<td>interrogative</td>
-<td>who/Cw</td>
+<td>Cq</td>
+<td>quantitative</td>
+<td>27/Cn</td>
+</tr>
+<tr>
+<td>Ca</td>
+<td>adjective</td>
+<td>27/Ca</td>
+</tr>
+<tr>
+<td>Cd</td>
+<td>determinant</td>
+<td>some/Cd</td>
+</tr>
+<tr>
+<td>Cx</td>
+<td>unclassified</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1464,19 +1317,14 @@
 </thead>
 <tbody>
 <tr>
-<td>Pd</td>
-<td>declarative</td>
-<td>is/Pd</td>
+<td>Pv</td>
+<td>verbal</td>
+<td>is/Pv</td>
 </tr>
 <tr>
-<td>P?</td>
-<td>interrogative</td>
-<td>is/P?</td>
-</tr>
-<tr>
-<td>P!</td>
-<td>imperative</td>
-<td>go/P!</td>
+<td>Px</td>
+<td>unclassified</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1491,14 +1339,9 @@
 </thead>
 <tbody>
 <tr>
-<td>Bp</td>
-<td>possessive</td>
-<td>'s/Bp</td>
-</tr>
-<tr>
-<td>Br</td>
-<td>relational</td>
-<td>in/Br</td>
+<td>Bx</td>
+<td>unclassified</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1513,24 +1356,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Ma</td>
-<td>adjective</td>
-<td>green/Ma</td>
-</tr>
-<tr>
-<td>Mp</td>
-<td>possessive</td>
-<td>my/Mp</td>
-</tr>
-<tr>
 <td>Md</td>
 <td>determinant</td>
 <td>the/Md</td>
 </tr>
 <tr>
-<td>M#</td>
-<td>number</td>
-<td>100/M#</td>
+<td>Ma</td>
+<td>adjective</td>
+<td>green/Ma</td>
+</tr>
+<tr>
+<td>Mq</td>
+<td>quantitative</td>
+<td>100/Mq</td>
+</tr>
+<tr>
+<td>Mm</td>
+<td>modal</td>
+<td>will/Mv</td>
 </tr>
 <tr>
 <td>Mn</td>
@@ -1538,9 +1381,14 @@
 <td>not/Mn</td>
 </tr>
 <tr>
-<td>Mv</td>
-<td>verbal</td>
-<td>will/Mv</td>
+<td>Mp</td>
+<td>possessive</td>
+<td>my/Mp</td>
+</tr>
+<tr>
+<td>Mx</td>
+<td>unclassified</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1550,98 +1398,149 @@
 <tr>
 <th>Code</th>
 <th>Subtype</th>
-<th>Example</th>
+<th>Description</th>
+<th>Example (EN)</th>
+<th>Cross-lingual notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>T?</td>
-<td>conditional</td>
-<td>if/Tc</td>
-</tr>
-<tr>
 <td>Tt</td>
 <td>temporal</td>
-<td>when/Tt</td>
+<td>situates event in time</td>
+<td>when/Tt, after/Tt</td>
+<td>DE <em>als/wenn</em>, PT <em>quando</em>, FR <em>quand/lorsque</em></td>
 </tr>
 <tr>
 <td>Tl</td>
-<td>local</td>
-<td>where/Tl</td>
+<td>locative</td>
+<td>situates event in space</td>
+<td>in/Tl, where/Tl</td>
+<td>covers static location &amp; path; directionality disambiguated via Ts (source) vs Tl (goal)</td>
 </tr>
 <tr>
-<td>Tm</td>
-<td>modal</td>
-<td>modal/Tm</td>
+<td>Ti</td>
+<td>indirect object</td>
+<td>dative / recipient</td>
+<td>to/Ti (gave to Mary)</td>
+<td>DE dative, FR <em>à</em>, PT <em>a</em></td>
 </tr>
 <tr>
-<td>T&gt;</td>
-<td>causal</td>
-<td>because/T&gt;</td>
+<td>Ta</td>
+<td>passive actor / agent</td>
+<td>demoted agent</td>
+<td>by/Ta</td>
+<td>DE <em>von/durch</em>, PT <em>por</em>, FR <em>par</em></td>
 </tr>
 <tr>
-<td>T=</td>
-<td>comparative</td>
-<td>like/T=</td>
+<td>Tb</td>
+<td>beneficiary</td>
+<td>for whose benefit</td>
+<td>for/Tb (for him)</td>
+<td>distinct from Tp (purpose); PT <em>para</em> is ambiguous Tb/Tp</td>
+</tr>
+<tr>
+<td>Ts</td>
+<td>source / ablative</td>
+<td>origin, provenance</td>
+<td>from/Ts, out of/Ts</td>
+<td>DE <em>aus/von</em>, PT <em>de</em>, FR <em>de/depuis</em></td>
+</tr>
+<tr>
+<td>Tn</td>
+<td>manner / means / instrument</td>
+<td>how an action is performed</td>
+<td>with/Tn (with a hammer), by/Tn (by force), carefully/Tn</td>
+<td>conflates Latin ablative roles</td>
+</tr>
+<tr>
+<td>Tw</td>
+<td>comitative</td>
+<td>accompaniment</td>
+<td>with/Tw (with John)</td>
+<td></td>
+</tr>
+<tr>
+<td>Tr</td>
+<td>reference / topic</td>
+<td>aboutness</td>
+<td>about/Tr, regarding/Tr</td>
+<td>JP は, DE <em>über/bezüglich</em>, PT <em>sobre/acerca de</em></td>
+</tr>
+<tr>
+<td>Tq</td>
+<td>quantitative / measure</td>
+<td>extent, degree, measure</td>
+<td>by/Tq (by 5%), for/Tq (for 3 hours)</td>
+<td></td>
+</tr>
+<tr>
+<td>Tv</td>
+<td>privative / negative</td>
+<td>absence, exclusion</td>
+<td>without/Tv, lacking/Tv</td>
+<td>DE <em>ohne</em>, PT <em>sem</em>, FR <em>sans</em></td>
+</tr>
+<tr>
+<td>Tf</td>
+<td>conditional</td>
+<td>hypothesis</td>
+<td>if/Tf, unless/Tf</td>
+<td>DE <em>wenn/falls</em>, PT <em>se</em>, FR <em>si</em></td>
 </tr>
 <tr>
 <td>Tc</td>
+<td>causal</td>
+<td>cause / reason</td>
+<td>because/Tc, since/Tc</td>
+<td>DE <em>weil/da</em>, PT <em>porque</em>, FR <em>parce que</em></td>
+</tr>
+<tr>
+<td>Tp</td>
+<td>purpose / final</td>
+<td>intended goal</td>
+<td>to/Tp (in order to), so as to/Tp</td>
+<td>distinct from To (result): purpose is intended, result is achieved</td>
+</tr>
+<tr>
+<td>To</td>
+<td>result / consecutive</td>
+<td>achieved outcome</td>
+<td>so that/To, such that/To</td>
+<td></td>
+</tr>
+<tr>
+<td>Tg</td>
 <td>concessive</td>
-<td>although/Tc</td>
+<td>counter-expectation</td>
+<td>although/Tg, even though/Tg</td>
+<td>DE <em>obwohl</em>, PT <em>embora</em>, FR <em>bien que</em></td>
+</tr>
+<tr>
+<td>Te</td>
+<td>comparative</td>
+<td>similarity / comparison</td>
+<td>like/Te, as/Te, than/Te</td>
+<td></td>
+</tr>
+<tr>
+<td>Td</td>
+<td>declarative complementizer</td>
+<td>introduces propositional argument</td>
+<td>that/Td (I think that X)</td>
+<td>optional in EN/PT, obligatory in DE <em>dass</em>, FR <em>que</em></td>
+</tr>
+<tr>
+<td>Tx</td>
+<td>unclassified</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="further-type-specific-additional-information">Further type-specific additional information<a class="headerlink" href="#further-type-specific-additional-information" title="Permanent link">&para;</a></h2>
-<p>Beyond argument roles, other forms of type-specific additional information are possible for the various types.</p>
-<h3 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h3>
-<p>When present, the first additional information subpart for concepts indicates number, with the following codes:</p>
-<ul>
-<li><strong>s</strong>: singular, example: apple/Cc.s</li>
-<li><strong>p</strong>: plural, example: apples/Cc.p</li>
-</ul>
-<h3 id="predicates_1">Predicates<a class="headerlink" href="#predicates_1" title="Permanent link">&para;</a></h3>
-<p>Beyond argument roles, a second additional information subpart for predicates can be used to specify the features of the verb underlying the predicate. The following 7 features are specified:</p>
-<ul>
-<li><strong>tense</strong>: past (&lt;), present (|) or future (&gt;)</li>
-<li><strong>verb form</strong>: finite (f) or infinitive (i)</li>
-<li><strong>aspect</strong>: perfect (f) or progressive (g)</li>
-<li><strong>mood</strong></li>
-<li><strong>person</strong>: first (1), second (2) or third (3)</li>
-<li><strong>number</strong>: singular (s) or plural (p)</li>
-<li><strong>verb type</strong></li>
-</ul>
-<p>A string is built in the above order to specify the verb features of a predicate. Any feature can be left unspecified, by using a dash character (-). For example, consider the hyperedge:</p>
-<p>(<strong>is/P?.cs.|f--3s-</strong> (what/Mw time/Cc.s) it/Ci)</p>
-<p>The predicate specifies four verb features: present tense (|), finite form (f), third person (3) and singular number (s).</p>
-<h3 id="modifiers">Modifiers<a class="headerlink" href="#modifiers" title="Permanent link">&para;</a></h3>
-<p>When the modifier is verbal, the first additional information subpart can be used to specify the features of the underlying verb. The notation is exactly the same as the one used for predicates, but in predicates this corresponds to the second additional information subpart. For example, consider the non-atomic predicate:</p>
-<p>(have/Mv.|f----- (been/Mv.&lt;pf---- tracking/Pd.sox.|pg----))</p>
-<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h2>
-<p>Namespaces serve two functions:</p>
-<ol>
-<li>To identify the language or symbolic space to which an atom belongs;</li>
-<li>To distinguish atoms that have different meanings, but would otherwise correspond to the exact same string.</li>
-</ol>
-<p>In the first case, we can specify that an atom corresponds to an English word like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sky/Cp.s/en
-</code></pre></div>
-<p>Or to a German word like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>himmel/Cp.s/de
-</code></pre></div>
-<p>Or that it is a special atom defined by hyperbase:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>+/B/.
-</code></pre></div>
-<p>In the second case, another subparts can be added to provide a distinction. For example, suppose we want to distinguish Cambridge (UK) from Cambridge (Mass., USA). We could use:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cambridge/Cp.s/en.1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cambridge/Cp.s/en.2
-</code></pre></div>
-<h2 id="full-atom-structure">Full atom structure<a class="headerlink" href="#full-atom-structure" title="Permanent link">&para;</a></h2>
-<p>We show here the full atom structure, including all optional parts.</p>
-<p><figure markdown="span">
-  <img alt="atom structure" src="../../assets/images/atom-structure.png" />
-</figure></p>
 <h2 id="special-atoms">Special atoms<a class="headerlink" href="#special-atoms" title="Permanent link">&para;</a></h2>
-<p>The two special atoms below come predefined with hyperbase and are very frequently useful.</p>
+<p>Special atoms are annotated with the reserved <code>.</code> namespace.</p>
 <table>
 <thead>
 <tr>
@@ -1654,11 +1553,16 @@
 <tr>
 <td>+/B/.</td>
 <td>Define compound nouns</td>
-<td>(+/B.am/. alan/Cp.s turing/Cp.s)</td>
+<td>(+/B.am/. alan/Cp turing/Cp)</td>
 </tr>
 <tr>
 <td>:/J/.</td>
 <td>Generic conjunction</td>
+<td></td>
+</tr>
+<tr>
+<td>_/Ti/.</td>
+<td>Indirect object</td>
 <td></td>
 </tr>
 </tbody>
