@@ -734,6 +734,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Special atoms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special-trigger-atoms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special trigger atoms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1076,6 +1093,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Special atoms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special-trigger-atoms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special trigger atoms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1245,6 +1279,10 @@
 <p>Specifications can be other relations, for example in "Maria plays chess when it rains":</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(plays/P.sox maria/C chess/C (when/T (rains/P.o it/C)))
 </code></pre></div>
+<p><strong>Every argument filling the specification role (<code>x</code>) must be of type specifier (<code>S</code>).</strong> Specifiers are produced by triggers (<code>(T [CR])</code> → <code>S</code>), so a specification is normally introduced by a trigger word, as in <code>(in/Tt ...)</code> or <code>(when/Tt ...)</code> above. When a specification has no natural trigger word in the surface text — for example a bare indirect object — the argument must still be turned into an <code>S</code> by enclosing it in the appropriate special trigger atom <code>_/T*/.</code> (see <a href="#special-atoms">Special atoms</a>). For instance, "Maria gave Peter a book" has Peter as a recipient with no preposition:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(gave/P.sox maria/Cp book/Cc (_/Ti/. peter/Cp))
+</code></pre></div>
+<p>Here <code>(_/Ti/. peter/Cp)</code> is a specifier of indirect-object subtype, satisfying the requirement that the <code>x</code> argument be of type <code>S</code>.</p>
 <h3 id="builders">Builders<a class="headerlink" href="#builders" title="Permanent link">&para;</a></h3>
 <p>In builders, the two argument roles are used to identify the main concept and the auxiliary concept</p>
 <ul>
@@ -1252,7 +1290,7 @@
 <li><strong>a</strong>: auxiliary concept (exactly once)</li>
 </ul>
 <p>These codes are used to build strings, where each character corresponds to the parameter of the builder in the equivalent position. For example, consider the hyperedge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(of/B.ma founder/C psychoanalysis/C)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(of/B.ma founder/C psychoanalysis/C)
 </code></pre></div>
 <p>The <em>ma</em> subpart indicates that the first concept following the builder should be considered a main concept, and the next one auxiliary. This defines an implicit taxonomical relation, in this case the "founder of psychoanalysis" is a type of "founder". In other words, a concept defined with a builder is a more specific type of the main concept.</p>
 <p>Other examples: <code>(of/B.ma capital/C france/C)</code> is a type of <code>capital/C</code> and <code>(for/B.ma data/C asia/C)</code> is a type of <code>data/C</code>.</p>
@@ -1300,6 +1338,21 @@
 <td>some/Cd</td>
 </tr>
 <tr>
+<td>Cw</td>
+<td>interrogative / wh (nominal)</td>
+<td>who/Cw, what/Cw, which/Cw</td>
+</tr>
+<tr>
+<td>Ce</td>
+<td>demonstrative pronoun</td>
+<td>this/Ce, that/Ce</td>
+</tr>
+<tr>
+<td>Cg</td>
+<td>nominalized verb / gerund</td>
+<td>swimming/Cg</td>
+</tr>
+<tr>
 <td>Cx</td>
 <td>unclassified</td>
 <td></td>
@@ -1307,6 +1360,7 @@
 </tbody>
 </table>
 <h3 id="predicate">Predicate<a class="headerlink" href="#predicate" title="Permanent link">&para;</a></h3>
+<p><code>Pv</code> is the default declarative verbal predicate. The mood/kind subtypes below take precedence when they apply; a predicate carries exactly one single-character subtype.</p>
 <table>
 <thead>
 <tr>
@@ -1318,8 +1372,28 @@
 <tbody>
 <tr>
 <td>Pv</td>
-<td>verbal</td>
+<td>verbal (declarative, default)</td>
 <td>is/Pv</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>interrogative</td>
+<td>is/Pi (Is the sky blue?)</td>
+</tr>
+<tr>
+<td>Pj</td>
+<td>imperative / jussive</td>
+<td>close/Pj (Close the door)</td>
+</tr>
+<tr>
+<td>Pn</td>
+<td>nominal / copular</td>
+<td>non-verbal / copula-drop predicate</td>
+</tr>
+<tr>
+<td>Pe</td>
+<td>existential</td>
+<td>there is/are</td>
 </tr>
 <tr>
 <td>Px</td>
@@ -1339,12 +1413,23 @@
 </thead>
 <tbody>
 <tr>
+<td>Bp</td>
+<td>genitive / relational</td>
+<td>of/Bp.ma (capital of France)</td>
+</tr>
+<tr>
+<td>Bm</td>
+<td>partitive / measure</td>
+<td>cup of coffee, slice of bread</td>
+</tr>
+<tr>
 <td>Bx</td>
 <td>unclassified</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p>Appositives ("Obama, the president") are <em>not</em> builders: express them with the generic conjunction <code>:/J/.</code>, e.g. <code>(:/J/. obama/Cp (the/Md president/Cc))</code>.</p>
 <h3 id="modifier">Modifier<a class="headerlink" href="#modifier" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1372,8 +1457,18 @@
 </tr>
 <tr>
 <td>Mm</td>
-<td>modal</td>
-<td>will/Mv</td>
+<td>modal / tense / auxiliary</td>
+<td>will/Mm, was/Mm</td>
+</tr>
+<tr>
+<td>Mb</td>
+<td>adverbial / manner</td>
+<td>quickly/Mb, carefully/Mb</td>
+</tr>
+<tr>
+<td>Mg</td>
+<td>degree / intensifier</td>
+<td>very/Mg, more/Mg, too/Mg</td>
 </tr>
 <tr>
 <td>Mn</td>
@@ -1384,6 +1479,16 @@
 <td>Mp</td>
 <td>possessive</td>
 <td>my/Mp</td>
+</tr>
+<tr>
+<td>Me</td>
+<td>demonstrative determiner</td>
+<td>this/Me, that/Me</td>
+</tr>
+<tr>
+<td>Mw</td>
+<td>interrogative determiner</td>
+<td>which/Mw, whose/Mw</td>
 </tr>
 <tr>
 <td>Mx</td>
@@ -1560,10 +1665,113 @@
 <td>Generic conjunction</td>
 <td></td>
 </tr>
+</tbody>
+</table>
+<h3 id="special-trigger-atoms">Special trigger atoms<a class="headerlink" href="#special-trigger-atoms" title="Permanent link">&para;</a></h3>
+<p>There is one special trigger atom per trigger subtype. Use them to turn a bare concept or relation into a specifier (<code>S</code>) when a specification argument (the <code>x</code> role of a predicate) has no natural trigger word in the surface text. The subtype is chosen to match the semantic role the specification plays.</p>
+<table>
+<thead>
+<tr>
+<th>Atom</th>
+<th>Subtype</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_/Tt/.</td>
+<td>temporal</td>
+<td>(_/Tt/. monday/Cc)</td>
+</tr>
+<tr>
+<td>_/Tl/.</td>
+<td>locative</td>
+<td>(_/Tl/. berlin/Cp)</td>
+</tr>
 <tr>
 <td>_/Ti/.</td>
-<td>Indirect object</td>
-<td></td>
+<td>indirect object</td>
+<td>(_/Ti/. peter/Cp)</td>
+</tr>
+<tr>
+<td>_/Ta/.</td>
+<td>passive actor / agent</td>
+<td>(_/Ta/. dog/Cc)</td>
+</tr>
+<tr>
+<td>_/Tb/.</td>
+<td>beneficiary</td>
+<td>(_/Tb/. him/Ci)</td>
+</tr>
+<tr>
+<td>_/Ts/.</td>
+<td>source / ablative</td>
+<td>(_/Ts/. paris/Cp)</td>
+</tr>
+<tr>
+<td>_/Tn/.</td>
+<td>manner / means / instrument</td>
+<td>(_/Tn/. hammer/Cc)</td>
+</tr>
+<tr>
+<td>_/Tw/.</td>
+<td>comitative</td>
+<td>(_/Tw/. john/Cp)</td>
+</tr>
+<tr>
+<td>_/Tr/.</td>
+<td>reference / topic</td>
+<td>(_/Tr/. politics/Cc)</td>
+</tr>
+<tr>
+<td>_/Tq/.</td>
+<td>quantitative / measure</td>
+<td>(_/Tq/. (5/Mq percent/Cc))</td>
+</tr>
+<tr>
+<td>_/Tv/.</td>
+<td>privative / negative</td>
+<td>(_/Tv/. money/Cc)</td>
+</tr>
+<tr>
+<td>_/Tf/.</td>
+<td>conditional</td>
+<td>(_/Tf/. (rains/Pv.s it/Ci))</td>
+</tr>
+<tr>
+<td>_/Tc/.</td>
+<td>causal</td>
+<td>(_/Tc/. rain/Cc)</td>
+</tr>
+<tr>
+<td>_/Tp/.</td>
+<td>purpose / final</td>
+<td>(_/Tp/. safety/Cc)</td>
+</tr>
+<tr>
+<td>_/To/.</td>
+<td>result / consecutive</td>
+<td>(_/To/. victory/Cc)</td>
+</tr>
+<tr>
+<td>_/Tg/.</td>
+<td>concessive</td>
+<td>(_/Tg/. rain/Cc)</td>
+</tr>
+<tr>
+<td>_/Te/.</td>
+<td>comparative</td>
+<td>(_/Te/. lion/Cc)</td>
+</tr>
+<tr>
+<td>_/Td/.</td>
+<td>declarative complementizer</td>
+<td>(_/Td/. (won/Pv.s she/Ci))</td>
+</tr>
+<tr>
+<td>_/Tx/.</td>
+<td>unclassified</td>
+<td>(_/Tx/. thing/Cc)</td>
 </tr>
 </tbody>
 </table>
