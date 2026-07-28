@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hyperquest – semantic hypergraphs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid px-3 px-xxl-5">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logos/logo_hyperquest_small_nav.svg" alt="Logo" width="auto" height="auto" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">hyperquest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="background.html">project background</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="texttostructure.html">text to structure</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="container mt-5">
+            <div class="row mb-5">
+                <div class="col-12 col-lg-7 col-xxl-6 offset-lg-1 text-end text-md-end">
+                    <h1 class="border-bottom scroll-animate">from text to structure</h1>
+                </div>
+            </div>
+        </div>
+
+         <div class="container mt-5">
+          
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8 col-xxl-7 ">
+                    <p>HYPERQUEST is built on Semantic Hypergraphs, our approach to representing natural language as recursive semantic structures. Instead of treating sentences as flat sequences of words, it decomposes them into interconnected concepts, explicitly representing entities, actions, roles, qualifiers, and context.</p>
+                    <p class="mt-3">Because the representation itself captures meaning, only a small set of intuitive patterns is needed to retrieve complex information. HYPERQUEST combines the transparency and explainability of symbolic AI with the contextual understanding of modern deep learning-based NLP.</p>
+         
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+    <main class="background-logo-middle bg-body-img-small">
+
+        
+        <section id="hypergraph-examples" class="mt-5">
+            <div class="container">
+               
+                <div class="row mb-5">
+                    <div class="col-10 col-lg-5 offset-lg-0 text-end text-md-end">
+                           
+                        <h3 class="border-bottom scroll-animate">semantic hypergraphs</h3>
+                    </div>
+                </div>
+               
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-md-10 col-lg-8">
+                       
+                        <p>Semantic Hypergraphs generalize traditional knowledge graphs by allowing relationships to connect any number of concepts - and even other relationships. This recursive design naturally represents nested statements, qualifications, and contextual information while remaining understandable to non-specialists.</p>
+                        <p class="mt-3">The result is a semantic representation that is both highly expressive and easy to query, making sophisticated information extraction transparent rather than opaque.</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-10">
+
+                        <!-- Example 1 -->
+                        <div class="hg-example">
+                            <h3 class="hg-example-title">Piano</h3>
+                            <div class="hg-example-body">
+                                <div class="hg-graph-panel"><div class="gn">Piano</div></div>
+                                <div class="hg-notation-mono">
+                                   <img src="assets/img/visuals_illustrations/bricks-patterns/piano-brick.svg" width="20%" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 2 -->
+                        <div class="hg-example">
+                            <h3 class="hg-example-title">Black piano</h3>
+                            <div class="hg-example-body">
+                                <div class="hg-graph-panel">
+                                    <div class="g-subbox">
+                                        <div class="ge">
+                                            <span class="ge-label">black</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="gn">piano</div>
+                                    </div>
+                                </div>
+                                <div class="hg-notation-mono">
+                                    <img src="assets/img/visuals_illustrations/bricks-patterns/black-piano-brick.svg" width="30%" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Toggle -->
+                        <button class="hg-toggle-btn" id="hg-toggle" aria-expanded="false">
+                            <span class="hg-toggle-icon">+</span>
+                            <span class="hg-toggle-label">6 more examples</span>
+                        </button>
+
+                        <!-- Hidden examples -->
+                        <div class="hg-more-examples" id="hg-more">
+
+                            <!-- Example 3 -->
+                            <div class="hg-example" style="padding-top:40px;">
+                                <h3 class="hg-example-title">Maria's piano.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel">
+                                        <div class="gn">Maria</div>
+                                        <div class="ge">
+                                            <span class="ge-label">'s</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="gn">piano</div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                        <img src="assets/img/visuals_illustrations/bricks-patterns/mariaspiano-brick.svg" width="30%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 4 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Maria's black piano.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="flex-wrap:wrap;">
+                                        <div class="gn">Maria</div>
+                                        <div class="ge">
+                                            <span class="ge-label">'s</span>
+                                            <div class="ge-line"><div class="ge-shaft"></div><div class="ge-arrow"></div></div>
+                                        </div>
+                                        <div class="g-subbox" style="background:rgba(210,228,240,0.55)">
+                                            <div class="ge">
+                                                <span class="ge-label">black</span>
+                                                <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                            </div>
+                                            <div class="gn">piano</div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/marias-black-piano-brick.svg" width="60%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 5 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Maria plays piano.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                             <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/maria-plays-piano.svg" width="30%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 6 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Maria plays piano after school.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                            <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                        <div class="ge-vert" style="margin-top:4px;">
+                                                            <div class="ge-shaft-v"></div>
+                                                            <div class="ge-arrow-v"></div>
+                                                            <span class="ge-label" style="color:#08604f;font-size:0.8rem;margin-top:2px;">after</span>
+                                                        </div>
+                                                        <div class="gn" style="margin-top:4px;">school</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/maria-plays-piano-after-school.svg" width="70%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 7 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Pedro says that Maria plays piano after school.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:flex-start; padding:28px 20px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                            <div class="gn">Pedro</div>
+                                            <div class="ge">
+                                                <span class="ge-label orange">says that</span>
+                                                <div class="ge-line"><div class="ge-shaft orange" style="width:46px;"></div><div class="ge-arrow orange"></div></div>
+                                            </div>
+                                            <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:flex-start;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div style="display:flex;flex-direction:column;align-items:center;">
+                                                        <div class="gn">piano</div>
+                                                        <div class="ge-vert" style="margin-top:4px;">
+                                                            <div class="ge-shaft-v"></div>
+                                                            <div class="ge-arrow-v"></div>
+                                                            <span class="ge-label" style="color:#08604f;font-size:0.8rem;margin-top:2px;">after</span>
+                                                        </div>
+                                                        <div class="gn" style="margin-top:4px;">school</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono">
+                                       <img src="assets/img/visuals_illustrations/bricks-patterns/marias-piano-after-school-brick.svg" width="100%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Example 8 -->
+                            <div class="hg-example">
+                                <h3 class="hg-example-title">Maria plays piano and Pedro watches movies.</h3>
+                                <div class="hg-example-body">
+                                    <div class="hg-graph-panel" style="align-items:center; padding:28px 20px; gap: 16px;">
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                            <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:center;gap:0;">
+                                                    <div class="gn">Maria</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">plays</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div class="gn">piano</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ge" style="flex-direction:row;align-items:center;">
+                                            <div style="height:2px;width:24px;background:#1a1a2e;"></div>
+                                            <span class="ge-label" style="font-style:italic;color:#1a1a2e;margin:0 4px;">and</span>
+                                            <div style="height:2px;width:24px;background:#1a1a2e;"></div>
+                                        </div>
+                                        <div style="display:flex;align-items:center;gap:0;">
+                                            <div style="background:rgba(240,200,170,0.35);border-radius:8px;padding:14px 16px;">
+                                                <div style="display:flex;align-items:center;gap:0;">
+                                                    <div class="gn">Pedro</div>
+                                                    <div class="ge">
+                                                        <span class="ge-label">watches</span>
+                                                        <div class="ge-line"><div class="ge-shaft short"></div><div class="ge-arrow"></div></div>
+                                                    </div>
+                                                    <div class="gn">movies</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hg-notation-mono" style="font-style:italic;color:#555;font-size:0.9rem;display:flex;align-items:center;justify-content:center;">
+                                         <img src="assets/img/visuals_illustrations/bricks-patterns/maria-piano-predro-movies.svg" width="100%" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end hidden examples -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="CTA">
+            <div class="container-fluid">
+                <div class="row justify-content-center text-center">
+                    <div class="col-8 scroll-animate">
+                        <h4 class="mt-4 mb-4">do you want to know more?</h4>
+                        <p>If you have any questions about the project or would like to get in touch with us, we would be pleased to hear from you.</p>
+                        <a href="mailto:cams@ehess.fr" class="btn-small text-big mt-5" role="button">
+                            <span class="icon icon-contact" aria-hidden="true"></span>
+                            write us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-5">
+        <div class="container-fluid px-3 px-xxl-5">
+          <div class="row justify-content-between align-items-end">
+            <div class="col-12 col-md-3 col-lg-3 text-end mb-5">
+                <h3 class="border-bottom scroll-animate mb-5">hyperquest</h3>
+                <p>CAMS - UMR 8557 CNRS-EHESS</p>
+                <p>54 boulevard Raspail</p>
+                <p>75006 Paris</p>
+                <p>tél. (33-1) 49 54 20 42</p>
+                <p class="mb-4">(33-1) 49 54 25 53</p>
+                <a href="mailto:cams@ehess.fr">cams@ehess.fr</a>
+                <a href="https://cams.ehess.fr/">https://cams.ehess.fr/</a>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+                <div class="footer-right d-flex gap-4 justify-content-end text-end">
+                  <a href="legalnotice.html">Credits &amp; legal notice</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('hg-toggle');
+        const moreBox   = document.getElementById('hg-more');
+        const toggleLabel = toggleBtn.querySelector('.hg-toggle-label');
+        toggleBtn.addEventListener('click', () => {
+            const open = moreBox.classList.toggle('open');
+            toggleBtn.classList.toggle('open', open);
+            toggleBtn.setAttribute('aria-expanded', open);
+            toggleLabel.textContent = open ? 'show less' : '6 more examples';
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const targets = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('animate'); }
+                    else { entry.target.classList.remove('animate'); }
+                });
+            }, { threshold: 0.2 });
+            targets.forEach(target => observer.observe(target));
+        });
+    </script>
+</body>
+</html>
